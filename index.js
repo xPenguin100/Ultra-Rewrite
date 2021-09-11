@@ -81,7 +81,7 @@ client.on('messageCreate', async (message) => {
       }
       await message.channel.bulkDelete(amount, true).then((_message) => {
         const embed = new MessageEmbed()
-        .setDescription(`:white_check_mark: **${_message.size}** messages were cleared.`)
+        .setDescription(`:white_check_mark: **${_message.size}** messages were purged.`)
         .setColor(`#2F3136`)
         message.send({ embeds: [embed] }).then((sent) => {
           setTimeout(function () {

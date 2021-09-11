@@ -1,4 +1,4 @@
-const { emitter, message, Client, MessageSelectMenu, MessageActionRow, MessageButton, MessageEmbed, Intents, Collection, Discord, discord, cmd } = require('discord.js');
+const { emitter, message, Client, MessageSelectMenu, MessageActionRow, MessageButton, MessageEmbed, Intents, Collection, Discord, discord, cmd, ButtonInteraction } = require('discord.js');
 const { token, prefix } = require('./config.json');
 const client = new Client({ intents: 32767, ws: {properties: {$browser: 'Discord iOS'}} });
 const fs = require ('fs');
@@ -6,18 +6,18 @@ client.commands = new Collection();
 client.setMaxListeners(50)
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
-const commandFolders = fs.readdirSync('./commands');
 
-const commands = [];
-for (const folder of commandFolders) {
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+fs.readdirSync('./commands/').forEach(dir => {
 
-for (const file of commandFiles) {
-	const command = require(`./commands/${file}`);
-	client.commands.set(command.name, command);
-}
-}
-
+  const commands = [];
+  const commandFiles = fs.readdirSync(`./commands/${dir}/`).filter(file => file.endsWith('.js'));
+  
+  for (const file of commandFiles) {
+      const command = require(`./commands/${dir}/${file}`);
+      client.commands.set(command.name, command);
+  }
+  })
+  
 client.on("messageCreate", message => {
   if (message.author.bot) return false;
 
@@ -30,7 +30,7 @@ client.on("messageCreate", message => {
 
 
 client.once('ready', () => {
-  client.user.setActivity('Spotify', { type: 'LISTENING' });
+  client.user.setActivity('dsc.gg/ultraa | ?help', { type: 'WATCHING' });
 	console.log('Ready!');
 });
 
@@ -80,7 +80,10 @@ client.on('messageCreate', async (message) => {
         }
       }
       await message.channel.bulkDelete(amount, true).then((_message) => {
-        message.channel.send(`:white_check_mark: \`${_message.size}\` messages were cleared.`).then((sent) => {
+        const embed = new MessageEmbed()
+        .setDescription(`:white_check_mark: **${_message.size}** messages were cleared.`)
+        .setColor(`#2F3136`)
+        message.send({ embeds: [embed] }).then((sent) => {
           setTimeout(function () {
             sent.delete();
           }, 2500);
@@ -113,6 +116,8 @@ client.on('messageCreate', message => {
 }
 });
 
+//CALLING FILES
+
 client.on('messageCreate', message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -128,10 +133,52 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
+if (command === 'warn') {
+  client.commands.get('warn').run(client, message, args);
+  }
+});
+
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
 if (command === 'ban') {
   client.commands.get('ban').execute(message, args);
   }
 });
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+if (command === 'aww') {
+  client.commands.get('aww').run(client, message, args);
+  }
+});
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+if (command === 'wallpaper') {
+  client.commands.get('wallpaper').run(client, message, args);
+  }
+});
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+if (command === 'meme') {
+  client.commands.get('meme').run(client, message, args);
+  }
+});
+
 
 client.on('messageCreate', message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -160,6 +207,26 @@ client.on('messageCreate', message => {
   const command = args.shift().toLowerCase();
 if (command === 'unlock') {
   client.commands.get('unlock').run(client, message, args);
+  }
+});
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+if (command === 'unban') {
+  client.commands.get('unban').run(client, message, args);
+  }
+});
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+if (command === 'modnick') {
+  client.commands.get('modnick').run(client, message, args, prefix);
   }
 });
 
@@ -290,7 +357,7 @@ client.on('messageCreate', message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
 if (command === 'user') {
-  client.commands.get('user').execute(message);
+  client.commands.get('user').execute(message, args);
   }
 });
 
@@ -301,6 +368,16 @@ client.on('messageCreate', message => {
   const command = args.shift().toLowerCase();
 if (command === 'server') {
   client.commands.get('server').execute(message);
+  }
+});
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+if (command === 'dadjoke') {
+  client.commands.get('dadjoke').run(client, message, args);
   }
 });
 
@@ -345,6 +422,29 @@ if (command === 'buttontest') {
   }
 });
 
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+if (command === 'lockdown') {
+  client.commands.get('lockdown').run(message, args, client);
+  }
+});
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+if (command === 'lift-lockdown') {
+  client.commands.get('lift-lockdown').run(message, args, client);
+  }
+});
+
+
+//END OF CALLING FILES
+
 client.on('messageCreate', message => { 
   if (!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.trim().split(/ +/g);
@@ -361,6 +461,43 @@ message.channel.send("Failed to set slowmode in this channel, check your slowmod
 message.channel.send("I have set the slowmode in this channel to " + duration + " seconds!")
 }
 });
+
+client.on('messageCreate', async message => {
+  let args = message.content.substring(prefix.length).split(" ")
+  if(message.member.permissions.has('ADMINISTRATOR')){
+  if (message.content.startsWith(`${prefix}gstart`)) {
+
+    let gchannel = message.mentions.channels.first();
+    if (!gchannel) return message.channel.send("Please specify a channel!")
+    
+    let prize = args.slice(3).join(" ")
+    if (!prize) return message.channel.send('Argument Missing. What is the prize?')
+      let time = args[1]
+      if (!time) return message.channel.send('You did not specify a time!');
+
+          message.delete()
+          gchannel.send(":tada: **NEW GIVEAWAY** :tada:")
+          let gembed = new Discord.MessageEmbed()
+              .setTitle("🎉New Giveaway!🎉")
+              .setDescription(`**${prize}**\n**Time:** ${time}\n**Hosted By:** ${message.author}`)
+              .setFooter("React with `🎉` to enter!")
+              .setTimestamp(Date.now + ms(args[1]))
+              .setColor(3447003)
+          let n = await gchannel.send({ embeds: [gembed]})
+          n.react("🎉")
+          setTimeout(() => {
+              if(n.reactions.cache.get("🎉").count <= 1) {
+                  return message.channel.send("Not enough people for me to draw a winner!")
+              }
+
+              let winner = n.reactions.cache.get("🎉").users.cache.filter((u) => !u.bot).random();
+              gchannel.send(`Congratulations ${winner}! You just won the **${prize}**!`
+              );
+          }, ms(args[1]));
+  }
+}
+})
+
 
 client.on('messageCreate', async message => {
 
@@ -387,24 +524,6 @@ client.on('messageCreate', async message => {
 		await message.reply({ content: 'Pong!', components: [row] });
 	}
 });
-
-client.on('messageCreate', async message => {
-
-	if (message.content === '!ping') {
-		const row = new MessageActionRow()
-			.addComponents(
-				new MessageButton()
-					.setLabel('Primary')
-          .setURL('https://amazon.com')
-					.setStyle('LINK'),
-        new MessageButton()
-          .setLabel('Invite Bot')
-          .setURL('https://discord.com/api/oauth2/authorize?client_id=866014328464605184&permissions=260348308694&scope=bot')
-          .setStyle('LINK'),
-      );
-      await message.reply({ content: 'Pong!', components: [row] });
-    }
-  });
 
       client.on('messageCreate', message => {
 	    if (message.content === `ping`) {

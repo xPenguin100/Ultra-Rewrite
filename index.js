@@ -6,6 +6,7 @@ client.commands = new Collection();
 client.setMaxListeners(50)
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
+const ms =  require('ms')
 
 fs.readdirSync('./commands/').forEach(dir => {
 
@@ -80,10 +81,7 @@ client.on('messageCreate', async (message) => {
         }
       }
       await message.channel.bulkDelete(amount, true).then((_message) => {
-        const embed = new MessageEmbed()
-        .setDescription(`:white_check_mark: **${_message.size}** messages were purged.`)
-        .setColor(`#2F3136`)
-        message.send({ embeds: [embed] }).then((sent) => {
+        message.channel.send(`:white_check_mark: \`${_message.size}\` messages were cleared.`).then((sent) => {
           setTimeout(function () {
             sent.delete();
           }, 2500);
@@ -376,6 +374,16 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
+if (command === 'approve') {
+  client.commands.get('approve').execute(client, message, args, Discord);
+  }
+});
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
 if (command === 'dadjoke') {
   client.commands.get('dadjoke').run(client, message, args);
   }
@@ -409,6 +417,16 @@ client.on('messageCreate', message => {
   const command = args.shift().toLowerCase();
 if (command === 'ping') {
   client.commands.get('ping').execute(message);
+  }
+});
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+if (command === 'gstarttest') {
+  client.commands.get('gstarttest').run(client, message, args);
   }
 });
 
@@ -466,24 +484,31 @@ client.on('messageCreate', async message => {
   let args = message.content.substring(prefix.length).split(" ")
   if(message.member.permissions.has('ADMINISTRATOR')){
   if (message.content.startsWith(`${prefix}gstart`)) {
-
-    let gchannel = message.mentions.channels.first();
-    if (!gchannel) return message.channel.send("Please specify a channel!")
-    
-    let prize = args.slice(3).join(" ")
-    if (!prize) return message.channel.send('Argument Missing. What is the prize?')
       let time = args[1]
       if (!time) return message.channel.send('You did not specify a time!');
 
+      if (
+          !args[1].endsWith("d") &&
+          !args[1].endsWith("h") &&
+          !args[1].endsWith("m") &&
+          !args[1].endsWith("s") 
+      )
+          return message.channel.send('You need to use d (days), h (hours), m (minutes), or s (seconds)')
+
+          let gchannel = message.mentions.channels.first();
+          if (!gchannel) return message.channel.send("I can't find that channel in the server!")
+
+          let prize = args.slice(3).join(" ")
+          if (!prize) return message.channel.send('Arguement missing. What is the prize?')
+
           message.delete()
           gchannel.send(":tada: **NEW GIVEAWAY** :tada:")
-          let gembed = new Discord.MessageEmbed()
-              .setTitle("🎉New Giveaway!🎉")
-              .setDescription(`**${prize}**\n**Time:** ${time}\n**Hosted By:** ${message.author}`)
-              .setFooter("React with `🎉` to enter!")
+          let gembed = new MessageEmbed()
+              .setTitle("New Giveaway!")
+              .setDescription(`React with :tada: to enter the giveaway!\nHosted By: **${message.author}**\nTime: **${time}**\nPrize: **${prize}**`)
               .setTimestamp(Date.now + ms(args[1]))
               .setColor(3447003)
-          let n = await gchannel.send({ embeds: [gembed]})
+          let n = await gchannel.send({ embeds: [gembed] })
           n.react("🎉")
           setTimeout(() => {
               if(n.reactions.cache.get("🎉").count <= 1) {

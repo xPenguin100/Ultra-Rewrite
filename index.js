@@ -497,7 +497,7 @@ client.on('messageCreate', async message => {
           !args[1].endsWith("m") &&
           !args[1].endsWith("s") 
       )
-          return message.channel.send('You need to use d (days), h (hours), m (minutes), or s (seconds)')
+          return message.channel.send('You need to use d (days), h (hours), m (minutes), or s (seconds) for time.')
 
       let claimtime = args[2]
       if (!claimtime) return message.channel.send('You did not specify the claim time!')
@@ -508,7 +508,7 @@ client.on('messageCreate', async message => {
         !args[2].endsWith("m") &&
         !args[2].endsWith("s")
       )
-          return message.reply("You need to use d (days), h (hours), m (minutes), or s (seconds).")
+          return message.reply("You need to use d (days), h (hours), m (minutes), or s (seconds) for claimtime.")
 
           let prize = args.slice(4).join(" ")
           if (!prize) return message.channel.send('Arguement missing. What is the prize?')

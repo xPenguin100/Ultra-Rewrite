@@ -484,6 +484,10 @@ client.on('messageCreate', async message => {
   let args = message.content.substring(prefix.length).split(" ")
   if(message.member.permissions.has('ADMINISTRATOR')){
   if (message.content.startsWith(`${prefix}gstart`)) {
+
+    let gchannel = message.mentions.channels.first();
+    if (!gchannel) return message.channel.send("Please mention a channel!")
+
       let time = args[1]
       if (!time) return message.channel.send('You did not specify a time!');
 
@@ -495,9 +499,6 @@ client.on('messageCreate', async message => {
       )
           return message.channel.send('You need to use d (days), h (hours), m (minutes), or s (seconds)')
 
-          let gchannel = message.mentions.channels.first();
-          if (!gchannel) return message.channel.send("I can't find that channel in the server!")
-
           let prize = args.slice(3).join(" ")
           if (!prize) return message.channel.send('Arguement missing. What is the prize?')
 
@@ -507,7 +508,7 @@ client.on('messageCreate', async message => {
               .setTitle("New Giveaway!")
               .setDescription(`React with :tada: to enter the giveaway!\nHosted By: **${message.author}**\nTime: **${time}**\nPrize: **${prize}**`)
               .setTimestamp(Date.now + ms(args[1]))
-              .setColor(3447003)
+              .setColor(`2F3136`)
           let n = await gchannel.send({ embeds: [gembed] })
           n.react("🎉")
           setTimeout(() => {

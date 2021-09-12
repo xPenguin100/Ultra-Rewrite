@@ -499,14 +499,24 @@ client.on('messageCreate', async message => {
       )
           return message.channel.send('You need to use d (days), h (hours), m (minutes), or s (seconds)')
 
-          let prize = args.slice(3).join(" ")
+      let claimtime = args[2]
+      if (!claimtime) return message.channel.send('You did not specify the claim time!')
+
+      if (
+        !args[2].endsWith("d") &&
+        !args[2].endsWith("h") &&
+        !args[2].endsWith("m") &&
+        !args[2].endsWith("s")
+      )
+          return message.reply("You need to use d (days), h (hours), m (minutes), or s (seconds).")
+
+          let prize = args.slice(4).join(" ")
           if (!prize) return message.channel.send('Arguement missing. What is the prize?')
 
           message.delete()
-          gchannel.send(":tada: **NEW GIVEAWAY** :tada:")
           let gembed = new MessageEmbed()
               .setTitle("New Giveaway!")
-              .setDescription(`React with :tada: to enter the giveaway!\nHosted By: **${message.author}**\nTime: **${time}**\nPrize: **${prize}**`)
+              .setDescription(`**Prize:** ${prize}\n**Duration:** ${time}\n**Claimtime:** ${claimtime}\n**Hosted By:** ${message.author}`)
               .setTimestamp(Date.now + ms(args[1]))
               .setColor(`2F3136`)
           let n = await gchannel.send({ embeds: [gembed] })

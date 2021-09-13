@@ -58,6 +58,11 @@ const embed = new MessageEmbed()
                     inline: true,
                 },
                 {
+                    name: '\u200b',
+                    value: '\u200b',
+                    inline: true,
+                },
+                {
                     name: 'Todays Deaths:',
                     value: corona.todayDeaths.toLocaleString(),
                     inline: true,

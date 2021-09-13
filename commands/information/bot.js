@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js')
+const { client, MessageEmbed } = require('discord.js')
 
 module.exports = {
     name : 'bot',

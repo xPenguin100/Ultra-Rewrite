@@ -13,7 +13,7 @@ module.exports = {
         try {
             url = args[0] ? `${baseUrl}/countries/${args[0]}` : `${baseUrl}/all`;
             response = await axios.get(url);
-            corona = responseData;
+            corona = response.data;
         } catch (error) {
             return message.channel.send(`***${args[0]}*** doesn't exist, or data isn't being collected.`);
         }

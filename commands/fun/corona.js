@@ -15,7 +15,7 @@ module.exports = {
             response = await axios.get(url);
             corona = responseData;
         } catch (error) {
-            return message.channel.send(`***${args[0]}*** doesn't exist, or data isn't being collected`);
+            return message.channel.send(`***${args[0]}*** doesn't exist, or data isn't being collected.`);
         }
 const embed = new MessageEmbed()
             .setTitle(args[0] ? `${args[0].toUpperCase()} Stats` : 'Total Corona Cases World Wide')

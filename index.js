@@ -1,4 +1,4 @@
-const { emitter, message, client, Client, MessageSelectMenu, MessageActionRow, MessageButton, MessageEmbed, Intents, Collection, Discord, discord, cmd, ButtonInteraction } = require('discord.js');
+const { emitter, message, Client, MessageSelectMenu, MessageActionRow, MessageButton, MessageEmbed, Intents, Collection, Discord, discord, cmd, ButtonInteraction } = require('discord.js');
 const { token, prefix } = require('./config.json');
 const client = new Client({ intents: 32767, ws: {properties: {$browser: 'Discord iOS'}} });
 const fs = require ('fs');

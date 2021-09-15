@@ -17,7 +17,12 @@ module.exports = {
         .setDescription(theDescription)
         .setFooter("Suggested by: "+ message.author.username +'#'+ message.author.discriminator) //optional
 
-        let msgEmbed = await channelID.send({ embeds: [embed] });        await msgEmbed.react('✅') //👎👍
+        let msgEmbed = await channelID.send({ embeds: [embed] });        
+        await msgEmbed.react('✅') //👎👍
         await msgEmbed.react('❌')
+        new MessageEmbed()
+        .setDescription(`✅ Successfully sent your suggestion to ${channelID}.`)
+        .setColor('#2F3136')
+        message.reply({ embeds: [embed] })
     }
 }

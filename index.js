@@ -492,7 +492,7 @@ message.channel.send("I have set the slowmode in this channel to " + duration + 
 
 client.on('messageCreate', async message => {
   let args = message.content.substring(prefix.length).split(" ")
-  if(message.member.permissions.has('ADMINISTRATOR')){
+  if (message.member.permissions.has("MANAGE_MESSAGES")) {
   if (message.content.startsWith(`${prefix}gstart`)) {
 
     let gchannel = message.mentions.channels.first();

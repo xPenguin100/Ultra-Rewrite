@@ -518,7 +518,7 @@ client.on('messageCreate', async message => {
 
 
 if (message.customId === 'select') {
-  await interaction.update({ content: 'Something was selected!', components: [] });
+  message.update({ content: 'Something was selected!', components: [] });
 };
 
       client.on('messageCreate', message => {

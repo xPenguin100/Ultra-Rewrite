@@ -8,6 +8,8 @@ module.exports = {
       let user = message.mentions.users.first() 
       let member = message.mentions.members.first() || message.member
       let avatar = message.author.displayAvatarURL({size: 4096, dynamic: true});
+
+      if(!user) return message.reply(`❌ The user either doesn't exist or you never gave a user!`)
   
       let embed = new MessageEmbed()
       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true}))

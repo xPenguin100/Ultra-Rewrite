@@ -5,8 +5,8 @@ module.exports = {
     description: 'User info command',
     execute(message, args) {
 
-      const user = message.mentions.users.first() 
-      const member = message.mentions.members.first() || message.member
+      let user = message.mentions.users.first() 
+      let member = message.mentions.members.first() || message.member
       let avatar = message.author.displayAvatarURL({size: 4096, dynamic: true});
   
       let embed = new MessageEmbed()

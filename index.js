@@ -516,11 +516,6 @@ client.on('messageCreate', async message => {
 	}
 });
 
-
-if (message.customId === 'select') {
-  message.update({ content: 'Something was selected!', components: [] });
-};
-
       client.on('messageCreate', message => {
 	    if (message.content === `ping`) {
 	  	message.reply(`${client.ws.ping}`);

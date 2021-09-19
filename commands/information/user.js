@@ -7,7 +7,7 @@ module.exports = {
 
       const user = message.mentions.users.first() 
       const member = message.mentions.members.first() || message.member
-      let avatar = author.displayAvatarURL({size: 4096, dynamic: true});
+      let avatar = message.author.displayAvatarURL({size: 4096, dynamic: true});
   
       let embed = new MessageEmbed()
       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true}))

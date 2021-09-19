@@ -13,7 +13,7 @@ module.exports = {
   
       let embed = new MessageEmbed()
       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true}))
-      .setDescription(`👤 **${user.username}**\n**Tag:** ${user.tag}\n**ID:** \`${user.id}\`\n**Nickname:** ${member.nickname}\n**Badges:** \`${user.flags.toArray()}\`\n**Joined At**\n**Joined Server:** ${member.joinedAt}\n**Joined Discord:** ${user.createdAt}\n**❓ Other**\n**Bot:** ${user.bot}\n**Roles:** ${GuildMember.roles.cache} ${message.member.roles.cache.size}`)
+      .setDescription(`👤 **${user.username}**\n**Tag:** ${user.tag}\n**ID:** \`${user.id}\`\n**Nickname:** ${member.nickname}\n**Badges:** \`${user.flags.toArray()}\`\n**Joined At**\n**Joined Server:** ${member.joinedAt}\n**Joined Discord:** ${user.createdAt}\n**❓ Other**\n**Bot:** ${user.bot}\n**Roles:** ${GuildMember.roles.cache.size} ${message.member.roles.cache.size}`)
       .addFields(
         { name: 'Name', value: (`${author.username}`), inline: true},
         { name: 'Nickname', value: (`${member.nickname}`), inline: true},

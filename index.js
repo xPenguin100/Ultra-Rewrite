@@ -35,32 +35,6 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
-client.on('messageCreate', message => {
-    if(message.content === "Hi")
-  message.reply("Hello! How are you?")
-});
-
-client.on('messageCreate', message => {
-  if (message.content === '=testembed') {
-  const embed = new MessageEmbed()
-      .setTitle("Test")
-      .setDescription(`Hi`)
-      .setFooter("blah")
-      .setColor('#2f3136')
-  message.channel.send({ embeds: [embed] });
-      }
-  });
-
-//client.on('messageCreate', message => {
-  //if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-  //const args = message.content.slice(prefix.length).trim().split(/ +/);
-  //const command = args.shift().toLowerCase();
-//if (command === 'testembed') {
-  //client.commands.get('testembed').execute(client, message, args);
-  //}
-//});
-
 client.on('messageCreate', async (message) => {
   if (
     message.content.toLowerCase().startsWith(prefix + 'clear') ||

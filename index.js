@@ -495,7 +495,15 @@ client.on('messageCreate', async message => {
 	  	message.reply(`${client.ws.ping}`);
 	    } else if (message.content === `beep`) {
 		message.channel.send('Boop.');
-	    } 
+	    } else if (message.content === `?cosmicinfo`) {
+        const cosmicembed = new MessageEmbed()
+        .setColor(`2F3136`)
+        .setTitle(`Cosmic Info`)
+        .setDescription(`Name: Cosmic\nImage: Shown below`)
+        .setImage(`https://cdn.discordapp.com/avatars/890734834811559948/640c54fc80f3b5618b180e0229772b35.jpg?size=4096`)
+        .setFooter(`Only use if Cosmic will be a bot.`)
+        message.reply({ embeds: [cosmicembed] })
+      }
 });
 
 client.login(token);

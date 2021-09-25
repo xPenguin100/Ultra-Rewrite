@@ -20,7 +20,7 @@ module.exports = {
       const supportMessage = new MessageEmbed()
       .setColor(`2F3136`)
       .setDescription(`Thank you for contacting support! Our support team will be right with you. In the meantime, can you list the reason for this ticket and any other comments you may have.`)
-      const reactionMessage = await channel.send({ embeds: [embed] });
+      const reactionMessage = await channel.send({ embeds: [supportMessage] });
   
       try {
         await reactionMessage.react("🔒");

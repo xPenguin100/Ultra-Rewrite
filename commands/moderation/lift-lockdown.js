@@ -22,7 +22,7 @@ module.exports = {
         
         const embed = new MessageEmbed()
         .setColor('2F3136')
-        .setDescription(":white_check_mark: Successfully lifted lockdown for" + `${reason}.`)
+        .setDescription(`:white_check_mark: Successfully lifted lockdown for \`${reason}\`.`)
         message.channel.send({ embeds: [embed] })
     }
 }

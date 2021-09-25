@@ -1,3 +1,5 @@
+const { MessageEmbed } = require("discord.js");
+
 module.exports = {
     name: "ticket",
     aliases: [],
@@ -36,7 +38,10 @@ module.exports = {
             channel.updateOverwrite(message.author, { SEND_MESSAGES: false });
             break;
           case "⛔":
-            channel.send("Deleting this channel in **5 seconds!**");
+            const deleteembed = new MessageEmbed()
+            .setColor(`#2F3136`)
+            .setDescription(`Deleting this channel in **5 seconds!**.`)
+            channel.send({ embeds: [deleteembed] });
             setTimeout(() => channel.delete(), 5000);
             break;
         }

@@ -8,6 +8,6 @@ module.exports = {
         .setColor(`2F3136`)
         .setAuthor(message.author.tag, message.author.displayAvatarURL({ dyanmic: true }))
         .setDescription(args.join(" "))
-        message.reply({ embeds: [embed] })
+        message.reply({ embeds: [sayEmbed] })
     }
 }

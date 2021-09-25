@@ -40,7 +40,7 @@ module.exports = {
           case "⛔":
             const deleteembed = new MessageEmbed()
             .setColor(`#2F3136`)
-            .setDescription(`Deleting this channel in **5 seconds!**.`)
+            .setDescription(`Deleting this channel in **5 seconds!**`)
             channel.send({ embeds: [deleteembed] });
             setTimeout(() => channel.delete(), 5000);
             break;

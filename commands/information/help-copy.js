@@ -18,6 +18,7 @@ module.exports = {
         .addFields(
           { name: '`🔧` Utility', value: ("<:reply:892128214112149574> `?help utility`"), inline: true},
           { name: '`😄` Fun', value: ("<:reply:892128214112149574> `?help fun`"), inline: true},
+          { name: '`🐶` Animals', value: ("<:reply:892128214112149574> `?help animals`")},
           { name: '`🔨` Moderation', value: ("<:reply:892128214112149574> `?help moderation`"), inline: true},
           { name: '`📋` Information', value: ("<:reply:892128214112149574> `?help info`"), inline: true},
         )

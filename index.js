@@ -556,27 +556,23 @@ message.channel.send("I have set the slowmode in this channel to " + duration + 
 
 client.on('messageCreate', async message => {
 
-	if (message.content === '!dropdown') {
-		const row = new MessageActionRow()
-			.addComponents(
-				new MessageSelectMenu()
-					.setCustomId('select')
-					.setPlaceholder('Nothing selected')
-					.addOptions([
-						{
-							label: 'Select me',
-							description: 'This is a description',
-							value: 'first_option',
-						},
-						{
-							label: 'You can select me too',
-							description: 'This is also a description',
-							value: 'second_option',
-						},
-					]),
-			);
-
+	if (message.content === '!button') {
+    const row = new MessageActionRow()
+    .addComponents(
+      new MessageButton()
+        .setCustomId('primary')
+        .setLabel('Primary')
+        .setStyle('PRIMARY'),
+    );
 		await message.reply({ content: 'Pong!', components: [row] });
+
+    const collector = interaction.channel.createMessageComponentCollector({ filter, time: 15000 });
+
+collector.on('collect', async message => {
+	if (customId === 'primary') {
+		await message.update({ content: 'A button was clicked!', components: [] });
+	}
+});
 	}
 });
 

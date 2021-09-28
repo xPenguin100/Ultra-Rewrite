@@ -566,6 +566,7 @@ client.on('messageCreate', async message => {
     );
 		await message.reply({ content: 'Pong!', components: [row] });
 
+    const filter = message => message.customId === 'primary';
     const collector = message.channel.createMessageComponentCollector();
 
 collector.on('collect', async message => {

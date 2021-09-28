@@ -1,4 +1,4 @@
-const { emitter, message, Client, MessageSelectMenu, MessageActionRow, MessageButton, MessageEmbed, Intents, Collection, Discord, discord, cmd, ButtonInteraction } = require('discord.js');
+const { emitter, message, Client, MessageSelectMenu, MessageActionRow, interation, MessageButton, MessageEmbed, Intents, Collection, Discord, discord, cmd, ButtonInteraction } = require('discord.js');
 const { token, prefix } = require('./config.json');
 const client = new Client({ intents: 32767, ws: {properties: {$browser: 'Discord iOS'}} });
 const fs = require ('fs');
@@ -554,9 +554,9 @@ message.channel.send("I have set the slowmode in this channel to " + duration + 
 }
 });
 
-client.on('messageCreate', async message => {
+client.on('interactionCreate', async message => {
 
-	if (message.content === '!button') {
+	if (interaction.content === '!button') {
     const row = new MessageActionRow()
     .addComponents(
       new MessageButton()
@@ -564,16 +564,18 @@ client.on('messageCreate', async message => {
         .setLabel('Primary')
         .setStyle('PRIMARY'),
     );
-		await message.reply({ content: 'Pong!', components: [row] });
+		await interaction.reply({ content: 'Pong!', components: [row] });
 
-    const filter = message => message.customId === 'primary';
-    const collector = message.channel.createMessageComponentCollector();
+    const filter = i => i.customId === 'primary';
 
-collector.on('collect', async message => {
-	if (customId === 'primary') {
-		await message.update({ content: 'A button was clicked!', components: [] });
-	}
-});
+    const collector = interaction.channel.createMessageComponentCollector({ filter, time: 15000 });
+    
+    collector.on('collect', async i => {
+      if (i.customId === 'primary') {
+        await i.update({ content: 'A button was clicked!', components: [] });
+      }
+    });
+    
 	}
 });
 

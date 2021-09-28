@@ -126,8 +126,48 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-if (command === 'aww') {
-  client.commands.get('aww').run(client, message, args);
+if (command === 'dog') {
+  client.commands.get('dog').run(client, message, args);
+  }
+});
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+if (command === 'cat') {
+  client.commands.get('cat').run(client, message, args);
+  }
+});
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+if (command === 'bird') {
+  client.commands.get('bird').run(client, message, args);
+  }
+});
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+if (command === 'fox') {
+  client.commands.get('fox').run(client, message, args);
+  }
+});
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+if (command === 'panda') {
+  client.commands.get('panda').run(client, message, args);
   }
 });
 

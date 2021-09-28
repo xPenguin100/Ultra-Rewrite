@@ -566,7 +566,7 @@ client.on('messageCreate', async message => {
     );
 		await message.reply({ content: 'Pong!', components: [row] });
 
-    const collector = interaction.channel.createMessageComponentCollector({ filter, time: 15000 });
+    const collector = message.channel.createMessageComponentCollector({ filter, time: 15000 });
 
 collector.on('collect', async message => {
 	if (customId === 'primary') {

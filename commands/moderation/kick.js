@@ -14,7 +14,7 @@ module.exports = {
             const memberTarget = message.guild.members.cache.get(target.id);
             memberTarget.ban();
             const embed = new MessageEmbed()
-            .setDescription(`✅ ${target} has been kicked for ${reason}.`)
+            .setDescription(`✅ ${target} has been kicked for \`${reason}\`.`)
             .setColor('2F3136')
             message.reply({ embeds: [embed] })
         }else{

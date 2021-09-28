@@ -554,31 +554,6 @@ message.channel.send("I have set the slowmode in this channel to " + duration + 
 }
 });
 
-client.on('interactionCreate', async message => {
-
-	if (message.content === '!button') {
-    const row = new MessageActionRow()
-    .addComponents(
-      new MessageButton()
-        .setCustomId('primary')
-        .setLabel('Primary')
-        .setStyle('PRIMARY'),
-    );
-		await interaction.reply({ content: 'Pong!', components: [row] });
-
-    const filter = i => i.customId === 'primary';
-
-    const collector = interaction.channel.createMessageComponentCollector({ filter, time: 15000 });
-    
-    collector.on('collect', async i => {
-      if (i.customId === 'primary') {
-        await i.update({ content: 'A button was clicked!', components: [] });
-      }
-    });
-    
-	}
-});
-
       client.on('messageCreate', message => {
 	    if (message.content === `ping`) {
 	  	message.reply(`${client.ws.ping}`);

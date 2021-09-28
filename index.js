@@ -556,7 +556,7 @@ message.channel.send("I have set the slowmode in this channel to " + duration + 
 
 client.on('interactionCreate', async message => {
 
-	if (interaction.content === '!button') {
+	if (message.content === '!button') {
     const row = new MessageActionRow()
     .addComponents(
       new MessageButton()

@@ -4,7 +4,7 @@ module.exports = {
     description: 'Achieve',
 run: async (client, message, args) => {
 const number = args[0];
-let text = args.slice(1).split(' ').join('+');
+let text = args.slice(1).join(' ');
 if (!number) return message.reply("Provide a number")
 if (!text) return message.reply("Provide some text")
 let embed = new MessageEmbed()

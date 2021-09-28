@@ -13,14 +13,13 @@ module.exports = {
     
         let embed = new MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-        .setTitle('🔔Help Panel')
-        .setDescription(`Hello ${user.tag}, below is the current up to date commands on this bot.`)
+        .setTitle('`🔔`Help Panel')
         .addFields(
-          { name: '`🔧` Utility', value: ("<:reply:892128214112149574> `?help utility`"), inline: true},
-          { name: '`😄` Fun', value: ("<:reply:892128214112149574> `?help fun`"), inline: true},
-          { name: '`🐶` Animals', value: ("<:reply:892128214112149574> `?help animals`"), inline: true},
-          { name: '`🔨` Moderation', value: ("<:reply:892128214112149574> `?help moderation`"), inline: true},
-          { name: '`📋` Information', value: ("<:reply:892128214112149574> `?help info`"), inline: true},
+          { name: '`🔧` **Utility**', value: ("<:reply:892128214112149574> `?help utility`"), inline: true},
+          { name: '`😄` **Fun**', value: ("<:reply:892128214112149574> `?help fun`"), inline: true},
+          { name: '`🐶` **Animals**', value: ("<:reply:892128214112149574> `?help animals`"), inline: true},
+          { name: '`🔨` **Moderation**', value: ("<:reply:892128214112149574> `?help moderation`"), inline: true},
+          { name: '`📋` **Information**', value: ("<:reply:892128214112149574> `?help info`"), inline: true},
         )
 
         .setFooter("Made with Ultra", "https://cdn.discordapp.com/avatars/866014328464605184/670f18d681e14fb695b1c33b07f3a339.jpg")

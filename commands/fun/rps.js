@@ -23,7 +23,7 @@ module.exports = {
         msg.awaitReactions(filter, {max: 1, time: 60000, error: ["time"]}).then(
             async(collected) => {
                 const reaction = collected.first()
-                let result = new Discord.MessageEmbed()
+                let result = new MessageEmbed()
                 .setTitle("Result")
                 .addField("Your Choice", `${reaction.emoji.name}`)
                 .addField("Bots choice", `${me}`)

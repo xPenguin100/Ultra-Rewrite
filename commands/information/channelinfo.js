@@ -9,6 +9,8 @@ module.exports = {
       const author = message.mentions.users.first() || message.author
       const channel = message.mentions.channels.first()
       const member = message.mentions.members.first() || message.member
+
+      {channel.topic !== null ? `${channel.topic}` : 'No topic found'}
  
       let embed = new MessageEmbed()
     .setDescription(`#️⃣ **${channel.name}**\n**ID:** \`${channel.id}\`\n**Type:** \`${channel.type}\`\n**Created At:** ${channel.createdAt}\n**Topic:** ${channel.topic}`)

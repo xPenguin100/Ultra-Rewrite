@@ -18,7 +18,7 @@ module.exports = {
       { name: 'Server\'s Name', value: (`${message.guild.name}`)},
       { name: 'Owner', value: (`<@${message.guild.ownerId}> (${message.guild.ownerId})`)},
       { name: 'Server\'s ID', value: (`${message.guild.id}`)},
-      { name: 'Region', value: (`${message.guild.region}`)},
+      { name: 'Region', value: (`${message.guild.preferredLocale}`)},
       { name: 'Member Count', value: (`${message.guild.memberCount}`)},
       { name: 'Boost Tier', value: (`${message.guild.premiumTier}`)},
       { name: 'Role Count', value: (`${message.guild.roles.cache.size}`)},

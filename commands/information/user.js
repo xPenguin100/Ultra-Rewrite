@@ -1,4 +1,4 @@
-const { MessageEmbed, Discord, user, GuildMember } = require('discord.js')
+const { MessageEmbed, Discord, GuildMember } = require('discord.js')
 
 module.exports = {
     name: 'user',

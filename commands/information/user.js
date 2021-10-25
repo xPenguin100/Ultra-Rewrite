@@ -24,7 +24,7 @@ module.exports = {
         { name: 'Server', value: (`${message.guild.name}`), inline: true},
         { name: 'Bot', value: (`${author.bot}`), inline: true},
         { name: 'Joined Server', value: (`${moment.utc(member.joinedAt).format('MMMM Do YYYY, h:mm:ss a')}`)},
-        { name: 'Joined Discord', value: (`${moment.utc(author.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`)}
+        { name: 'Joined Discord', value: (`${moment.utc(author.createdAt).format('MMMM Do YYYY, h:mm:ss a')} ${moment(message.guild.timestamp ).fromNow()}`)}
       )
   
       .setFooter("Made with Ultra", "https://cdn.discordapp.com/avatars/866014328464605184/670f18d681e14fb695b1c33b07f3a339.jpg")

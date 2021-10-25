@@ -1,4 +1,5 @@
 const { MessageEmbed, Discord } = require('discord.js')
+const moment = require('moment')
 
 module.exports = {
     name: 'server',
@@ -23,7 +24,7 @@ module.exports = {
       { name: 'Boost Tier', value: (`\`${message.guild.premiumTier}\` (\`${message.guild.premiumSubscriptionCount}\`)`)},
       { name: 'Role Count', value: (`${message.guild.roles.cache.size}`)},
       { name: 'Emoji Count', value: (`${message.guild.emojis.cache.size}`)},
-      { name: 'Created On', value: (`${message.guild.createdAt}`)}
+      { name: 'Created On', value: (`${moment.utc(message.guild.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`)}
     )
     .setFooter("Made with Ultra", "https://cdn.discordapp.com/avatars/866014328464605184/670f18d681e14fb695b1c33b07f3a339.jpg")
     .setTimestamp()

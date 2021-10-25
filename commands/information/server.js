@@ -16,7 +16,7 @@ module.exports = {
     .setDescription(`Hello ${message.author.tag}, you requested to see the latest info on this server. They are found below!`)
     .addFields(
       { name: 'Server\'s Name', value: (`${message.guild.name}`)},
-      { name: 'Owner', value: (`${message.guild.ownerId} (${message.guild.owner.id})`)},
+      { name: 'Owner', value: (`${message.guild.ownerId} (${message.guild.ownerId})`)},
       { name: 'Server\'s ID', value: (`${message.guild.id}`)},
       { name: 'Region', value: (`${message.guild.region}`)},
       { name: 'Member Count', value: (`${message.guild.memberCount}`)},

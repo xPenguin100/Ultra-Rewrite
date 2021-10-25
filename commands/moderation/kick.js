@@ -10,6 +10,7 @@ module.exports = {
         let reason = args.slice(1).join(" ")
         if(!reason) reason = "No reason";
         const target = message.mentions.users.first();
+        if (message.author.roles.highest.position <= target.roles.highest.position) {return message.channel.send("The user you are attempting to kick has a higher role than you.")}
         if(target){
             const memberTarget = message.guild.members.cache.get(target.id);
             memberTarget.ban();

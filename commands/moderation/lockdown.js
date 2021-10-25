@@ -19,6 +19,8 @@ module.exports = {
                 return message.channel.send(`❌ I couldn't lock ${channel}.`)
             }
         })
+
+        guild.setName(`🔒 | ${guild.name}`)
         
         const embed = new MessageEmbed()
         .setColor('2F3136')

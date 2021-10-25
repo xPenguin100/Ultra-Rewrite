@@ -19,6 +19,10 @@ module.exports = {
                 return message.channel.send(`I couldn't unlock ${channel}.`)
             }
         })
+
+        if (guild.name.includes("🔒 |")){
+            string.replace("🔒 |", " ")
+        }
         
         const embed = new MessageEmbed()
         .setColor('2F3136')

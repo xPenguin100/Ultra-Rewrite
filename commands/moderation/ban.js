@@ -8,6 +8,7 @@ module.exports = {
          if (!message.member.permissions.has("BAN_MEMBERS")) return message.channel.send("You can't use this command!")
         if(!args[0]) return message.reply('Please mention someone to ban!')
         const target = message.mentions.users.first();
+        if (message.author.roles.highest.position <= target.roles.highest.position) {return message.channel.send("The user you are attempting to ban has a higher role than you.")}
         let reason = args.slice(1).join(" ")
         if(!reason) reason = "No reason";
         if(target){

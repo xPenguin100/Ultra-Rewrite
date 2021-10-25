@@ -29,7 +29,7 @@ module.exports = {
       .setFooter("Made with Ultra", "https://cdn.discordapp.com/avatars/866014328464605184/670f18d681e14fb695b1c33b07f3a339.jpg")
       .setTimestamp()
       //.setDescription('❌ Command is down for maintenance.')
-      //.setColor('#2F3136')
+      .setColor('#2F3136')
       message.channel.send({ embeds: [embed] });
     }
   }

@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js")
+const { MessageEmbed, guild } = require("discord.js")
 
 module.exports = {
     name: 'lockdown',

@@ -20,7 +20,7 @@ module.exports = {
       { name: 'Server\'s ID', value: (`${message.guild.id}`)},
       { name: 'Region', value: (`${message.guild.preferredLocale}`)},
       { name: 'Member Count', value: (`${message.guild.memberCount}`)},
-      { name: 'Boost Tier', value: (`${message.guild.premiumTier}`)},
+      { name: 'Boost Tier', value: (`\`${message.guild.premiumTier}\` (\`${guild.premiumSubscriptionCount}\`)`)},
       { name: 'Role Count', value: (`${message.guild.roles.cache.size}`)},
       { name: 'Emoji Count', value: (`${message.guild.emojis.cache.size}`)},
       { name: 'Created On', value: (`${message.guild.createdAt}`)}

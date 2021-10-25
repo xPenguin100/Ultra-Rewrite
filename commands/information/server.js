@@ -16,15 +16,14 @@ module.exports = {
     .setTitle('Server Info')
     .setDescription(`Hello ${message.author.tag}, you requested to see the latest info on this server. They are found below!`)
     .addFields(
-      { name: 'Server\'s Name', value: (`${message.guild.name}`)},
-      { name: 'Owner', value: (`<@${message.guild.ownerId}> (${message.guild.ownerId})`)},
-      { name: 'Server\'s ID', value: (`${message.guild.id}`)},
-      { name: 'Region', value: (`${message.guild.preferredLocale}`)},
-      { name: 'Member Count', value: (`${message.guild.memberCount}`)},
-      { name: 'Boost Tier', value: (`\`${message.guild.premiumTier}\` (\`${message.guild.premiumSubscriptionCount}\`)`)},
-      { name: 'Role Count', value: (`${message.guild.roles.cache.size}`)},
-      { name: 'Emoji Count', value: (`${message.guild.emojis.cache.size}`)},
-      { name: 'Created On', value: (`${moment.utc(message.guild.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`)}
+      { name: 'Name', value: (`${author.username}`), inline: true},
+      { name: 'Nickname', value: (`${member.displayName}`), inline: true},
+      { name: 'ID', value: (`${author.id}`), inline: true},
+      { name: 'Status', value: (`${message.member.presence.status}`), inline: true},
+      { name: 'Server', value: (`${message.guild.name}`), inline: true},
+      { name: 'Bot', value: (`${author.bot}`), inline: true},
+      { name: 'Joined Server', value: (`${moment.utc(member.joinedAt).format('MMMM Do YYYY, h:mm:ss a')}`)},
+      { name: 'Joined Discord', value: (`${moment.utc(author.createdAt).format('MMMM Do YYYY, h:mm:ss a')} ${moment(message.guild.createdTimestamp).fromNow()}`)}
     )
     .setFooter("Made with Ultra", "https://cdn.discordapp.com/avatars/866014328464605184/670f18d681e14fb695b1c33b07f3a339.jpg")
     .setTimestamp()

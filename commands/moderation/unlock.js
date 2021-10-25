@@ -22,8 +22,8 @@ module.exports = {
             VIEW_CHANNEL: true,
           });
           if (channel.name.includes("🔒 |")){
-            string.replace("🔒 |", " ")
-           }          
+            string.replace("🔒  |", "")
+          }          
 
            console.log(channel.name)
         await message.channel.send({ embeds: [embed] });

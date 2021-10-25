@@ -12,7 +12,7 @@ module.exports = {
       const member = message.mentions.members.first() || message.member
  
       let embed = new MessageEmbed()
-      .setDescription(`#️⃣ **${channel.name}**\n**ID:** \`${channel.id}\`\n**Type:** \`${channel.type}\`\n**Created At:** ${moment.utc(channel.createdAt).format('MMMM Do YYYY, h:mm:ss a')}\n**Topic:** ${channel.topic !== null ? `${channel.topic}` : 'No topic found'}`)
+      .setDescription(`#️⃣ **${channel.name}**\n**ID:** \`${channel.id}\`\n**Type:** \`${channel.type}\`\n**Created On:** ${moment.utc(channel.createdAt).format('MMMM Do YYYY, h:mm:ss a')}\n**Topic:** ${channel.topic !== null ? `${channel.topic}` : 'No topic found'}`)
     .setFooter("Made with Ultra", "https://cdn.discordapp.com/avatars/866014328464605184/670f18d681e14fb695b1c33b07f3a339.jpg")
     .setTimestamp()
     .setColor('#2F3136')

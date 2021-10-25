@@ -11,7 +11,7 @@ module.exports = {
       const member = message.mentions.members.first() || message.member
  
       let embed = new MessageEmbed()
-    .setDescription(`🏷 **${role.name}**\n**ID:** ${role.id}\n**Type:** ${role.hexColor}\n**Created At:** ${role.createdAt}\n**❓ Other**\n**Hoisted:** ${role.hoist}\n**Mentionable:** ${role.mentionable}\n**Managed:** ${role.managed}`)
+    .setDescription(`🏷 **${role.name}**\n**ID:** ${role.id}\n**Type:** ${role.hexColor}\n**Created On:** ${role.createdAt}\n**❓ Other**\n**Hoisted:** ${role.hoist}\n**Mentionable:** ${role.mentionable}\n**Managed:** ${role.managed}`)
     .setFooter("Made with Ultra", "https://cdn.discordapp.com/avatars/866014328464605184/670f18d681e14fb695b1c33b07f3a339.jpg")
     .setTimestamp()
     .setColor('#2F3136')

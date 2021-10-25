@@ -18,7 +18,7 @@ module.exports = {
       .setDescription(`👤 **${user.username}**\n**Tag:** ${user.tag}\n**ID:** \`${user.id}\`\n**Nickname:** ${member.nickname}\n**Badges:** \`${user.flags.toArray()}\`\n**Joined At**\n**Joined Server:** ${member.joinedAt}\n**Joined Discord:** ${user.createdAt}\n**❓ Other**\n**Bot:** ${user.bot}\n**Roles:** ${message.member.roles.cache.size} ${message.member.roles.cache.size}`)
       .addFields(
         { name: 'Name', value: (`${author.username}`), inline: true},
-        { name: 'Nickname', value: (`${member.nickname}`), inline: true},
+        { name: 'Nickname', value: (`${member.displayName}`), inline: true},
         { name: 'ID', value: (`${author.id}`), inline: true},
         { name: 'Status', value: (`${message.member.presence.status}`), inline: true},
         { name: 'Server', value: (`${message.guild.name}`), inline: true},

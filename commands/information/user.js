@@ -43,7 +43,7 @@ module.exports = {
       .setTimestamp()
       //.setDescription('❌ Command is down for maintenance.')
       .setColor('#2F3136')
-      message.channel.send({ embeds: [embed] });
+      message.channel.send({ embeds: [embed, userembed] });
     }
   }
 

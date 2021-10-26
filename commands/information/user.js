@@ -26,6 +26,18 @@ module.exports = {
         { name: 'Joined Server', value: (`${moment.utc(member.joinedAt).format('MMMM Do YYYY, h:mm:ss a')}`)},
         { name: 'Joined Discord', value: (`${moment.utc(author.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`)}
       )
+
+      let userembed = new MessageEmbed()
+      .setAuthor(user.tag, user.displayAvatarURL({ dynamic: true}))
+      .setDescription(`${user.username} (\`${user.id}\`)`)
+      .addFields(
+        { name: 'Joined Server', value: (`${moment.utc(member.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
+        { name: 'Joined Discord', value: (`${moment.utc(user.joinedAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
+        { name: 'Badges', value: (`\`${user.flags.toArray()}\``)},
+        { name: 'Nickname', value: (`${member.displayName}`)},
+        { name: 'Bot', value: `${user.bot}`},
+
+      )
   
       .setFooter("Made with Ultra", "https://cdn.discordapp.com/avatars/866014328464605184/670f18d681e14fb695b1c33b07f3a339.jpg")
       .setTimestamp()

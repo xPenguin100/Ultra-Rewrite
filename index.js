@@ -31,7 +31,7 @@ client.on("messageCreate", message => {
 
 
 client.once('ready', () => {
-  client.user.setActivity('dsc.gg/ultraa | ?help', { type: 'WATCHING' });
+  client.user.setActivity(`dsc.gg/ultraa | ?help | ${message.client.guilds.cache.size} servers`, { type: 'WATCHING' });
 	console.log('Ready!');
 });
 

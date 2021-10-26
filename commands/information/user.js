@@ -19,8 +19,11 @@ module.exports = {
       .addFields(
         { name: 'Joined Server', value: (`${moment.utc(member.joinedAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
         { name: 'Joined Discord', value: (`${moment.utc(user.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
-        { name: `Roles ${member.roles.cache.size}`, value: (member.roles.cache.map((r) => r).join(", "), false)},
       )  
+      .addField(`Roles [${member.roles.cache.size}]`, member.roles.cache.map((r) => r).join(", "), false)  
+      .addField(`Badges`, `\`${user.flags.toArray()}\``)
+      .addField(`Nickname`, `${member.displayName}`)
+      .addField(`Bot`, `${user.bot}`)
       .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true}))
       .setTimestamp()
       //.setDescription('❌ Command is down for maintenance.')

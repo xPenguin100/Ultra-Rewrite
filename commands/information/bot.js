@@ -19,6 +19,9 @@ module.exports = {
         .setTitle('Bot Panel')
         .setImage('https://media.discordapp.net/attachments/872963017741066331/872963055187800124/Ultra-Banner.jpg?width=1179&height=663')
         .addFields(
+            { name: 'Invite Link', value: `(https://dsc.gg/ultraa)[Click Here]`, inline: true},
+            { name: 'Support Server', value: `**COMING SOON**`, inline: true},
+            { name: 'Vote for Ultra', value: `(https://top.gg/bot/866014328464605184/vote)[Click Here]`, inline: true},
             { name: `Ping`, value: `\`${Date.now() - message.createdTimestamp}ms.\``, inline: true}, 
             { name: 'Owner', value: `<@515124684946276362>`, inline: true},
             { name: 'Servers', value: `\`${message.client.guilds.cache.size}\``, inline: true},

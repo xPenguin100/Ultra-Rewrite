@@ -18,7 +18,7 @@ module.exports = {
             { name: 'Bug Reported', value: `${query}`},
         )
         .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true}))
-        .addTimestamp()
+        .setTimestamp()
         .setColor('#2F3136')
 
         owner.send({ embeds: [reportEmbed] })

@@ -15,7 +15,7 @@ module.exports = {
 
         const wrongtime = new MessageEmbed()
             .setColor('#2F3136')
-            .setDescription(`Sorry I only do **d, m, h, or s.**`)
+            .setDescription(`Sorry, I only do **d, m, h, or s.**`)
 
         const reminderembed = new MessageEmbed()
             .setColor('#2F3136')
@@ -35,7 +35,7 @@ module.exports = {
 
         const remindertime = new MessageEmbed()
         .setColor('#2F3136')
-        .setDescription(`${user}, Your reminder will go off in **${time}**`)
+        .setDescription(`${user}, reminder set! Your reminder will go off in ${time}.`)
 
         message.channel.send({ embeds: [remindertime] })
 

@@ -21,7 +21,7 @@ module.exports = {
             .setColor('#2F3136')
             .setDescription(`What do you want to be reminded of?`)
 
-        if (!args[0]) return message.channel.send({ embeds: [notime] })
+        if (!args[0]) return message.reply({ embeds: [notime] })
         if (
             !args[0].endsWith("d") &&   
             !args[0].endsWith("m") &&
@@ -30,14 +30,14 @@ module.exports = {
         )
 
 
-            return message.channel.send({ embeds: [wrongtime] })
-        if (!reminder) return message.channel.send({ embeds: [reminderembed] })
+            return message.reply({ embeds: [wrongtime] })
+        if (!reminder) return message.reply({ embeds: [reminderembed] })
 
         const remindertime = new MessageEmbed()
         .setColor('#2F3136')
         .setDescription(`${user}, reminder set! Your reminder will go off in ${time}.`)
 
-        message.channel.send({ embeds: [remindertime] })
+        message.reply({ embeds: [remindertime] })
 
         const reminderdm = new MessageEmbed()
         .setColor('#2F3136')

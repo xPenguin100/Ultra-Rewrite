@@ -20,7 +20,7 @@ module.exports = {
         { name: 'Joined Server', value: (`${moment.utc(member.joinedAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
         { name: 'Joined Discord', value: (`${moment.utc(user.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
         { name: `Roles ${member.roles.cache.size}`, value: (member.roles.cache.map((r) => r).join(", "), false)},
-        { name: 'Permissions', value: member.permissions.toArray()},
+       // { name: 'Permissions', value: member.permissions.toArray()},
         { name: 'Badges', value: (`\`${user.flags.toArray()}\``)},
         { name: 'Nickname', value: (`${member.displayName}`)},
         { name: 'Bot', value: `${user.bot}`},

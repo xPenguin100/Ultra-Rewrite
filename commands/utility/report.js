@@ -26,6 +26,7 @@ module.exports = {
         .setColor('#2F3136')
 
         owner.send({ embeds: [reportuserEmbed] })
+        message.reply('Thank you for the report. Our staff team will review the report and take action if necessary.')
 
     }
 }

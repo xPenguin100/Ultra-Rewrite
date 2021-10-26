@@ -22,6 +22,7 @@ module.exports = {
         .setColor('#2F3136')
 
         owner.send({ embeds: [reportEmbed] })
+        message.reply('Successfully reported the bug! Thank you for helping keep Ultra bug-less!')
 
     }
 }

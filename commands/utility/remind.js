@@ -11,15 +11,15 @@ module.exports = {
 
         const notime = new MessageEmbed()
             .setColor('#F30B04')
-            .setDescription(`**Please specify the time!**`)
+            .setDescription(`Please specify the time!`)
 
         const wrongtime = new MessageEmbed()
             .setColor('#F30B04')
-            .setDescription(`**Sorry I only do d, m, h, or s.**`)
+            .setDescription(`Sorry I only do **d, m, h, or s.**`)
 
         const reminderembed = new MessageEmbed()
             .setColor('#F30B04')
-            .setDescription(`**Please tell me what you want to be reminded off**`)
+            .setDescription(`What do you want to be reminded of?`)
 
         if (!args[0]) return message.channel.send({ embeds: [notime] })
         if (
@@ -35,14 +35,14 @@ module.exports = {
 
         const remindertime = new MessageEmbed()
         .setColor('#33F304')
-        .setDescription(`${user}, **Your reminder will go off in ${time}**`)
+        .setDescription(`${user}, Your reminder will go off in **${time}**`)
 
         message.channel.send({ embeds: [remindertime] })
 
         const reminderdm = new MessageEmbed()
         .setColor('#7289DA')
         .setTitle('**REMINDER**')
-        .setDescription(`**It has been ${time} here is your reminder:** ${reminder}`)  
+        .setDescription(`**${time}** has passed! Your reminder is: **${reminder}**`)  
 
         setTimeout(async function () {
            try{

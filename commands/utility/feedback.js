@@ -22,6 +22,7 @@ module.exports = {
         .setColor('#2F3136')
 
         owner.send({ embeds: [feedbackEmbed] })
+        message.reply('Successfully sent your feedback! Thank you for helping to make Ultra even better!')
 
     }
 }

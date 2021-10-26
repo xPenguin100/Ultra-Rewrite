@@ -15,16 +15,7 @@ module.exports = {
 
       let embed = new MessageEmbed()
       .setAuthor(user.tag, user.displayAvatarURL({ dynamic: true}))
-      .setDescription(`${user} (\`${user.id}\`)`)
-      .addFields(
-        { name: 'Joined Server', value: (`${moment.utc(member.joinedAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
-        { name: 'Joined Discord', value: (`${moment.utc(user.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
-        { name: `Roles ${member.roles.cache.size}`, value: (member.roles.cache.map((r) => r).join(", "), false)},
-        { name: 'Badges', value: (`\`${user.flags.toArray()}\``)},
-        { name: 'Nickname', value: (`${member.displayName}`)},
-        { name: 'Bot', value: `${user.bot}`},
-      )
-  
+      .setDescription(`${user} (\`${user.id}\`)`)  
       .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true}))
       .setTimestamp()
       //.setDescription('❌ Command is down for maintenance.')

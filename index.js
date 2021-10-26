@@ -267,6 +267,26 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
+if (command === 'unscramble') {
+  client.commands.get('unscramble').execute(client, message, args, Discord);
+  }
+});
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+if (command === 'remind') {
+  client.commands.get('remind').execute(message, args, client, Discord);
+  }
+});
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
 if (command === 'unban') {
   client.commands.get('unban').run(client, message, args);
   }

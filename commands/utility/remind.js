@@ -35,7 +35,7 @@ module.exports = {
 
         const remindertime = new MessageEmbed()
         .setColor('#2F3136')
-        .setDescription(`${user}, reminder set! Your reminder will go off in ${time}.`)
+        .setDescription(`${user}, reminder set! Your reminder will go off in **${time}.**`)
 
         message.reply({ embeds: [remindertime] })
 

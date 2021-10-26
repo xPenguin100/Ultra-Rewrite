@@ -25,7 +25,6 @@ module.exports = {
         { name: 'Nickname', value: (`${member.displayName}`)},
         { name: 'Bot', value: `${user.bot}`},
       )
-      .addField()  
   
       .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true}))
       .setTimestamp()

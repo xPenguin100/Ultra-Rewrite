@@ -39,7 +39,7 @@ module.exports = {
 
       )
   
-      .setFooter(`${message.author.displayAvatarURL({ dynamic: true})} Requested by: ${author.tag}`)
+      .setFooter(`Requested by: ${message.author.tag}, ${message.author.displayAvatarURL({ dynamic: true})}`)
       .setTimestamp()
       //.setDescription('❌ Command is down for maintenance.')
       .setColor('#2F3136')

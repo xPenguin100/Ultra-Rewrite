@@ -3,7 +3,7 @@ const { token, prefix } = require('./config.json');
 const client = new Client({ intents: 32767, ws: {properties: {$browser: 'Discord iOS'}} });
 const fs = require ('fs');
 client.commands = new Collection();
-client.setMaxListeners(50)
+client.setMaxListeners(100)
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const ms =  require('ms')

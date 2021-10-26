@@ -13,7 +13,7 @@ module.exports = {
         const reportEmbed = new MessageEmbed()
         .setTitle('🐛Bug Reported!🐛')
         .addFields(
-            { name: 'Author', value: `${message.author}`},
+            { name: 'Author', value: `${message.author} (\`${message.author.id}\`)`},
             { name: 'Server', value: `${message.guild.name} (\`${message.guild.id}\`)`},
             { name: 'Bug Reported', value: `${query}`},
         )

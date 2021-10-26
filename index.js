@@ -80,6 +80,19 @@ client.on('messageCreate', async (message) => {
   }
 });
 
+let AS = {}; //Anti-Spam
+
+const timeAS = 5; //5 seconds
+const msgsAS = 3; //3 messages
+
+client.on('messageCreate', async(message) => {
+    if(message.author.bot || !message.guild) return;
+    if(!AS[message.author.id]) AS[message.author.id] = {};
+    if(!AS[message.author.id][message.guild.id]) AS[message.author.id][message.guild.id] = 1, setTimeout(() => {delete AS[message.author.id][message.guild.id]}, timeAS * 1000);
+    else if(AS[message.author.id][message.guild.id] < msgsAS) AS[message.author.id][message.guild.id]++;
+    else if(AS[message.author.id][message.guild.id] >= msgsAS) await message.delete(), message.reply(`Don't spam!`).then(e => e.delete({ timeout: 5000 }));
+    else AS[message.author.id] = {}, AS[message.author.id][message.guild.id] = 1
+})
 
 client.on('messageCreate', message => {
   if (message.content.includes(`%nickname`)) {

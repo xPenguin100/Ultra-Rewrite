@@ -17,7 +17,7 @@ module.exports = {
       .setAuthor(user.tag, user.displayAvatarURL({ dynamic: true}))
       .setDescription(`${user} (\`${user.id}\`)`)
       .addFields(
-        { name: 'Joined Server', value: (`${moment.utc(GuildMember.joinedAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
+        { name: 'Joined Server', value: (`${moment.utc(member.joinedAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
         { name: 'Joined Discord', value: (`${moment.utc(user.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
         { name: 'Badges', value: (`\`${user.flags.toArray()}\``)},
         { name: 'Nickname', value: (`${member.displayName}`)},

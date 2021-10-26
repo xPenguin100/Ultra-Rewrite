@@ -18,6 +18,7 @@ module.exports = {
       .setDescription(`${user} (\`${user.id}\`)`)
       .addFields(
         { name: 'Joined Server', value: (`${moment.utc(member.joinedAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
+        { name: 'Joined Discord', value: (`${moment.utc(user.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
       )  
       .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true}))
       .setTimestamp()

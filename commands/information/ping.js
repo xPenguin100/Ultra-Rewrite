@@ -9,7 +9,7 @@ module.exports = {
         .setTitle('🏓Pong!')
         .addFields(
             { name: 'Client Ping', value: `${Date.now() - message.createdTimestamp}ms.`},
-            { name: 'API Latency', value: `${apiLatency}ms.`},
+            //{ name: 'API Latency', value: `${apiLatency}ms.`},
         )
         .setColor('#2F3136')
         message.reply({ embeds: [embed] });

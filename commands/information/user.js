@@ -29,7 +29,7 @@ module.exports = {
 
       let userembed = new MessageEmbed()
       .setAuthor(user.tag, user.displayAvatarURL({ dynamic: true}))
-      .setDescription(`${user.username} (\`${user.id}\`)`)
+      .setDescription(`${user} (\`${user.id}\`)`)
       .addFields(
         { name: 'Joined Server', value: (`${moment.utc(member.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
         { name: 'Joined Discord', value: (`${moment.utc(user.joinedAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},

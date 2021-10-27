@@ -635,7 +635,7 @@ message.channel.send("I have set the slowmode in this channel to " + duration + 
 });
 
 //mongoose connecting
-const mongooseConnectionString = require('./config.json');
+const mongooseConnectionString = require('./config.json').mongooseConnectionString
 if(!mongooseConnectionString) return;
 
 mongoose

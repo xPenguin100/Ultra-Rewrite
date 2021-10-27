@@ -1,4 +1,5 @@
 {
 	"token": "ODY2MDE0MzI4NDY0NjA1MTg0.YPMYsQ.N-ksg3jwhO6McJtKG1fNgRhsHXA",
-	"prefix": "?"
+	"prefix": "?",
+	"mongooseConnectionString": "mongodb+srv://ultra-bot:ULTRa2021@ultra.bza0t.mongodb.net/data"
 }

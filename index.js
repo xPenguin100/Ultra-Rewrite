@@ -7,6 +7,7 @@ client.setMaxListeners(100)
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const ms =  require('ms')
+const mongoose = require('mongoose')
 
 fs.readdirSync('./commands/').forEach(dir => {
 
@@ -632,5 +633,17 @@ message.channel.send("I have set the slowmode in this channel to " + duration + 
         message.reply({ embeds: [cosmicembed] })
       }
 });
+
+//mongoose connecting
+if(!mongooseConnectionString) return;
+const mongooseConnectionString = require('./config.json');
+
+mongoose
+    .connect(mongooseConnectionString, {
+      useFindAndModify: true,
+      useUnifiedTopology: true,
+      useNewURLParser: true,
+    })
+    .then(() => console.log('Connected to MongoDB'))
 
 client.login(token);

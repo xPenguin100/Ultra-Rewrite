@@ -8,7 +8,7 @@ module.exports = {
         if(!message.member.permissions.has("KICK_MEMBERS")) return message.reply('You cannot execute this command! You are missing the `KICK_MEMBERS` permission.')
         
         let author = message.mentions.users.first() || message.author
-        let user = message.members.mentions.first()
+        let user = message.mentions.members.first()
         if(!user) return message.reply('Please mention a user to warn!')
 
         if(message.mentions.users.first().bot) return message.reply('You cannot warn bots!')

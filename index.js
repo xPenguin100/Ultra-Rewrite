@@ -8,6 +8,7 @@ const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const ms =  require('ms')
 const mongoose = require('mongoose')
+const db = require('quick.db')
 
 fs.readdirSync('./commands/').forEach(dir => {
 

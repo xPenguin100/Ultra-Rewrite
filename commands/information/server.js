@@ -6,7 +6,7 @@ module.exports = {
     description: 'User info command',
     execute(message) {
   
-  
+      const channels = message.guild.channels;
       const author = message.mentions.users.first() || message.author
       const member = message.mentions.members.first() || message.member
       let avatar = author.displayAvatarURL({size: 4096, dynamic: true});

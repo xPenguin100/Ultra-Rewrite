@@ -10,6 +10,6 @@ module.exports = {
         .setDescription(`You have been set to afk\n**Reason :** ${content}`)
         .setColor("GREEN")
         .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
-        message.channel.send(embed)                
+        message.channel.send({ embeds: [embed] })                
     }
 }

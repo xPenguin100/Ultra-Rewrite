@@ -19,7 +19,7 @@ module.exports = {
       { name: 'Created On', value: (`${moment.utc(message.guild.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
       { name: `Boost Count [\`${message.guild.premiumSubscriptionCount}\`]`, value: `\`${message.guild.premiumTier}\``, inline: true},
       { name: 'Member Count', value: `${message.guild.members.cache.filter(member => !member.user.bot).size} (${message.guild.members.cache.filter(member => member.user.bot).size})`},
-      { name: `Channel Count [${message.guild.channels.cache.size}]`, value: `Text: \`${channels.filter(channel => channel.type === 'GUILD_TEXT').size}\`, Voice: \`${channels.filter(channel => channel.type === 'GUILD_VOICE').size}\``},
+      { name: `Channel Count [${message.guild.channels.cache.size}]`, value: `Categories: \`${channels.filter(channel => channel.type === 'GUILD_CATEGORY').size}\`, Text: \`${channels.filter(channel => channel.type === 'GUILD_TEXT').size}\`, Voice: \`${channels.filter(channel => channel.type === 'GUILD_VOICE').size}\``},
     )
     .addField(`Roles [${message.guild.roles.cache.size}]`, message.guild.roles.cache.map((r) => r).join(", "), false)  
     .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true}))

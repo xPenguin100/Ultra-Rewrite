@@ -4,6 +4,7 @@ const ms = require('ms')
 module.exports = {
     name: "remind",
     category: "utility",
+    aliases: ['remindme', 'rm'],
     async execute(message, args, client, Discord) {
         let time = args[0];
         let user = message.author

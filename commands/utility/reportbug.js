@@ -3,6 +3,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
     name: 'reportbug',
     description: 'Report a bug!',
+    aliases: ['bug', 'bugreport'],
     run: async(client, message, args) => {
         const owner = client.users.cache.get('515124684946276362');
         let author = message.mentions.users.first() || message.author

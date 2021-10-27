@@ -640,7 +640,6 @@ if(!mongooseConnectionString) return;
 
 mongoose
     .connect(mongooseConnectionString, {
-      useFindAndModify: false,
       useUnifiedTopology: true,
       useNewURLParser: true,
     })

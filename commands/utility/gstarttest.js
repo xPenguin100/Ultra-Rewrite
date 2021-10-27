@@ -23,17 +23,6 @@ module.exports = {
         )
             return message.channel.send('You need to use d (days), h (hours), m (minutes), or s (seconds)')
 
-        let claimtime = args[2]
-        if(!claimtime) return message.reply('You did not specify a claimtime!')
-
-        if (
-            !args[2].endsWith("d") &&
-            !args[2].endsWith("h") &&
-            !args[2].endsWith("m") &&
-            !args[2].endsWith("s")
-        )
-            return message.channel.send("For claimtime, use d (days), h (hours), m (minutes), s (seconds).")
-
         let prize = args.slice(3).join(" ")
         if(!prize) return message.reply('What is the prize?')
 

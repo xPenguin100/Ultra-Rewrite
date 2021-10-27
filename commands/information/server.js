@@ -12,20 +12,20 @@ module.exports = {
       let avatar = author.displayAvatarURL({size: 4096, dynamic: true});
   
       let embed = new MessageEmbed()
-    .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true}))
+    .setAuthor(message.guild.tag, message.author.displayAvatarURL({ dynamic: true}))
     .setTitle('Server Info')
     .setDescription(`Hello ${message.author.tag}, you requested to see the latest info on this server. They are found below!`)
     .addFields(
-      { name: 'Name', value: (`${author.username}`), inline: true},
-      { name: 'Nickname', value: (`${member.displayName}`), inline: true},
-      { name: 'ID', value: (`${author.id}`), inline: true},
-      { name: 'Status', value: (`${message.member.presence.status}`), inline: true},
-      { name: 'Server', value: (`${message.guild.name}`), inline: true},
-      { name: 'Bot', value: (`${author.bot}`), inline: true},
-      { name: 'Joined Server', value: (`${moment.utc(member.joinedAt).format('MMMM Do YYYY, h:mm:ss a')}`)},
-      { name: 'Joined Discord', value: (`${moment.utc(author.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`)}
+      { name: 'Name', value: (`${message.guild.name} (\`${message.guild.id}\`)`), inline: true},
+      { name: 'Owner', value: `<@${message.guild.ownerId}> (\`${message.guild.ownerId}\`)`},
+      { name: 'Created On', value: (`${moment.utc(message.guild.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
+      { name: `Boost Count [\`${message.guild.premiumSubscriptionCount}\`]`, value: `\`${message.guild.premiumTier}\``, inline: true},
+      { name: 'Member Count', value: `${members.filter(member => !member.user.bot).size} (${members.filter(member => member.user.bot).size})`},
+      { name: `Channel Count [${message.guild.channels.cache.size}]`, value: `Text: \`${channels.filter(channel => channel.type === 'text').size}\`, Voice: \`${channels.filter(channel = channel.type === 'voice').size}\``},
+      { name: `Roles [${message.guild.roles.cache.size}]`, value: `${member.roles.cache.map((r) => r).join(", "), false}`}
+
     )
-    .setFooter("Made with Ultra", "https://cdn.discordapp.com/avatars/866014328464605184/670f18d681e14fb695b1c33b07f3a339.jpg")
+    .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true}))
     .setTimestamp()
     .setColor('#2F3136')
     //.setDescription('❌ Command is down for maintenance.')

@@ -12,9 +12,7 @@ module.exports = {
       let avatar = author.displayAvatarURL({size: 4096, dynamic: true});
   
       let embed = new MessageEmbed()
-    .setAuthor(message.guild.tag, message.author.displayAvatarURL({ dynamic: true}))
-    .setTitle('Server Info')
-    .setDescription(`Hello ${message.author.tag}, you requested to see the latest info on this server. They are found below!`)
+    .setAuthor(message.guild.name, message.guild.iconURL)
     .addFields(
       { name: 'Name', value: (`${message.guild.name} (\`${message.guild.id}\`)`), inline: true},
       { name: 'Owner', value: `<@${message.guild.ownerId}> (\`${message.guild.ownerId}\`)`},

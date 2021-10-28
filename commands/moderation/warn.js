@@ -24,6 +24,7 @@ module.exports = {
         if(warnings === null) {
             db.set(`warnings_${message.guild.id}_${user.id}`, 1)
             const warndm = new MessageEmbed()
+            .setColor('#2F3136')
             .setTitle(`Warned in ${message.guild.name}`)
             .addFields(
                 { name: 'Moderator', value: `${message.author}`},
@@ -32,6 +33,7 @@ module.exports = {
             user.send({ embeds: [warndm] })
             const warnsuccess = new MessageEmbed()
             .setTitle('User Warned!')
+            .setColor('#2F3136')
             .addFields(
                 { name: 'Moderator', value: `${message.author}`},
                 { name: 'User Warned', value: `${user}`},

@@ -12,9 +12,9 @@ module.exports = {
         if(warnings === null) warnings = 0;
 
         const warningsembed = new MessageEmbed()
-        .setTitle(`Warnings for ${user}`)
+        .setTitle(`Warnings`)
         .setColor('#2F3136')
-        .setDescription(`${user} has ${warnings}.`)
+        .setDescription(`${user} has ${warnings} warnings.`)
         message.reply({ embeds: [warningsembed] })
     }
 }

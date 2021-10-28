@@ -8,10 +8,10 @@ module.exports = {
         let user = message.mentions.users.first()
         if(!user) return message.reply('Please mention a user so I can get their warnings!')
 
-        let warningsembed = db.get(`warnings_${message.guild.id}_${user.id}`)
+        let warnings = db.get(`warnings_${message.guild.id}_${user.id}`)
         if(warnings === null) warnings = 0;
 
-        const warnings = new MessageEmbed()
+        const warningsembed = new MessageEmbed()
         .setTitle(`Warnings for ${user}`)
         .setColor('#2F3136')
         .setDescription(`${user} has ${warnings}.`)

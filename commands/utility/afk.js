@@ -8,7 +8,7 @@ module.exports = {
         if (db.has(`afk-${message.author.id} +  '.afk'`)) {
 
         const content = args.join(" ")
-        db.set(message.author.id + '.afk', 'true')
+        db.set(`afk-${message.author.id}+${message.guild.id}`, content)        
         const embed = new MessageEmbed()
         .setDescription(`You have been set to afk\n**Reason:** ${content}`)
         .setColor("#2F3136")

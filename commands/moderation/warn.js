@@ -15,8 +15,8 @@ module.exports = {
         if(message.author.id === user.id) return message.reply('You cannot warn yourself!')
         if(user.id === message.guild.ownerId) return message.reply("You can't warn the owner of this server.")
 
-        const reason = args.slice(1).join(" ")
-        if(!reason) reason = "No reason specified"
+        let reason = args.slice(1).join(" ")
+        if(!reason) reason = "No reason specified";
 
         let warnings = db.get(`warnings_${message.guild.id}_${user.id}`)
         if(warnings === 3) return message.reply(`${user} has already reached their maximum warning capacity.`)

@@ -30,7 +30,7 @@ module.exports = {
         throw err;
       }
   
-      const collector = reactionMessage.createReactionCollector((reaction, user) => message.guild.members.cache.find((member) => member.id === user.id).hasPermission("ADMINISTRATOR"),{ dispose: true, time: 15000 });
+      const collector = reactionMessage.createReactionCollector((reaction, user) => message.guild.members.cache.find((member) => member.id === user.id).permissions.has("ADMINISTRATOR"),{ dispose: true, time: 15000 });
   
       collector.on("collect", (reaction, user) => {
         switch (reaction.emoji.name) {

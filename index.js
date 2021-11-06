@@ -114,6 +114,26 @@ if (command === 'warn') {
   }
 });
 
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+if (command === 'appreciate') {
+  client.commands.get('appreciate').run(client, message, args);
+  }
+});
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+if (command === 'appreciations') {
+  client.commands.get('appreciations').run(client, message, args);
+  }
+});
+
 
 client.on('messageCreate', message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;

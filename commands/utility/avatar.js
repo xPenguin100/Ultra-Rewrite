@@ -21,19 +21,19 @@ module.exports = {
         .addComponents(
           new MessageButton()
             .setLabel('🪟 PNG')
-            .setURL(avatar({ format: 'png' }))
+            .setURL(`${avatar({ format: 'png' })}`)
             .setStyle('LINK'),
             new MessageButton()
             .setLabel('📸 JPG')
-            .setURL(avatar({ format: 'jpg'} ))
+            .setURL(`${avatar({ format: 'jpg' })}`)
             .setStyle('LINK'),
             new MessageButton()
             .setLabel('🖥️ WEBP')
-            .setURL(avatar({ format: 'link'} ))
+            .setURL(`${avatar({ format: 'webp' })}`)
             .setStyle('LINK'),
             new MessageButton()
             .setLabel('🎥 GIF')
-            .setLink(avatar({ format: 'link'} ))
+            .setLink(`${avatar({ format: 'gif' })}`)
             .setStyle('LINK'),
       );
         message.channel.send({ embeds: [embed], components: [row] });

@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js')
+const { MessageEmbed, MessageActionRow } = require('discord.js')
 
 module.exports = {
     name : 'avatar',
@@ -17,6 +17,25 @@ module.exports = {
         .setURL(avatar)
         .setImage(avatar)
         .setColor('#2F3136')
-        message.channel.send({ embeds: [embed] });
+        const row = new MessageActionRow()
+        .addComponents(
+          new MessageButton()
+            .setLabel('🪟 PNG')
+            .setURL(avatar({ format: 'png' }))
+            .setStyle('LINK'),
+            new MessageButton()
+            .setLabel('📸 JPG')
+            .setURL(avatar({ format: 'jpg'} ))
+            .setStyle('LINK'),
+            new MessageButton()
+            .setLabel('🖥️ WEBP')
+            .setURL(avatar({ format: 'link'} ))
+            .setStyle('LINK'),
+            new MessageButton()
+            .setLabel('🎥 GIF')
+            .setLink(avatar({ format: 'link'} ))
+            .setStyle('LINK'),
+      );
+        message.channel.send({ embeds: [embed], components: [row] });
     }
 }

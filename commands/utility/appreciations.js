@@ -15,7 +15,7 @@ module.exports = {
         const appreciationsembed = new MessageEmbed()
         .setTitle(`Appreciations`)
         .setColor('#2F3136')
-        .setDescription(`${user} has ${appreciations} appreciations.`)
+        .setDescription(`${user} has ${appreciations} appreciation(s).`)
         message.reply({ embeds: [appreciationsembed] })
     }
 }

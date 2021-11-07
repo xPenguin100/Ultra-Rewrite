@@ -12,6 +12,10 @@ module.exports = {
         const Discord = require("discord.js");
         let user = message.mentions.users.first() || message.author;
         let avatar = user.displayAvatarURL({size: 4096, dynamic: true});
+        let days = Math.floor(client.uptime / 86400000);
+      let hours = Math.floor(client.uptime / 3600000) % 24;
+      let minutes = Math.floor(client.uptime / 60000) % 60;
+      let seconds = Math.floor(client.uptime / 1000) % 60;
 
     
         let embed = new MessageEmbed()
@@ -23,6 +27,7 @@ module.exports = {
             { name: 'Support Server', value: `**COMING SOON**`, inline: true},
             { name: 'Vote for Ultra', value: '[Click Here](https://top.gg/bot/866014328464605184/vote "Vote for Ultra!")', inline: true},
             { name: `Ping`, value: `\`${Date.now() - message.createdTimestamp}ms.\``, inline: true}, 
+            { name: 'Uptime', value: `${days}:${hours}:${minutes}:${seconds}`},
             { name: 'Owner', value: `<@515124684946276362>`, inline: true},
             { name: 'Servers', value: `\`${message.client.guilds.cache.size}\``, inline: true},
             { name: 'Users', value: `\`${message.client.users.cache.size}\``, inline: true},

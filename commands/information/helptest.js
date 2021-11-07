@@ -5,10 +5,6 @@ module.exports = {
     description: 'Help testing command',
     run: async (client, message, args) => {
 
-        const embed = new MessageEmbed()
-        .setTitle('Testing COmmand')
-        .setDescription('HI')
-        .setColor('NAVY')
         const row = new MessageActionRow()
         .addComponents(
             new MessageSelectMenu()
@@ -25,8 +21,14 @@ module.exports = {
                     value: 'second_option',
                 },
             ]),
+        )
+
+        const embed = new MessageEmbed()
+        .setTitle('Testing COmmand')
+        .setDescription('HI')
+        .setColor('NAVY')
 
             message.reply({ embeds: [embed], components: [row] })
-        )
+        
     }
 }

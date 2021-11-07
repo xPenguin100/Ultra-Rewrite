@@ -27,11 +27,11 @@ module.exports = {
             { name: 'Support Server', value: `**COMING SOON**`, inline: true},
             { name: 'Vote for Ultra', value: '[Click Here](https://top.gg/bot/866014328464605184/vote "Vote for Ultra!")', inline: true},
             { name: `Ping`, value: `\`${Date.now() - message.createdTimestamp}ms.\``, inline: true}, 
-            { name: 'Uptime', value: `${days}:${hours}:${minutes}:${seconds}`},
+            { name: 'Uptime', value: `${days}:${hours}:${minutes}:${seconds}`, inline: true},
             { name: 'Owner', value: `<@515124684946276362>`, inline: true},
             { name: 'Servers', value: `\`${message.client.guilds.cache.size}\``, inline: true},
             { name: 'Users', value: `\`${message.client.users.cache.size}\``, inline: true},
-            { name: 'Discord.js Version', value: '\`13.3.0\`', inline: true},
+            { name: 'Discord.js Version', value: '\`13.3.1\`', inline: true},
             { name: 'Node Version', value: '\`17.0.1\`', inline: true},
         )
         .setColor('#2F3136')

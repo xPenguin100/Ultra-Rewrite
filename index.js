@@ -681,9 +681,9 @@ client.on('messageCreate', message => {
 			.setDescription('Some description here');
       message.reply({ embeds: [embed], components: [row] })
 
-      client.on('messageCreate', message => {
-        if (!message.isSelectMenu()) return;
-        console.log(message);
+      client.on('interactionCreate', interaction => {
+        if (!interaction.isSelectMenu()) return;
+        console.log(interaction);
       });
   }
 })

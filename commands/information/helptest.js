@@ -30,5 +30,9 @@ module.exports = {
 
             message.reply({ embeds: [embed], components: [row] })
         
+            client.on('messageCreate', message => {
+                if (!message.isSelectMenu()) return;
+                console.log(message);
+            });
     }
 }

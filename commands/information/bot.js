@@ -10,16 +10,16 @@ module.exports = {
 
 
         const Discord = require("discord.js");
-        let user = message.mentions.users.first() || message.author;
-        let avatar = user.displayAvatarURL({size: 4096, dynamic: true});
+        let author = message.mentions.users.first() || message.author;
+        let avatar = author.displayAvatarURL({size: 4096, dynamic: true});
         let days = Math.floor(message.client.uptime / 86400000);
-      let hours = Math.floor(message.client.uptime / 3600000) % 24;
-      let minutes = Math.floor(message.client.uptime / 60000) % 60;
-      let seconds = Math.floor(message.client.uptime / 1000) % 60;
+        let hours = Math.floor(message.client.uptime / 3600000) % 24;
+        let minutes = Math.floor(message.client.uptime / 60000) % 60;
+        let seconds = Math.floor(message.client.uptime / 1000) % 60;
 
     
         let embed = new MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+        .setAuthor(message.author.tag, message.author.avatar)
         .setTitle('Bot Panel')
         .setImage('https://media.discordapp.net/attachments/872963017741066331/872963055187800124/Ultra-Banner.jpg?width=1179&height=663')
         .addFields(

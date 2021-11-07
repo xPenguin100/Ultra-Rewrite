@@ -26,7 +26,7 @@ module.exports = {
                 },
             ]),
 
-            message.reply({ embeds: [embed], components: [test] })
+            message.reply({ embeds: [embed], components: [row] })
         )
     }
 }

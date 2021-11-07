@@ -681,12 +681,21 @@ client.on('interactionCreate', interaction => {
 			.setDescription('Some description here');
       message.reply({ embeds: [embed], components: [row] })
 
-      client.on('interactionCreate', interaction => {
-        if (!interaction.isSelectMenu()) return;
-        console.log(interaction);
-      });
   }
 })
+
+client.on('interactionCreate', interaction => {
+	if (!interaction.isSelectMenu()) return;
+	console.log(interaction);
+});
+
+client.on('interactionCreate', async interaction => {
+  if (!interaction.isSelectMenu()) return;
+
+  if (interaction.customId === 'select') {
+    await interaction.update({ content: 'Something was selected!', components: [] });
+  }
+});
 
 client.on('messageCreate', message => { 
   if (!message.content.startsWith(prefix) || message.author.bot) return;

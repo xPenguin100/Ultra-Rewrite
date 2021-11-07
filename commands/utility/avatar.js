@@ -17,6 +17,6 @@ module.exports = {
         .setURL(avatar)
         .setImage(avatar)
         .setColor('#2F3136')
-        message.channel.send({ embeds: [embed], components: [row] });
+        message.channel.send({ embeds: [embed] });
     }
 }

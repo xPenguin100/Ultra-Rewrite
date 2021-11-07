@@ -134,6 +134,17 @@ if (command === 'appreciations') {
   }
 });
 
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+if (command === 'helptest') {
+  client.commands.get('helptest').run(client, message, args);
+  }
+});
+
+
 
 client.on('messageCreate', message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;

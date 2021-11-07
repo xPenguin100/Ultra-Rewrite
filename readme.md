@@ -10,3 +10,9 @@ client.on("messageCreate", message => {
 
       if(user.id === message.guild.ownerId) - Checks if you used owners id in mention or something else
       if(appreciations === 3) - If the variable = 3, return an argument
+
+        let days = Math.floor(message.client.uptime / 86400000);
+        let hours = Math.floor(message.client.uptime / 3600000) % 24;
+        let minutes = Math.floor(message.client.uptime / 60000) % 60;
+        let seconds = Math.floor(message.client.uptime / 1000) % 60;
+                    { name: 'Uptime', value: `${days}:${hours}:${minutes}:${seconds}`, inline: true},

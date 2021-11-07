@@ -650,9 +650,9 @@ if (command === 'lift-lockdown') {
 
 //END OF CALLING FILES
 
-client.on('messageCreate', message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.trim().split(/ +/g);
+client.on('interactionCreate', interaction => {
+  if (!interaction.content.startsWith(prefix) || message.author.bot) return;
+  const args = interaction.content.trim().split(/ +/g);
   const command = args[0].slice(prefix.length).toLowerCase();
   if (command === 'helptest') {
     const row = new MessageActionRow()

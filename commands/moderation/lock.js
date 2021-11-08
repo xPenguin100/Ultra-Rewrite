@@ -21,7 +21,7 @@ module.exports = {
             SEND_MESSAGES: true,
             VIEW_CHANNEL: true,
           });
-        if(channel.permissions("SEND_MESSAGES" = false)) return message.reply('Channel is already locked!')
+          if(channel.permissionsFor(channel.guildId, true).has("SEND_MESSAGES")) return message.reply('Channel is already locked!')
 
         channel.setName(`🔒 | ${channel.name}`)
           

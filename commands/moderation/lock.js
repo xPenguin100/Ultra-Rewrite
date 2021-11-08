@@ -13,6 +13,7 @@ module.exports = {
         .setColor('#2F3136')
         .setDescription(`✅ ${channel} has been locked by ${message.author.tag} for \`${reason}\`.`)
         .setTimestamp()
+        if(channel.permissionsFor(channel.guildId, true).has("SEND_MESSAGES")) return message.reply('Channel is already locked!')
         channel.permissionOverwrites.edit(message.guild.id, {
             SEND_MESSAGES: false,
             VIEW_CHANNEL: false,
@@ -21,7 +22,6 @@ module.exports = {
             SEND_MESSAGES: true,
             VIEW_CHANNEL: true,
           });
-          if(channel.permissionsFor(channel.guildId, true).has("SEND_MESSAGES")) return message.reply('Channel is already locked!')
 
         channel.setName(`🔒 | ${channel.name}`)
           

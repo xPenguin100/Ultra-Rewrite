@@ -8,12 +8,12 @@ module.exports = {
         let reason = args.slice(1).join(" ")
         if(!reason) reason = "No reason";
         if(!channel) return message.reply("Please mention a valid channel!")
+        if(channel.permissionsFor(channel.guildId, true).has("SEND_MESSAGES")) return message.reply('Channel is already locked!')
         let embed = new MessageEmbed()
         .setTitle("Channel Locked!")
         .setColor('#2F3136')
         .setDescription(`✅ ${channel} has been locked by ${message.author.tag} for \`${reason}\`.`)
         .setTimestamp()
-        if(channel.permissionsFor(channel.guildId, true).has("SEND_MESSAGES")) return message.reply('Channel is already locked!')
         channel.permissionOverwrites.edit(message.guild.id, {
             SEND_MESSAGES: false,
             VIEW_CHANNEL: false,
@@ -22,6 +22,7 @@ module.exports = {
             SEND_MESSAGES: true,
             VIEW_CHANNEL: true,
           });
+
 
         channel.setName(`🔒 ${channel.name}`)
           

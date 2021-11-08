@@ -23,7 +23,7 @@ module.exports = {
             VIEW_CHANNEL: true,
           });
 
-        channel.setName(`🔒 • ${channel.name}`)
+        channel.setName(`🔒 ${channel.name}`)
           
         await message.channel.send({ embeds: [embed] });
 

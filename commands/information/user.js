@@ -10,7 +10,7 @@ module.exports = {
       let member = message.mentions.members.first() || message.member
       let author = message.mentions.users.first() || message.author
       let avatar = message.author.displayAvatarURL({size: 4096, dynamic: true});
-      const badges = {
+      const flags = {
         DISCORD_EMPLOYEE: 'Discord Employee',
         DISCORD_PARTNER: 'Discord Partner',
         BUGHUNTER_LEVEL_1: 'Bug Hunter (Level 1)',
@@ -36,7 +36,7 @@ module.exports = {
         { name: 'Joined Discord', value: (`${moment.utc(user.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
       )  
       .addField(`Roles [${member.roles.cache.size}]`, member.roles.cache.map((r) => r).join(", "), false)  
-      .addField("Badges", `\`${badges.length ? badges.map(flag => flags[flag]).join(', ') : 'None'}\``,true)
+      .addField("Badges", `\`${flags.length ? flags.map(flag => flags[flag]).join(', ') : 'None'}\``,true)
       .addField(`Nickname`, `${member.displayName}`)
       .addField(`Bot`, `${user.bot}`)
       .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true}))

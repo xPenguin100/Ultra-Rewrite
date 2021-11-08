@@ -650,53 +650,6 @@ if (command === 'lift-lockdown') {
 
 //END OF CALLING FILES
 
-client.on('interactionCreate', interaction => {
-  if (!interaction.content.startsWith(prefix) || message.author.bot) return;
-  const args = interaction.content.trim().split(/ +/g);
-  const command = args[0].slice(prefix.length).toLowerCase();
-  if (command === 'helptest') {
-    const row = new MessageActionRow()
-			.addComponents(
-				new MessageSelectMenu()
-					.setCustomId('select')
-					.setPlaceholder('Nothing selected')
-					.addOptions([
-						{
-							label: 'Select me',
-							description: 'This is a description',
-							value: 'first_option',
-						},
-						{
-							label: 'You can select me too',
-							description: 'This is also a description',
-							value: 'second_option',
-						},
-					]),
-			);
-
-      const embed = new MessageEmbed()
-			.setColor('#0099ff')
-			.setTitle('Some title')
-			.setURL('https://discord.js.org/')
-			.setDescription('Some description here');
-      message.reply({ embeds: [embed], components: [row] })
-
-  }
-})
-
-client.on('interactionCreate', interaction => {
-	if (!interaction.isSelectMenu()) return;
-	console.log(interaction);
-});
-
-client.on('interactionCreate', async interaction => {
-  if (!interaction.isSelectMenu()) return;
-
-  if (interaction.customId === 'select') {
-    await interaction.update({ content: 'Something was selected!', components: [] });
-  }
-});
-
 client.on('messageCreate', message => { 
   if (!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.trim().split(/ +/g);

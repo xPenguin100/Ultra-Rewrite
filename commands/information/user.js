@@ -9,9 +9,11 @@ module.exports = {
       let user = message.mentions.users.first() 
       let member = message.mentions.members.first() || message.member
       let author = message.mentions.users.first() || message.author
+      let badges = user.flags.toArray()
       let avatar = message.author.displayAvatarURL({size: 4096, dynamic: true});
 
       if(!user) return message.reply(`❌ The user either doesn't exist or you never gave a user!`)
+      if(!badges) badges = `None`
 
       let embed = new MessageEmbed()
       .setAuthor(user.tag, user.displayAvatarURL({ dynamic: true}))
@@ -21,7 +23,7 @@ module.exports = {
         { name: 'Joined Discord', value: (`${moment.utc(user.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
       )  
       .addField(`Roles [${member.roles.cache.size}]`, member.roles.cache.map((r) => r).join(", "), false)  
-      .addField(`Badges`, `\`${user.flags.toArray()}\``)
+      .addField(`Badges`, `\`${badges}\``)
       .addField(`Nickname`, `${member.displayName}`)
       .addField(`Bot`, `${user.bot}`)
       .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true}))

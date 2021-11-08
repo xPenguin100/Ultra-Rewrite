@@ -8,7 +8,7 @@ module.exports = {
         let reason = args.slice(1).join(" ")
         if(!reason) reason = "No reason";
         if(!channel) return message.reply("Please mention a valid channel!")
-        if(channel.permissionsFor(channel.guildId, true).has("SEND_MESSAGES")) return message.reply('Channel is already locked!')
+        if(!channel.permissionsFor(channel.guildId, true).has("SEND_MESSAGES")) return message.reply('Channel is already locked!')
         let embed = new MessageEmbed()
         .setTitle("Channel Locked!")
         .setColor('#2F3136')

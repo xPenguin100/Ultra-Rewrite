@@ -10,7 +10,7 @@ module.exports = {
       let member = message.mentions.members.first() || message.member
       let author = message.mentions.users.first() || message.author
       let avatar = message.author.displayAvatarURL({size: 4096, dynamic: true});
-      const flags = {
+      const badges = {
         DISCORD_EMPLOYEE: 'Discord Employee',
         DISCORD_PARTNER: 'Discord Partner',
         BUGHUNTER_LEVEL_1: 'Bug Hunter (Level 1)',

@@ -105,7 +105,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
       }
   }
   if(reaction.emoji.name === '⭐') {
-      if(reaction.message.channel.name.toLowerCase() === 'starboard') return;
+      if(reaction.message.channel.name.toLowerCase() === '⭐┃starboard') return;
       if(reaction.message.partial) {
           await reaction.fetch();
           await reaction.message.fetch();

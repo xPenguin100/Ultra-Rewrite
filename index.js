@@ -87,7 +87,7 @@ client.on('messageCreate', async(message) => {
 })
 
 client.on('messageCreate', async message => {
-  if (message.content.toLowerCase().includes(badwords[i])) {
+  if (message.content.toLowerCase().includes(badwords)) {
     await message.delete();
     message.reply("no bad words");
   }

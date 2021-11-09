@@ -12,8 +12,8 @@ module.exports = {
         .setColor('NAVY')
         let m = message.reply({ embeds: [homeembed] })
         try {
-            await reactionMessage.react("⏪");
-            await reactionMessage.react("⏩");
+            await m.react("⏪");
+            await m.react("⏩");
           } catch (err) {
             message.reply("Error sending emojis!");
             throw err;

@@ -15,7 +15,7 @@ module.exports = {
             await reactionMessage.react("⏪");
             await reactionMessage.react("⏩");
           } catch (err) {
-            channel.send("Error sending emojis!");
+            message.reply("Error sending emojis!");
             throw err;
           }
 

@@ -26,7 +26,7 @@ module.exports = {
             VIEW_CHANNEL: true,
           });
           
-          channel.name.replace(/^🔒(|-)+/, "")
+          channel.name.replace("🔒-", " ")
 
            console.log(channel.name)
         await message.channel.send({ embeds: [embed] });

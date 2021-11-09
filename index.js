@@ -85,7 +85,7 @@ client.on('messageCreate', async(message) => {
     else AS[message.author.id] = {}, AS[message.author.id][message.guild.id] = 1
 })
 
-client.on('messageReactionAdd', async (reaction, user) => {
+client.on('messageReactionAdd', async (message, reaction, user) => {
   const handleStarboard = async () => {
       const SBChannel = message.guild.channels.cache.find(channel => channel.name.toLowerCase() === '⭐┃starboard');
       const msgs = await SBChannel.messages.fetch({ limit: 100 });

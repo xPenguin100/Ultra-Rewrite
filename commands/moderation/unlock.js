@@ -8,6 +8,10 @@ module.exports = {
         let reason = args.slice(1).join(" ")
         if(!reason) reason = "No reason";
         if(!channel) return message.reply("Please mention a valid channel!")
+        let alreadyunlockedembed = new MessageEmbed()
+        .setColor(`#2F3136`)
+        .setDescription(`❌ This channel is already unlocked!`)
+        if(channel.permissionsFor(channel.guildId, true).has("SEND_MESSAGES")) return message.reply({ embeds: [embed] })
         let embed = new MessageEmbed()
         .setTitle("Channel Unlocked!")
         .setColor('2F3136')

@@ -86,7 +86,7 @@ client.on('messageCreate', async(message) => {
     else AS[message.author.id] = {}, AS[message.author.id][message.guild.id] = 1
 })
 
-client.on('messageCreate', message => {
+client.on('messageCreate', async message => {
   if (message.content.toLowerCase().includes(badwords[i])) {
     await message.delete();
     message.reply("no bad words");

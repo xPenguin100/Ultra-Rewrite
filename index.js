@@ -33,7 +33,7 @@ client.on('messageCreate', async (message) => {
     message.content.toLowerCase().startsWith(prefix + 'purge') 
   ) {
     if (!message.member.permissions.has('MANAGE_MESSAGES'))
-      return message.channel.send("You can't use this command since you're missing the `manage_messages` permission.");
+      return message.channel.send("You can't use this command since you're missing the `MANAGE_MESSAGES` permission.");
     if (!message.guild.me.permissions.has('MANAGE_MESSAGES'))
       return message.channel.send("I can't execute this command! I am missing the `MANAGE_MESSAGES` permission!")
     if (!isNaN(message.content.split(' ')[1])) {

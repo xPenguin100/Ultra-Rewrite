@@ -10,7 +10,7 @@ module.exports = {
         .setTitle('Ultra Help')
         .setDescription('TEST')
         .setColor('NAVY')
-        let m = message.reply({ embeds: [homeembed] })
+        let m = message.reply({ embeds: [homeembed] }).then(m => {
         try {
             await m.react("⏪");
             await m.react("⏩");
@@ -18,7 +18,7 @@ module.exports = {
             message.reply("Error sending emojis!");
             throw err;
           }
-
+        })
         const page1 = new MessageEmbed()
         .setTitle('Utility')
         .setDescription('Test')

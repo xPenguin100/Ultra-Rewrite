@@ -20,7 +20,7 @@ module.exports = {
             }
         })
 
-        if (guild.name.includes("🔒 |")){
+        if (message.guild.name.includes("🔒 |")){
             string.replace("🔒 |", " ")
         }
         

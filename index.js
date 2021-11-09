@@ -9,6 +9,7 @@ const { Routes } = require('discord-api-types/v9');
 const ms =  require('ms')
 const mongoose = require('mongoose')
 const db = require('quick.db')
+const badwords = require('./badwords.json')
 
 fs.readdirSync('./commands/').forEach(dir => {
 
@@ -85,36 +86,15 @@ client.on('messageCreate', async(message) => {
     else AS[message.author.id] = {}, AS[message.author.id][message.guild.id] = 1
 })
 
-client.on('messageReactionAdd', async (reaction, user) => {
-  const handlerStarboard = async () => {
-    const SBchannel = client.channels.cache.find(c => c.name.toLowerCase() === ':star:┃starboard') || client.channels.cache.find(c => c.name.toLowerCase() === 'starboard');
-    if(!SBchannel) return reaction.message.channel.send("Please make a starboard channel!")
-    const msgs = await SBchannel.messages.fetch({ limit: 100 });
-    const sentMessage = msgs.find(msg =>
-    msg.embeds.length === 1 ?
-    (msg.embeds[0].footer.text.startsWith(reaction.message.id) ? true : false) : false);
-    if(sentMessage) sentMessage.edit(`${reaction.count} - ⭐`)
-    else {
-      const embed = new MessageEmbed()
-        .setAuthor(reaction.message.author.tag, reaction.message.author.displayAvatarURL({ dynamic: true }))
-        .setDescription(`**[Jump To The Message](${reaction.message.url})**\n\n${reaction.message.content}\n`)
-        .setColor("YELLOW")
-        .setTimestamp()
-        if(SBchannel) SBchannel.send({ embeds: [embed] });
-    }       
-}
-if(reaction.emoji.name === `⭐`) {
-  if(reaction.message.partial) {
-    await reaction.fetch();
-    await reaction.message.fetch();
-    handlerStarboard();
-  } else handlerStarboard();
+client.on('messageCreate', message => {
+  if (message.content.toLowerCase().includes(badwords[i])) {
+    await message.delete();
+    message.reply("no bad words");
   }
-})
-
+  })
 
 client.on('messageCreate', message => {
-  if (message.content.includes(`%nickname`)) {
+  if (message.content.includes(`?nickname`)) {
   if (!message.guild.me.permissions.has('MANAGE_NICKNAMES')) return message.channel.send('I don\'t have permission to change your nickname!');
   message.member.setNickname(message.content.replace('%nickname ', ''));
 }

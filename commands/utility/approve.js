@@ -12,7 +12,7 @@ module.exports = {
         if(!acceptreason) return message.reply('Please specify a reason for accepting this suggestion!')
 
         
-            let suggestedEmbed = await guild.messages.fetch(messageId);
+            let suggestedEmbed = await message.guild.messages.fetch(messageId);
             
             const data = suggestedEmbed.embed[0];
             const acceptedEmbed = new MessageEmbed()

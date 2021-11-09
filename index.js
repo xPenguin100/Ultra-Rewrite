@@ -86,13 +86,6 @@ client.on('messageCreate', async(message) => {
     else AS[message.author.id] = {}, AS[message.author.id][message.guild.id] = 1
 })
 
-client.on('messageCreate', async message => {
-  if (message.content.toLowerCase().includes(badwords)) {
-    await message.delete();
-    message.reply("no bad words");
-  }
-  })
-
 client.on('messageCreate', message => {
   if (message.content.includes(`?nickname`)) {
   if (!message.guild.me.permissions.has('MANAGE_NICKNAMES')) return message.channel.send('I don\'t have permission to change your nickname!');

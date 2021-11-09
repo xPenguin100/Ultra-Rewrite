@@ -104,7 +104,7 @@ client.on('messageReactionAdd', async (message, reaction, user) => {
           SBChannel.send({ embeds: [embed] });
       }
   }
-  if(reaction.emoji.name === '⭐') {
+  if(message.reaction.emoji.name === '⭐') {
       if(reaction.message.channel.name.toLowerCase() === '⭐┃starboard') return;
       if(reaction.message.partial) {
           await reaction.fetch();

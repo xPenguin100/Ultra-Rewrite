@@ -20,7 +20,7 @@ module.exports = {
             }
         })
 
-        message.guild.setName(`🔒 | ${guild.name}`)
+        message.guild.setName(`🔒 | ${message.guild.name}`)
         
         const embed = new MessageEmbed()
         .setColor('2F3136')

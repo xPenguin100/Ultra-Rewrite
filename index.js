@@ -87,13 +87,13 @@ client.on('messageCreate', async(message) => {
 
 client.on('messageReactionAdd', async (reaction, user) => {
   const handlerStarboard = async () => {
-    const SBchannel = client.channels.cache.find(c => c.name.toLowerCase() === '⭐┃starboard') || client.channels.cache.find(c => c.name.toLowerCase() === 'starboard');
+    const SBchannel = reaction.message.guild.channels.cache.find(c => c.name.toLowerCase() === ':star:┃starboard') || reaction.message.guild.channels.cache.find(c => c.name.toLowerCase() === 'starboard');
     if(!SBchannel) return reaction.message.channel.send("Please make a starboard channel!")
     const msgs = await SBchannel.messages.fetch({ limit: 100 });
     const sentMessage = msgs.find(msg =>
     msg.embeds.length === 1 ?
     (msg.embeds[0].footer.text.startsWith(reaction.message.id) ? true : false) : false);
-    if(sentMessage) sentMessage.edit(`${reaction.count} - ⭐`)
+    if(sentMessage) sentMessage.edit(`${reaction.count} - :star:`)
     else {
       const embed = new MessageEmbed()
         .setAuthor(reaction.message.author.tag, reaction.message.author.displayAvatarURL({ dynamic: true }))
@@ -101,9 +101,9 @@ client.on('messageReactionAdd', async (reaction, user) => {
         .setColor("YELLOW")
         .setTimestamp()
         if(SBchannel) SBchannel.send({ embeds: [embed] });
-    }       
+    }
 }
-if(reaction.emoji.name === `⭐`) {
+if(reaction.emoji.name === `:star:`) {
   if(reaction.message.partial) {
     await reaction.fetch();
     await reaction.message.fetch();

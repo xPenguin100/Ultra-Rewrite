@@ -5,6 +5,7 @@ module.exports = {
     description: 'Approves a suggestion!',
     async execute(client, message, args, discord) {
         if(!message.member.permissions.has("MANAGE_MESSAGES")) return;
+        let suggestionchannel = message.mentions.channels.first();
         const messageId = args[0];
         const acceptreason = args.slice(1).join(" ");
 
@@ -12,7 +13,6 @@ module.exports = {
         if(!acceptreason) return message.reply('Please specify a reason for accepting this suggestion!')
 
         
-            let suggestionchannel = message.mentions.channels.first();
             let suggestedEmbed = await suggestionchannel.messages.fetch(messageId);
             
             const data = suggestedEmbed.embed[0];

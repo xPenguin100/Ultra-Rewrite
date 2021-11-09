@@ -27,12 +27,6 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
-  const swearwords = ['swearword1','swearword2','swearword3','swearword4' , 'swearword5'];
-  if (message.content.includes(swearwords)) {
-  message.delete().catch(() => {});
-  message.channel.reply(`${message.author}, no swearing is allowed!`)
-  }
-
 client.on('messageCreate', async (message) => {
   if (
     message.content.toLowerCase().startsWith(prefix + 'clear') ||

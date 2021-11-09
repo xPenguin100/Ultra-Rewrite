@@ -5,6 +5,20 @@ module.exports = {
     name: 'helptest',
     description: 'Help',
     run: async(Client, message, args) => {
+
+        const homeembed = new MessageEmbed()
+        .setTitle('Ultra Help')
+        .setDescription('TEST')
+        .setColor('NAVY')
+        let m = message.reply({ embeds: [homeembed] })
+        try {
+            await reactionMessage.react("⏪");
+            await reactionMessage.react("⏩");
+          } catch (err) {
+            channel.send("Error sending emojis!");
+            throw err;
+          }
+
         const page1 = new MessageEmbed()
         .setTitle('Utility')
         .setDescription('Test')
@@ -22,6 +36,21 @@ module.exports = {
         const emoji = ['⏪', '⏩']
         const timeout = '100000'
 
-        pagination(message, pages, emoji, timeout)
+        const collector = reactionMessage.createReactionCollector((reaction, user));
+  
+        collector.on("collect", (reaction, user) => {
+          switch (reaction.emoji.name) {
+            case "⏪":
+              m.edit({ embeds: [page1] })
+              break;
+            case "⏩":
+              const deleteembed = new MessageEmbed()
+              .setColor(`#2F3136`)
+              .setDescription(`Deleting this channel in **5 seconds!**`)
+              message.reply({ embeds: [deleteembed] })
+              break;
+          }
+        });       
+
     }
 }

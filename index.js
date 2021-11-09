@@ -100,7 +100,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
         .setDescription(`**[Jump To The Message](${reaction.message.url})**\n\n${reaction.message.content}\n`)
         .setColor("YELLOW")
         .setTimestamp()
-        if(SBchannel) SBchannel.send(`1 - ⭐`, { embeds: [embed] });
+        if(SBchannel) SBchannel.send({ embeds: [embed] });
     }       
 }
 if(reaction.emoji.name === `⭐`) {

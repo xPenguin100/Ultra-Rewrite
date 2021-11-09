@@ -28,7 +28,7 @@ client.once('ready', () => {
 });
 
   const swearwords = ['swearword1','swearword2','swearword3','swearword4' , 'swearword5'];
-  if (swearwords.some(str => message.content.includes(str))) {
+  if (message.content.includes(swearwords)) {
   message.delete().catch(() => {});
   message.channel.reply(`${message.author}, no swearing is allowed!`)
   }

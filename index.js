@@ -87,7 +87,7 @@ client.on('messageCreate', async(message) => {
 
 client.on('messageReactionAdd', async (reaction, user) => {
   const handleStarboard = async () => {
-      const SBChannel = client.channels.cache.find(channel => channel.name.toLowerCase() === 'starboard', '⭐┃starboard');
+      const SBChannel = message.guild.channels.cache.find(channel => channel.name.toLowerCase() === 'starboard', '⭐┃starboard');
       const msgs = await SBChannel.messages.fetch({ limit: 100 });
       const SentMessage = msgs.find(msg => 
           msg.embeds.length === 1 ?

@@ -85,37 +85,6 @@ client.on('messageCreate', async(message) => {
     else AS[message.author.id] = {}, AS[message.author.id][message.guild.id] = 1
 })
 
-client.on('messageReactionAdd', async (message, reaction, user) => {
-  const handleStarboard = async () => {
-      const SBChannel = message.guild.channels.cache.find(channel => channel.name.toLowerCase() === '⭐┃starboard');
-      const msgs = await SBChannel.messages.fetch({ limit: 100 });
-      const SentMessage = msgs.find(msg => 
-          msg.embeds.length === 1 ?
-          (msg.embeds[0].footer.text.startsWith(reaction.message.id) ? true : false) : false);
-      if(SentMessage) SentMessage.edit(`${reaction.count} - ⭐`);
-      else {
-          const embed = new MessageEmbed()
-          .setAuthor(reaction.message.author.tag, reaction.message.author.displayAvatarURL())
-          .setDescription(`**[Jump to the message](${reaction.message.url})**\n\n${reaction.message.content}\n`)
-          .setColor('#2F3136')
-          .setFooter(reaction.message.id)
-          .setTimestamp();
-          if(SBChannel)
-          SBChannel.send({ embeds: [embed] });
-      }
-  }
-  if(message.reaction.emoji.name === '⭐') {
-      if(reaction.message.channel.name.toLowerCase() === '⭐┃starboard') return;
-      if(reaction.message.partial) {
-          await reaction.fetch();
-          await reaction.message.fetch();
-          handleStarboard();
-      }
-      else
-      handleStarboard();
-  }
-});
-
 client.on('messageCreate', message => {
   if (message.content.includes(`%nickname`)) {
   if (!message.guild.me.permissions.has('MANAGE_NICKNAMES')) return message.channel.send('I don\'t have permission to change your nickname!');

@@ -16,3 +16,34 @@ client.on("messageCreate", message => {
         let minutes = Math.floor(message.client.uptime / 60000) % 60;
         let seconds = Math.floor(message.client.uptime / 1000) % 60;
                     { name: 'Uptime', value: `${days}:${hours}:${minutes}:${seconds}`, inline: true},
+
+client.on('messageReactionAdd', async (message, reaction, user) => {
+  const handleStarboard = async () => {
+      const SBChannel = message.guild.channels.cache.find(channel => channel.name.toLowerCase() === '⭐┃starboard');
+      const msgs = await SBChannel.messages.fetch({ limit: 100 });
+      const SentMessage = msgs.find(msg => 
+          msg.embeds.length === 1 ?
+          (msg.embeds[0].footer.text.startsWith(reaction.message.id) ? true : false) : false);
+      if(SentMessage) SentMessage.edit(`${reaction.count} - ⭐`);
+      else {
+          const embed = new MessageEmbed()
+          .setAuthor(reaction.message.author.tag, reaction.message.author.displayAvatarURL())
+          .setDescription(`**[Jump to the message](${reaction.message.url})**\n\n${reaction.message.content}\n`)
+          .setColor('#2F3136')
+          .setFooter(reaction.message.id)
+          .setTimestamp();
+          if(SBChannel)
+          SBChannel.send({ embeds: [embed] });
+      }
+  }
+  if(message.reaction.emoji.name === '⭐') {
+      if(reaction.message.channel.name.toLowerCase() === '⭐┃starboard') return;
+      if(reaction.message.partial) {
+          await reaction.fetch();
+          await reaction.message.fetch();
+          handleStarboard();
+      }
+      else
+      handleStarboard();
+  }
+});

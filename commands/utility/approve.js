@@ -7,12 +7,12 @@ module.exports = {
         if(!message.member.permissions.has("MANAGE_MESSAGES")) return;
         const messageId = args[0];
         const acceptreason = args.slice(1).join(" ");
+        let suggestedEmbed = await message.guild.messages.fetch(messageId);
 
         if(!messageId) return message.reply("Please specify a valid message ID!")
         if(!acceptreason) return message.reply('Please specify a reason for accepting this suggestion!')
 
         
-            let suggestedEmbed = await message.guild.messages.fetch(messageId);
             
             const data = suggestedEmbed.embed[0];
             const acceptedEmbed = new MessageEmbed()

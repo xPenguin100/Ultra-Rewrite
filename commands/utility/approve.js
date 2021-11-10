@@ -25,7 +25,7 @@ module.exports = {
             suggestedEmbed.edit({ embeds: [acceptedEmbed] })
 
             const user = await client.users.cache.find((u) => u.tag === data.author.name)
-            user.dm(`Your suggestion has been approved in ${message.guild.name}!`);
+            user.send(`Your suggestion has been approved in ${message.guild.name}!`);
     }
 
     }

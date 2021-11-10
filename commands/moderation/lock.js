@@ -19,11 +19,9 @@ module.exports = {
         .setTimestamp()
         channel.permissionOverwrites.edit(message.guild.id, {
             SEND_MESSAGES: false,
-            VIEW_CHANNEL: false,
           });
           channel.permissionOverwrites.edit(message.author, {
             SEND_MESSAGES: true,
-            VIEW_CHANNEL: true,
           });
 
 

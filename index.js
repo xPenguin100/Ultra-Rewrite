@@ -552,16 +552,6 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-if (command === 'approve') {
-  client.commands.get('approve').execute(client, message, args, Discord);
-  }
-});
-
-client.on('messageCreate', message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-  const args = message.content.slice(prefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
 if (command === 'rps') {
   client.commands.get('rps').run(client, message, args);
   }

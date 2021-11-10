@@ -4,7 +4,7 @@ const pagination = require('discord.js-pagination')
 module.exports = {
     name: 'helptest',
     description: 'Help',
-    async run(Client, message, args){
+    run: async(Client, message, args) => {
 
         const homeembed = new MessageEmbed()
         .setTitle('Ultra Help')

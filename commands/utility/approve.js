@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
     name: 'approve',
     description: 'Approves a suggestion!',
-    async execute(client, message, args, discord) {
+    run: async(client, message, args, discord) => {
         if(!message.member.permissions.has("MANAGE_MESSAGES")) return;
         const messageId = args[0];
         const acceptreason = args.slice(1).join(" ");

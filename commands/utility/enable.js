@@ -4,7 +4,7 @@ module.exports = {
     execute(message) {
         const embed = new MessageEmbed()
         .setColor('#2F3136')
-        .setDescription('❌ Command is down for maintenance.')
+        .setDescription('🤫 This command is being worked on...')
 
         message.reply({ embeds: [embed] })
     }

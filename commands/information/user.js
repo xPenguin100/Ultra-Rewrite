@@ -7,6 +7,7 @@ module.exports = {
     execute(message, args) {
 
       let user = message.mentions.users.first() 
+      let author = message.mentions.users.first() || message.author
       let member = message.mentions.members.first() || message.member
       let author = message.mentions.users.first() || message.author
       let avatar = message.author.displayAvatarURL({size: 4096, dynamic: true});
@@ -26,7 +27,7 @@ module.exports = {
         VERIFIED_DEVELOPER: 'Verified Bot Developer'
     };
 
-      if(!user) return message.reply(`❌ The user either doesn't exist or you never gave a user!`)
+      if(!user) user = message.author 
 
       let embed = new MessageEmbed()
       .setAuthor(user.tag, user.displayAvatarURL({ dynamic: true}))

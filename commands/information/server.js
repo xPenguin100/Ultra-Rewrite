@@ -12,8 +12,8 @@ module.exports = {
       let avatar = author.displayAvatarURL({size: 4096, dynamic: true});
   
       let serverembed = new MessageEmbed()
-    .setAuthor(message.guild.name, message.guild.iconURL)
-    .setThumbnail(message.guild.iconURL)
+    .setAuthor(message.guild.name, message.guild.iconURL())
+    .setThumbnail(message.guild.iconURL())
     .addFields(
       { name: 'Name', value: (`${message.guild.name} (\`${message.guild.id}\`)`), inline: true},
       { name: 'Owner', value: `<@${message.guild.ownerId}> (\`${message.guild.ownerId}\`)`},

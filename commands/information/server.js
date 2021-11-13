@@ -13,7 +13,7 @@ module.exports = {
   
       let serverembed = new MessageEmbed()
     .setAuthor(message.guild.name, message.guild.iconURL)
-    .setThumbnail(message.guild.icon)
+    .setThumbnail(message.guild.iconURL)
     .addFields(
       { name: 'Name', value: (`${message.guild.name} (\`${message.guild.id}\`)`), inline: true},
       { name: 'Owner', value: `<@${message.guild.ownerId}> (\`${message.guild.ownerId}\`)`},

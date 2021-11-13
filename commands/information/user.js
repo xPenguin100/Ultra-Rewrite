@@ -7,7 +7,6 @@ module.exports = {
     execute(message, args) {
 
       let user = message.mentions.users.first() 
-      let author = message.mentions.users.first() || message.author
       let member = message.mentions.members.first() || message.member
       let author = message.mentions.users.first() || message.author
       let avatar = message.author.displayAvatarURL({size: 4096, dynamic: true});

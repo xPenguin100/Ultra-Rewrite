@@ -14,7 +14,7 @@ module.exports = {
         let timeperiod = args[2]
         if(!timeperiod) return message.reply('How long should this user be banned for? \`?tempban <@user> <reason> <time>\`')
 
-        await member.ban()
+        member.ban();
         const banembed = new MessageEmbed()
         .setTitle('🔨 User Temp-Banned!')
         .setDescription(`${member} has been temp-banned!\n**Reason:** ${reason}\n**Time:** ${timeperiod}\n**Moderator:** ${message.author}`)

@@ -14,7 +14,7 @@ module.exports = {
         let embed = new MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
         .setTitle('🔔Help Panel')
-        .setDescription(`Hello ${author.tag}, below is the current up to date commands on this bot.`)
+        .setDescription(`Hello ${author.tag}, below are the latest and up-to-date commands for this bot.`)
         .addFields(
           { name: '📋 Information', value: '\`?bot\`, \`?channelinfo\`, \`?help\`, \`?invite\`, \`?membercount\`, \`?ping\`, \`?roleinfo\`, \`?server\`, \`?user\`, \`?vote\`'},
           { name: '🔧 Utility', value: ("\`?appreciate\`, \`?appreciations\`, \`?avatar\`, \`?feedback\`, \`?remind\`, \`?report\`, \`?reportbug\`, \`?suggest\`, \`?ticket\`")},

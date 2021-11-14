@@ -35,7 +35,7 @@ module.exports = {
             const denyembed = new MessageEmbed()
             .setColor(`#2F3136`)
             .setDescription(`Majority of staff voted no, so ${target} will not have their perms revoked.`)
-            channel.send({ embeds: [denyembed] });
+            message.reply({ embeds: [denyembed] });
             break;
         }
       });

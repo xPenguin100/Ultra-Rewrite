@@ -15,7 +15,7 @@ module.exports = {
         .setTitle('👢 Staff Kick Vote')
         .setDescription(`${target} has been chosen to be kicked from the staff team. Do all staff members accept this choice?`)
         .setColor('#2F3136')
-        let sv = message.reply({ embeds: [embed] })
+        let sv = message.reply({ embeds: [staffvote] })
 
         try {
             await sv.react('👍');

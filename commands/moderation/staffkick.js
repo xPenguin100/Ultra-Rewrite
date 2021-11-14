@@ -15,9 +15,14 @@ module.exports = {
         .setTitle('👢 Staff Kick Vote')
         .setDescription(`${target} has been chosen to be kicked from the staff team. Do all staff members accept this choice?`)
         .setColor('#2F3136')
-        let sv = message.reply({ embeds: [staffvote] })
-            await sv.react("👍")
-            await sv.react('👎')
+        const staffvotemessage = await message.reply({ embeds: [staffvote] })
+        try {
+            await staffvotemessage.react("👍");
+            await staffvotemessage.react("👎");
+          } catch (err) {
+            channel.send("Error sending emojis!");
+            throw err;
+          }
           
       const collector = reactionMessage.createReactionCollector((reaction, user) => message.guild.members.cache.find((member) => member.id === user.id).permissions.has("ADMINISTRATOR"),{ dispose: true, time: 15000 });
   

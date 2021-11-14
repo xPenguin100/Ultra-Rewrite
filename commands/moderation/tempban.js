@@ -5,7 +5,7 @@ module.exports = {
     name: 'tempban',
     description: 'A command to temporarily ban a user',
     run: async(message, args) => {
-        let memberTarget = message.guild.members.cache.get(memberTarget.id);
+        let memberTarget = message.mentions.users.first();
         if(!memberTarget) return message.reply('You did not specify a user to temp-ban!')
 
         let reason = args.slice(1).join(" ")
@@ -23,7 +23,7 @@ module.exports = {
 
         setTimeout(async () => {
             await message.guild.members.unban(memberTarget)
-            message.channel.send(`${memberTarget} has been unbanned!\n`)
+            message.channel.send(`${memberTarget} has been unbanned!`)
         }, ms(time))
     }
 }

@@ -10,7 +10,7 @@ module.exports = {
       let member = message.mentions.members.first() || message.member
       let author = message.mentions.users.first() || message.author
       let avatar = message.author.displayAvatarURL({size: 4096, dynamic: true});
-      let permissions = member.roles.cache.map((r) => r).join(", ")
+      let permissions = member.permissions.cache.map((r) => r).join(", ")
       const perms = {
         CREATE_INSTANT_INVITE: 'Create Invite', 
         KICK_MEMBERS: 'Kick Members', 

@@ -7,7 +7,7 @@ module.exports = {
 
 
         let author = message.mentions.users.first() || message.author;
-        let avatar = user.displayAvatarURL({size: 4096, dynamic: true});
+        let avatar = author.displayAvatarURL({size: 4096, dynamic: true});
 
 
     

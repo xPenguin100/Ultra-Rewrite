@@ -13,6 +13,7 @@ client.on("messageCreate", message => {
       message.author.displayAvatarURL({ dynamic: true})
       member.displayName
       user.bot
+      [text](url 'hover text')
 
         let days = Math.floor(message.client.uptime / 86400000);
         let hours = Math.floor(message.client.uptime / 3600000) % 24;

@@ -36,7 +36,7 @@ module.exports = {
         { name: 'Joined Discord', value: (`${moment.utc(user.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
       )  
       .addField(`Roles [${member.roles.cache.size}]`, member.roles.cache.map((r) => r).join(", "), false)  
-      .addField(`Permissions`, `${message.member.permissions.toArray((r) => r).join(", ")}`)
+      .addField(`Permissions`, `\```${message.member.permissions.toArray((r) => r).join(", ")}\````)
       .addField("Badges", `\`${flags.length ? flags.map(flag => flags[flag]).join(', ') : 'None'}\``,true)
       .addField(`Nickname`, `${member.displayName}`)
       .addField(`Bot`, `${user.bot}`)

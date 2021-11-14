@@ -5,6 +5,10 @@ module.exports = {
     name: 'tempban',
     description: 'A command to temporarily ban a user',
     run: async(message, args) => {
+        if(!message.author.permissions.has("BAN_MEMBERS")) return message.reply('You cannot ban members! You are missing the \`BAN_MEMBERS\` permission.')
+        if(!message.guild.me.permissions.has("BAN_MEMBERS")) return message.reply(`I cannot ban members! I am missing the \`BAN_MEMBERS\` permission.`)
+        let target = message.mentions.users.first()
+        if(!target) return message.reply('You did not specify a user to temp-ban!')
         let memberTarget = message.mentions.users.first();
         if(!memberTarget) return message.reply('You did not specify a user to temp-ban!')
 
@@ -14,6 +18,7 @@ module.exports = {
         let timeperiod = args[2]
         if(!timeperiod) return message.reply('How long should this user be banned for? \`?tempban <@user> <reason> <time>\`')
 
+        let memberTarget = message.guild.members.cache.get(target.id);
         memberTarget.ban();
         const banembed = new MessageEmbed()
         .setTitle('🔨 User Temp-Banned!')

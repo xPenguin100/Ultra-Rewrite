@@ -3,7 +3,27 @@ module.exports = {
     description: 'Attempt to unscramble the given scrambled word',
 
     execute : async(client, message, args, Discord) => {
-        let words = ['elephant', 'tiger', 'tyranosaurus rex', 'one', 'ten', 'pie', 'DISCORD', 'ultra', 'ChessInsanity'];
+        let words = [
+            'programming', 
+            'elephant', 
+            'tiger', 
+            'tyranosaurus rex', 
+            'one', 
+            'ten', 
+            'pie', 
+            'DISCORD', 
+            'ultra', 
+            'ChessInsanity', 
+            'PenguinCraft', 
+            'Discord', 
+            'YouTube', 
+            'twitter', 
+            'package',
+            'mail',
+            'helpful',
+            'school',
+            'naughty'
+         ];
         let word = words[parseInt(Math.random() * words.length)];
 
         let scrambled = word.split('');
@@ -22,7 +42,7 @@ module.exports = {
             if(msg.content.toLowerCase() == word.toLowerCase()) return message.channel.send(`That's correct! Good job!`);
             else return message.channel.send(`That's incorrect. Better luck next time :/`);
         });
-        
+
         collector.on('end', async(collected) => {
             if(collected.size == 0) message.channel.send(`You timed out! Respond quicker next time.`);
         });

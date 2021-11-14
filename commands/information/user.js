@@ -78,8 +78,6 @@ module.exports = {
       .addField(`Roles [${member.roles.cache.size}]`, member.roles.cache.map((r) => r).join(", "), false)  
       .addField(`Permissions`, `\`${permissions}\``)
       .addField("Badges", `\`${flags.length ? flags.map(flag => flags[flag]).join(', ') : 'None'}\``,true)
-      .addField(`Nickname`, `${member.displayName}`)
-      .addField(`Bot`, `${user.bot}`)
       .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true}))
       .setTimestamp()
       //.setDescription('❌ Command is down for maintenance.')

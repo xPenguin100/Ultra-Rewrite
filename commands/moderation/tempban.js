@@ -27,6 +27,6 @@ module.exports = {
         setTimeout(async () => {
             await message.guild.members.unban(memberTarget)
             message.channel.send(`${memberTarget} has been unbanned!`)
-        }, ms(time))
+        }, ms(timeperiod))
     }
 }

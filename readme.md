@@ -8,6 +8,8 @@ client.on("messageCreate", message => {
   };
 });
 
+ws: {properties: {$browser: 'Discord iOS'}}
+
       if(user.id === message.guild.ownerId) - Checks if you used owners id in mention or something else
       if(appreciations === 3) - If the variable = 3, return an argument
       message.author.displayAvatarURL({ dynamic: true})

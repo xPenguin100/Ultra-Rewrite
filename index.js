@@ -1,6 +1,6 @@
 const { emitter, message, Client, MessageSelectMenu, MessageActionRow, interation, MessageButton, MessageEmbed, Intents, Collection, Discord, discord, cmd, ButtonInteraction } = require('discord.js');
 const { token, prefix } = require('./config.json');
-const client = new Client({ intents: 32767, ws: {properties: {$browser: 'Discord iOS'}} });
+const client = new Client({ intents: 32767 });
 const fs = require ('fs');
 client.commands = new Collection();
 client.setMaxListeners(100)

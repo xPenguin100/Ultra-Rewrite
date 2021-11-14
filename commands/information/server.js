@@ -24,7 +24,7 @@ module.exports = {
     )
     .addField(`Roles [${message.guild.roles.cache.size}]`, message.guild.roles.cache.map((r) => r).join(" "), false) 
     .addField(`Emojis [${message.guild.emojis.cache.size}]`, message.guild.emojis.cache.map((r) => r).join(" "), false) 
-    .setFooter(`Requested By: ${message.author.tag} ${message.author.avatar}`)
+    .setFooter(`Requested By:` + message.author.tag, message.author.displayAvatarURL({ dynamic: true}))
     .setTimestamp()
     .setColor('#2F3136')
     //.setDescription('❌ Command is down for maintenance.')

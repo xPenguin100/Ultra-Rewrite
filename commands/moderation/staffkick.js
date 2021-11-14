@@ -7,6 +7,8 @@ module.exports = {
         if(!message.guild.me.permissions.has("MANAGE_ROLES")) return message.reply("I cannot execute this! I am missing the \`MANAGE_ROLES\` permission.")
         let target = message.mentions.users.first()
         if(!target) return message.reply('Please specify whose perms you would like to vote on revoking!')
+        if(target.id === message.guild.ownerId) return message.reply('You cannot kick the owner of this server from the staff team!')
+        if(message.guild.me.roles.highest.position < target.roles.highest.position) return message.reply('You mentioned a user that has a higher role than me.')
 
         let reason = args.slice(1).join(" ")
         if(!reason) reason = 'No reason'

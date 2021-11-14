@@ -165,8 +165,8 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-if (command === 'staffkick') {
-  client.commands.get('staffkick').run(client, message, args);
+if (command === 'staffkick-beta') {
+  client.commands.get('staffkick-beta').run(client, message, args);
   }
 });
 

@@ -76,8 +76,8 @@ module.exports = {
         { name: 'Joined Discord', value: (`${moment.utc(user.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
       )  
       .addField(`Roles [${member.roles.cache.size}]`, member.roles.cache.map((r) => r).join(", "), false)  
-      .addField(`Permissions`, `\`${permissions}\``)
       .addField("Badges", `\`${flags.length ? flags.map(flag => flags[flag]).join(', ') : 'None'}\``,true)
+      .addField(`Permissions`, `\`${permissions}\``)
       .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true}))
       .setTimestamp()
       //.setDescription('❌ Command is down for maintenance.')

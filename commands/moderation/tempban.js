@@ -5,7 +5,7 @@ module.exports = {
     name: 'tempban',
     description: 'A command to temporarily ban a user',
     run: async(message, args) => {
-        if(!message.author.permissions.has("BAN_MEMBERS")) return message.reply('You cannot ban members! You are missing the \`BAN_MEMBERS\` permission.')
+        if(!message.member.permissions.has("BAN_MEMBERS")) return message.reply('You cannot ban members! You are missing the \`BAN_MEMBERS\` permission.')
         if(!message.guild.me.permissions.has("BAN_MEMBERS")) return message.reply(`I cannot ban members! I am missing the \`BAN_MEMBERS\` permission.`)
         let target = message.mentions.users.first()
         if(!target) return message.reply('You did not specify a user to temp-ban!')

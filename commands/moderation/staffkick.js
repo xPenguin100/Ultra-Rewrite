@@ -16,15 +16,8 @@ module.exports = {
         .setDescription(`${target} has been chosen to be kicked from the staff team. Do all staff members accept this choice?`)
         .setColor('#2F3136')
         let sv = message.reply({ embeds: [staffvote] })
-
-        try {
-            await sv.react('👍');
-            await sv.react("👎");
-        } catch (err) {
-            message.reply('Error sending emojis!');
-            throw err;
-        }
-
+            await sv.react("👍")
+            await sv.react('👎')
           
       const collector = reactionMessage.createReactionCollector((reaction, user) => message.guild.members.cache.find((member) => member.id === user.id).permissions.has("ADMINISTRATOR"),{ dispose: true, time: 15000 });
   

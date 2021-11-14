@@ -19,7 +19,7 @@ module.exports = {
         .setTitle('🔨 User Temp-Banned!')
         .setDescription(`${member} has been temp-banned!\n**Reason:** ${reason}\n**Time:** ${timeperiod}\n**Moderator:** ${message.author}`)
         .setColor('#2F3136')
-        message.reply({ embeds: [embed] })
+        message.reply({ embeds: [banembed] })
 
         setTimeout(async () => {
             await message.guild.members.unban(member)

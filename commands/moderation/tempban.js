@@ -9,8 +9,6 @@ module.exports = {
         if(!message.guild.me.permissions.has("BAN_MEMBERS")) return message.reply(`I cannot ban members! I am missing the \`BAN_MEMBERS\` permission.`)
         let target = message.mentions.users.first()
         if(!target) return message.reply('You did not specify a user to temp-ban!')
-        let memberTarget = message.mentions.users.first();
-        if(!memberTarget) return message.reply('You did not specify a user to temp-ban!')
 
         let reason = args.slice(1).join(" ")
         if(!reason) reason = 'No reason'

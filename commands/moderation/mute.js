@@ -23,7 +23,7 @@ module.exports = {
         )
         .setColor('#2F3136')
         .setTimestamp()
-        guild.permissionOverwrites.edit(user.id, {
+        message.guild.permissionOverwrites.edit(user.id, {
             SEND_MESSAGES: false,
         })
 

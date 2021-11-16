@@ -156,7 +156,7 @@ client.on('messageCreate', message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
 if (command === 'mute') {
-  client.commands.get('mute').run(client, message, args);
+  client.commands.get('mute').run(message, args);
   }
 });
 

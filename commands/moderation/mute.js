@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js")
 module.exports = {
     name: 'mute',
     description: 'Mutes a member',
-    run: async(client, message, args)  => {
+    run: async(message, args)  => {
         let user = message.mentions.users.first()
         if(!user) return message.reply('I cannot mute when you have not mentioned anyone.')
 

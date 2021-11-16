@@ -15,7 +15,6 @@ module.exports = {
     .setAuthor(message.guild.name, message.guild.iconURL())
     .setThumbnail(message.guild.iconURL())
     .addFields(
-      { name: 'Name', value: (`${message.guild.name} (\`${message.guild.id}\`)`), inline: true},
       { name: 'Owner', value: `<@${message.guild.ownerId}> (\`${message.guild.ownerId}\`)`},
       { name: 'Created On', value: (`${moment.utc(message.guild.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
       { name: `Boost Count [\`${message.guild.premiumSubscriptionCount}\`]`, value: `\`${message.guild.premiumTier}\``, inline: true},

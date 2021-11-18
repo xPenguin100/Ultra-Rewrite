@@ -9,6 +9,7 @@ const { Routes } = require('discord-api-types/v9');
 const ms =  require('ms')
 const mongoose = require('mongoose')
 const db = require('quick.db')
+const { Penguin, replace, wikipedia } = require('penguinpackage')
 
 fs.readdirSync('./commands/').forEach(dir => {
 

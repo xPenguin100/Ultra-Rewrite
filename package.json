@@ -12,7 +12,6 @@
     "@discordjs/rest": "^0.1.0-canary.0",
     "axios": "^0.21.4",
     "discord.js": "^13.0.1",
-    "discord.js-pagination": "^1.0.3",
     "moment": "^2.29.1",
     "mongoose": "^6.0.12",
     "ms": "^2.1.3",

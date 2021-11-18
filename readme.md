@@ -15,7 +15,8 @@ ws: {properties: {$browser: 'Discord iOS'}}
       message.author.displayAvatarURL({ dynamic: true})
       member.displayName
       user.bot
-      [text](url 'hover text')
+      [text](url 'hover text') - Hover text in url text
+      [text](url) - Url in text
 
         let days = Math.floor(message.client.uptime / 86400000);
         let hours = Math.floor(message.client.uptime / 3600000) % 24;

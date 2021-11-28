@@ -25,17 +25,17 @@ module.exports = {
             .setColor('#2F3136')
             .setTitle(`Appreciated in ${message.guild.name}`)
             .addFields(
-                { name: 'User', value: `${message.author}`},
-                { name: 'Reason', value: `${reason}`},
+                { name: 'Appreciator', value: `${message.author}`},
+                { name: 'Appreciated For', value: `${reason}`},
             )
             user.send({ embeds: [appreciatedm] })
             const appreciationsuccess = new MessageEmbed()
             .setTitle('User Appreciated! You have a kind soul.')
             .setColor('#2F3136')
             .addFields(
-                { name: 'User', value: `${message.author}`},
+                { name: 'Appreciator', value: `${message.author}`},
                 { name: 'User Appreciated', value: `${user}`},
-                { name: 'Reason', value: `${reason}`},
+                { name: 'Appreciated For', value: `${reason}`},
             )
             await message.reply({ embeds: [appreciationsuccess] })
           }

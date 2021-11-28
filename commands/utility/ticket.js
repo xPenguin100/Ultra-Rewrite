@@ -51,8 +51,7 @@ module.exports = {
       .setColor(`2F3136`)
       .setDescription(`We will be right with you! ${channel}`)
 
-      message.reply
-        .send({ embeds: [preticketmessage] })
+      message.reply({ embeds: [preticketmessage] })
         .then((msg) => {
           setTimeout(() => msg.delete(), 7000);
           setTimeout(() => message.delete(), 3000);

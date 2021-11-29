@@ -21,7 +21,7 @@ module.exports = {
         await msgEmbed.react('✅') //👎👍
         await msgEmbed.react('❌')
         const replyembed = new MessageEmbed()
-        .setDescription(`✅ Successfully sent your suggestion to ${channelID}.\n${msgEmbed.url}`)
+        .setDescription(`✅ Successfully sent your suggestion to ${channelID}.\n[Click Here to view Suggestion](${msgEmbed.url})`)
         .setColor('#2F3136')
         message.reply({ embeds: [replyembed] })
     }

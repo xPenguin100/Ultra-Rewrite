@@ -675,7 +675,7 @@ message.channel.send("I have set the slowmode in this channel to " + duration + 
 
       client.on('messageCreate', message => {
 	    if (message.content === `ping`) {
-	  	message.reply(`${client.ws.ping}`);
+	  	message.reply(`Ping: ${client.ws.ping}\nAPI Ping: ${Math.round(client.ws.ping)}ms`);
 	    } else if (message.content === `beep`) {
 		message.channel.send('Boop.');
 	    } else if (message.content === `?cosmicinfo`) {

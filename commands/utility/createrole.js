@@ -24,8 +24,9 @@ module.exports = {
         .addFields(
             { name: 'Name:', value: `${name}`},
             { name: 'Color:', value: `${color}`},
+            { name: 'Creator:', value: `${message.author}`},
         )
-        .setFooter(`Role Created By: ${message.author}`)
+        .setFooter(`Time Created`)
         .setTimestamp()
         message.reply({ embeds: [embed] })
     }

@@ -154,6 +154,17 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
+if (command === 'createrole') {
+  client.commands.get('createrole').run(message, args);
+  }
+});
+
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
 if (command === 'mute') {
   client.commands.get('mute').run(message, args);
   }

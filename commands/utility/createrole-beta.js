@@ -1,7 +1,7 @@
 const { MessageEmbed } = require("discord.js")
 
 module.exports = {
-    name: 'createrole',
+    name: 'createrole-beta',
     description: 'Creates a role with the arguments given',
     run: async(message, args) => {
         if(!message.member.permissions.has("MANAGE_ROLES")) return message.reply('You do not have enough permissions to execute this command!')

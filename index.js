@@ -154,8 +154,8 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-if (command === 'createrole') {
-  client.commands.get('createrole').run(message, args);
+if (command === 'createrole-beta') {
+  client.commands.get('createrole-beta').run(message, args);
   }
 });
 

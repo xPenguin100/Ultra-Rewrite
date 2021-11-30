@@ -4,7 +4,7 @@ module.exports = {
     name: 'createrole',
     description: 'Creates a role with the arguments given',
     run: async(message, args) => {
-        if(!message.author.permissions.has("MANAGE_ROLES")) return message.reply('You do not have enough permissions to execute this command!')
+        if(!message.member.permissions.has("MANAGE_ROLES")) return message.reply('You do not have enough permissions to execute this command!')
         let name = args.slice(1).join(" ")
         if(!name) return message.reply('Name is not specified! Please give a valid name for this role.')
         let color = args[2]

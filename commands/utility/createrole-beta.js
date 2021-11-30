@@ -9,7 +9,6 @@ module.exports = {
         if(!name) return message.reply('Name is not specified! Please give a valid name for this role.')
         let color = args[2]
         if(!color) color = '#99AAB5'
-        console.log(name)
 
         message.guild.roles.create({
             data: {

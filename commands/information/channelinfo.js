@@ -8,8 +8,8 @@ module.exports = {
   
   
       const author = message.mentions.users.first() || message.author
-      const channel = message.mentions.channels.first() ?? message.channel
-      if(!channel) channel = message.channel
+      const channel = message.mentions.channels.first() //?? message.channel
+      if(!channel) message.reply('Please mention a channel!') //can also do channel = message.channel
       const member = message.mentions.members.first() || message.member
  
       let embed = new MessageEmbed()

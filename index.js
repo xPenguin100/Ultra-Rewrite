@@ -22,7 +22,7 @@ fs.readdirSync('./commands/').forEach(dir => {
   })
 
 client.once('ready', () => {
-  client.user.setActivity(`dsc.gg/ultraa | ?help | ${client.guilds.cache.size} servers`, { type: 'WATCHING' });
+  client.user.setActivity(`dsc.gg/ultraa | ?help`, { type: 'WATCHING' });
 	console.log('Ready!');
 });
 

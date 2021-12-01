@@ -16,7 +16,7 @@ module.exports = {
       .setDescription(`#️⃣ **${channel.name}**\n**ID:** \`${channel.id}\`\n**Type:** \`${channel.type}\`\n**Created On:** ${moment.utc(channel.createdAt).format('MMMM Do YYYY, h:mm:ss a')}\n**Topic:** ${channel.topic !== null ? `${channel.topic}` : 'No topic found'}`)
       .setFooter(`Requested By: ` + message.author.tag, message.author.displayAvatarURL({ dynamic: true}))
       .setTimestamp()
-      .setDescription('❌ Command Down for Maintenance!')
+      //.setDescription('❌ Command Down for Maintenance!')
       .setColor('#2F3136')
       message.channel.send({ embeds: [embed] });
     }

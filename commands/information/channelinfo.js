@@ -8,7 +8,7 @@ module.exports = {
   
   
       const author = message.mentions.users.first() || message.author
-      const channel = message.mentions.channels.first()
+      const channel = message.mentions.channels.first() ?? message.channel
       if(!channel) channel = message.channel
       const member = message.mentions.members.first() || message.member
  

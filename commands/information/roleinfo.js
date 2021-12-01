@@ -9,6 +9,7 @@ module.exports = {
   
       let author = message.mentions.users.first() || message.author
       let role = message.mentions.roles.first()
+      if(!role) return message.reply('Please mention a role!')
       let member = message.mentions.members.first() || message.member
  
       const embed = new MessageEmbed()

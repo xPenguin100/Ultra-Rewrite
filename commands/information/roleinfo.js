@@ -7,9 +7,9 @@ module.exports = {
     execute(message, args) {
   
   
-      const author = message.mentions.users.first() || message.author
-      const role = message.mentions.roles.first()
-      const member = message.mentions.members.first() || message.member
+      let author = message.mentions.users.first() || message.author
+      let role = message.mentions.roles.first()
+      let member = message.mentions.members.first() || message.member
  
       const embed = new MessageEmbed()
     .setDescription(`🏷 **${role.name}**\n**ID:** ${role.id}\n**Type:** ${role.hexColor}\n**Created On:** ${moment.utc(role.createdAt).format('MMMM Do YYYY, h:mm:ss a')}\n**❓ Other**\n**Hoisted:** ${role.hoist}\n**Mentionable:** ${role.mentionable}\n**Managed:** ${role.managed}`)

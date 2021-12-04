@@ -30,7 +30,7 @@ module.exports = {
         gchannel.send("🎉**NEW GIVEAWAY!**🎉")
 
         const embed = new MessageEmbed()
-        .setDescription(`**Prize:** ${prize}\n**Duration:** ${time}\n**Claimtime:** ${claimtime}\n**Host:** ${message.author}`)
+        .setDescription(`**Prize:** ${prize}\n**Duration:** ${time}\n**Host:** ${message.author}`)
         .setTimestamp(Date.now + ms(args[1]))
         .setColor('#2F3136')
         let n = await gchannel.send({ embeds: [embed] })

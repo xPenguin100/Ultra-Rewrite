@@ -30,7 +30,6 @@ module.exports = {
         gchannel.send("🎉**NEW GIVEAWAY!**🎉")
 
         const embed = new MessageEmbed()
-        .setTitle("🎉NEW GIVEAWAY!🎉")
         .setDescription(`**Prize:** ${prize}\n**Duration:** ${time}\n**Host:** ${message.author}`)
         .setTimestamp(Date.now + ms(args[1]))
         .setColor('#2F3136')
@@ -40,11 +39,10 @@ module.exports = {
             if(n.reactions.cache.get("🎉").count <= 1) {
                 return message.channel.send("Not enough people for me to draw a winner!")
             }
+
             let winner = n.reactions.cache.get("🎉").users.cache.filter((u) => !u.bot).random();
-            const winnerembed = new MessageEmbed()
-            .setColor("#2F3136")
-            .setDescription(`🎉 **${winner.user.tag}** won ${prize}. Congratulations!`)
-            gchannel.send({ embeds: [winnerembed] })
-        }, ms(args[1]))
+            message.reply(`Congratulations ${winner}! You just won the **${prize}**!`
+            );
+        }, ms(args[1]));
     }, 
 }

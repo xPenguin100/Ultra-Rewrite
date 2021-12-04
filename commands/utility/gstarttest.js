@@ -37,14 +37,18 @@ module.exports = {
         n.react("🎉")
         setTimeout(async () => {
            // if(n.reactions.cache.get("🎉").count <= 1) {
-               let reaction_t = await n.reactions.cache.get("🎉").fetch()
-            if(reaction_t.count <= 1) {
-                return message.channel.send("Not enough people for me to draw a winner!")
-            }
+              // let reaction_t = await n.reactions.cache.get("🎉").fetch()
+            //if(reaction_t.count <= 1) {
+               // return message.channel.send("Not enough people for me to draw a winner!")
+            //}
 
-            let winner = n.reactions.cache.get("🎉").users.cache.filter((u) => !u.bot).random();
-            message.reply(`Congratulations ${winner}! You just won the **${prize}**!`
-            );
+            const collector = new ReactionCollector(message, { time: time })
+
+            collector.on("end", collected => {
+  if(collected.count <= 1) return message.reply('Not enough people for me to draw a winner!')
+  let winner = n.reactions.cache.get("🎉").users.cache.filter((u) => !u.bot).random();
+  message.reply(`Congratulations ${winner}! You just won the **${prize}**!`);
+            })
         }, ms(args[1]));
     }, 
 }

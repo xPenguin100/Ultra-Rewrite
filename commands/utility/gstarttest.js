@@ -23,7 +23,7 @@ module.exports = {
         )
             return message.channel.send('You need to use d (days), h (hours), m (minutes), or s (seconds)')
 
-        let prize = args.slice(3).join(" ")
+        let prize = args[2]//.slice(3).join(" ")
         if(!prize) return message.reply('What is the prize?')
 
         message.delete()

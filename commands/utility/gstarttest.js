@@ -7,7 +7,7 @@ module.exports = {
     run: async(client, message, args) => {
 
         if(!message.member.permissions.has("MANAGE_MESSAGES")) return message.reply('You have insufficient permissions!')
-        let author = message.mentions.users.first()
+        let author = message.mentions.users.first() || message.author
 
         let gchannel = message.mentions.channels.first()
         if(!gchannel) return message.reply('Please mention a channel!')
@@ -30,6 +30,7 @@ module.exports = {
         gchannel.send("🎉**NEW GIVEAWAY!**🎉")
 
         const embed = new MessageEmbed()
+        .setTitle("🎉NEW GIVEAWAY!🎉")
         .setDescription(`**Prize:** ${prize}\n**Duration:** ${time}\n**Host:** ${message.author}`)
         .setTimestamp(Date.now + ms(args[1]))
         .setColor('#2F3136')
@@ -44,6 +45,6 @@ module.exports = {
             .setColor("#2F3136")
             .setDescription(`🎉 **${winner.user.tag}** won ${prize}. Congratulations!`)
             gchannel.send({ embeds: [embed] })
-        })
-    }
+        }, ms(args[1]))
+    }, 
 }

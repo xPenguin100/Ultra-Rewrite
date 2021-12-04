@@ -46,6 +46,7 @@ module.exports = {
             collector.on("end", collected => {
   if(collected.count <= 1) return message.reply('Not enough people for me to draw a winner!')
   let winner = n.reactions.cache.get("🎉").users.cache.filter((u) => !u.bot).random();
+  const winner = undefined;
   message.channel.send(`Congratulations ${winner}! You just won the **${prize}**!`);
             })
         }, ms(args[1]));

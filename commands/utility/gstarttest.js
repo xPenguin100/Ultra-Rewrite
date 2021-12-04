@@ -34,13 +34,13 @@ module.exports = {
         .setTimestamp(Date.now + ms(args[1]))
         .setColor('#2F3136')
         let n = await gchannel.send({ embeds: [embed] })
-        n.react("🎉")
+        n.react("tada")
         setTimeout(() => {
-            if(n.reactions.cache.get("🎉").count <= 1) {
+            if(n.reactions.cache.get("tada").count <= 1) {
                 return message.channel.send("Not enough people for me to draw a winner!")
             }
 
-            let winner = n.reactions.cache.get("🎉").users.cache.filter((u) => !u.bot).random();
+            let winner = n.reactions.cache.get("tada").users.cache.filter((u) => !u.bot).random();
             message.reply(`Congratulations ${winner}! You just won the **${prize}**!`
             );
         }, ms(args[1]));

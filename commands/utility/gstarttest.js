@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js")
+const { MessageEmbed, ReactionCollector } = require("discord.js")
 const ms = require('ms')
 
 module.exports = {
@@ -41,7 +41,6 @@ module.exports = {
             //if(reaction_t.count <= 1) {
                // return message.channel.send("Not enough people for me to draw a winner!")
             //}
-
             const collector = new ReactionCollector(message, { time: time })
 
             collector.on("end", collected => {

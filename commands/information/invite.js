@@ -9,10 +9,10 @@ module.exports = {
           .addComponents(
             new MessageButton()
               .setLabel('Add Ultra')
-              .setURL('https://top.gg/bot/866014328464605184/vote')
+              .setURL('https://discord.com/api/oauth2/authorize?client_id=866014328464605184&permissions=545409821815&scope=bot%20applications.commands')
               .setStyle('LINK'),
             new MessageButton()
-              .setLabel('Join Ultra\'s Support Server')
+              .setLabel('Join Ultra\'s Support Server (DELETED)')
               .setURL('https://discord.gg/YggNMXn3cT')
               .setStyle('LINK'),
         );

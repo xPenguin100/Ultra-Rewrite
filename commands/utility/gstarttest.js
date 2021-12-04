@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js")
 const ms = require('ms')
 
 module.exports = {
-    name: 'gstart',
+    name: 'gstarttest',
     description: 'A simple gstart command',
     run: async(client, message, args) => {
 

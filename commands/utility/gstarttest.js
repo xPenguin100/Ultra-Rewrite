@@ -34,7 +34,7 @@ module.exports = {
         .setTimestamp(Date.now + ms(args[1]))
         .setColor('#2F3136')
         let n = await gchannel.send({ embeds: [embed] })
-        n.react("tada")
+        n.react("🎉")
         setTimeout(() => {
             if(n.reactions.cache.get("tada").count <= 1) {
                 return message.channel.send("Not enough people for me to draw a winner!")

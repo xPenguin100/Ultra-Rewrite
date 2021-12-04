@@ -35,9 +35,10 @@ module.exports = {
         .setColor('#2F3136')
         let n = await gchannel.send({ embeds: [embed] })
         n.react("🎉")
-        setTimeout(() => {
-            if(n.reactions.cache.get("🎉").count <= 1) { //let reaction_t = await n.reactions.cache.get("🎉").fetch()
-            //if(reaction_t.count <= 1) {
+        setTimeout(async () => {
+           // if(n.reactions.cache.get("🎉").count <= 1) {
+               let reaction_t = await n.reactions.cache.get("🎉").fetch()
+            if(reaction_t.count <= 1) {
                 return message.channel.send("Not enough people for me to draw a winner!")
             }
 

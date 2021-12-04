@@ -41,10 +41,10 @@ module.exports = {
                 return message.channel.send("Not enough people for me to draw a winner!")
             }
             let winner = n.reactions.cache.get("🎉").users.cache.filter((u) => !u.bot).random();
-            new MessageEmbed()
+            const winnerembed = new MessageEmbed()
             .setColor("#2F3136")
             .setDescription(`🎉 **${winner.user.tag}** won ${prize}. Congratulations!`)
-            gchannel.send({ embeds: [embed] })
+            gchannel.send({ embeds: [winnerembed] })
         }, ms(args[1]))
     }, 
 }

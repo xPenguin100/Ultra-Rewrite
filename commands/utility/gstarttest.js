@@ -50,7 +50,7 @@ module.exports = {
   //let winner = n.reactions.users.filter((u) => !u.bot).random();
  // let winner = collected.filter((u) => !u.bot).random();
  let winner = n.reactions.cache.get("🎉").users.cache.filter((u) => !u.bot).random();
- console.log(reactions)
+ console.log(n.reactions)
  if(!winner) return message.reply('No winner was drawed.')
   message.channel.send(`Congratulations ${winner}! You just won the **${prize}**!`);
             })

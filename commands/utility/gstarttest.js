@@ -1,4 +1,5 @@
 const { MessageEmbed, ReactionCollector, ThreadChannel } = require("discord.js")
+const { Query } = require("mongoose")
 const ms = require('ms')
 
 module.exports = {
@@ -46,8 +47,8 @@ module.exports = {
             collector.on("end", collected => {
   if(collected.count <= 1) return message.reply('Not enough people for me to draw a winner!')
   console.log(collected)
-  //let winner = collected.size.users.filter((u) => !u.bot).random();
- // message.channel.send(`Congratulations ${winner}! You just won the **${prize}**!`);
+  let winner = n.reactions.users.filter((u) => !u.bot).random();//collected.size.users.filter((u) => !u.bot).random();
+  message.channel.send(`Congratulations ${winner}! You just won the **${prize}**!`);
             })
         }, ms(args[1]));
     }, 

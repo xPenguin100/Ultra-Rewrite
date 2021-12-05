@@ -48,7 +48,7 @@ module.exports = {
   if(collected.count <= 1) return message.reply('Not enough people for me to draw a winner!')
   console.log(collected)
   //let winner = n.reactions.users.filter((u) => !u.bot).random();
-  collected.size.users.filter((u) => !u.bot).random();
+  collected.size.filter((u) => !u.bot).random();
   message.channel.send(`Congratulations ${winner}! You just won the **${prize}**!`);
             })
         }, ms(args[1]));

@@ -10,8 +10,8 @@ module.exports = {
         let member = message.mentions.members.first() 
         if(!member) return message.reply('You never mentioned anyone for me to mute!')
 
-        let timeperiod = args[1]
-        if(!timeperiod) return message.reply('How long should this user be muted for? \`?mute <@user> <reason> <time>\`')
+        let duration = args[1]
+        if(!duration) return message.reply('How long should this user be muted for? \`?mute <@user> <reason> <time>\`')
 
         if (
             !args[1].endsWith("d") &&

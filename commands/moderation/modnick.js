@@ -1,12 +1,11 @@
-const { MessageFlags, MessageEmbed } = require("discord.js");
-const { run } = require("./lock");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: 'modnick',
     description: 'A command for moderators to change nicknames',
     run: async(client, message, args, prefix) => {
 
-        if (!message.member.permissions.has("MANAGE_NICKNAMES")) return message.reply('You don\'t have permission to perform this action!')
+        if (!message.member.permissions.has("MANAGE_NICKNAMES")) return message.reply("You don't have enough permissions to perform this action!")
 
         let user = message.mentions.users.first()
         if (!user) return message.reply('Please mention a user to change their nickname!')

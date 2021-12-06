@@ -34,7 +34,11 @@ module.exports = {
 
         setTimeout(async () => {
             await message.guild.members.unban(memberTarget.id)
+            message.guild.bans.fetch().then(async bans => {
+            if(bans.size === 0) return message.reply("No one is banned in this server!")
+            if(guild.bans.size === 0) return message.reply('This server has no bans.')
             message.channel.send(`${memberTarget} has been unbanned!`)
+            })
         }, ms(args[1]))
     }
 }

@@ -26,18 +26,18 @@ module.exports = {
         if (!reason) reason = "No reason specified.";
         if(!args[0]) return message.channel.send('You have not specified any arguments or the member is not found.')
         let role = message.guild.roles.cache.find(role => role.name.toLowerCase() === 'Muted')
-        let muterole;
+        let mutedrole;
         if(!role) {
             try {
-                message.channel.send('Muted role is not found, attempting to create muted role.')
+                message.channel.send('Muted role is not found... attempting to create muted role.')
 
-                muterole = await message.guild.roles.create({
+                mutedrole = await message.guild.roles.create({
                         name: 'Muted',
                         color: 'RED',
                         permissions: []
                 });
                 message.guild.channels.cache.filter(c => c.type === 'GUILD_TEXT').forEach(async (channel, id) => {
-                    await channel.permissionOverwrites.edit(muterole, {
+                    await channel.permissionOverwrites.edit(mutedrole, {
                         SEND_MESSAGES: false,
                         ADD_REACTIONS: false
                     })
@@ -50,7 +50,7 @@ module.exports = {
 
         if(member.roles.cache.has(role => role.name === 'Muted')) return message.reply(`${member.username} has already been muted.`)
         console.log(member)
-        await member.roles.add(muterole)
+        await member.roles.add(mutedrole)
         const embed = new MessageEmbed()
         .setTitle("🔇 Mute Successful!")
         .setColor("#2F3136")
@@ -60,6 +60,11 @@ module.exports = {
             { name: 'Reason:', value: `${reason}`},
             { name: 'Moderator:', value: `${message.author}`}
         )
-        message.reply({ embeds: [embed] })   
+        message.reply({ embeds: [embed] })  
+        setTimeout(async () => {
+            if(member.roles.cache.has(role => role.name === 'Muted')) return message.reply(`${member.username} has already been muted!`)
+            await member.roles.remove(mutedrole)
+            return message.reply(`${member} has successfully been unmuted. Welcome back!`)
+        }), ms(args[1])
         }
     }

@@ -49,7 +49,6 @@ module.exports = {
         };
 
         if(member.roles.cache.has(role => role.name === 'Muted')) return message.reply(`${member.username} has already been muted.`)
-        console.log(member)
         await member.roles.add(mutedrole)
         const embed = new MessageEmbed()
         .setTitle("🔇 Mute Successful!")

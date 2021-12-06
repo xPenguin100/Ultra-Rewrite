@@ -25,7 +25,7 @@ module.exports = {
         let reason = args.slice(2).join(" ");
         if (!reason) reason = "No reason specified.";
         if(!args[0]) return message.channel.send('You have not specified any arguments or the member is not found.')
-        let role = message.guild.roles.cache.find(role => role.name.toLowerCase() === 'Muted')
+        let role = message.guild.roles.cache.find(role => role.name.toLowerCase() === 'Muted') 
         let mutedrole;
         if(!role) {
             try {
@@ -49,7 +49,11 @@ module.exports = {
         };
 
         if(member.roles.cache.has(role => role.name === 'Muted')) return message.reply(`${member.username} has already been muted.`)
+        if(!role) {
         await member.roles.add(mutedrole)
+        } else {
+            await member.roles.add(role)
+        }
         const embed = new MessageEmbed()
         .setTitle("🔇 Mute Successful!")
         .setColor("#2F3136")

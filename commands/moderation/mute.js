@@ -26,11 +26,12 @@ module.exports = {
         if (!reason) reason = "No reason specified.";
         if(!args[0]) return message.channel.send('You have not specified any arguments or the member is not found.')
         let role = message.guild.roles.cache.find(role => role.name.toLowerCase() === 'Muted')
+        let muterole;
         if(!role) {
             try {
                 message.channel.send('Muted role is not found, attempting to create muted role.')
 
-                let muterole = await message.guild.roles.create({
+                muterole = await message.guild.roles.create({
                         name: 'Muted',
                         color: 'RED',
                         permissions: []

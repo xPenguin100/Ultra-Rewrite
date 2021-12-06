@@ -7,7 +7,7 @@ module.exports = {
     run: async(client, message, args) => {
 
         if(!message.member.permissions.has('MANAGE_MESSAGES')) return message.channel.send('You do not have permission to use this command! You are missing the `MANAGE_MESSAGES` permission.')
-        let member = message.mentions.members.first() || message.member
+        let member = message.mentions.members.first() 
         if(!member) return message.reply('You never mentioned anyone for me to mute!')
 
         let timeperiod = args[1]

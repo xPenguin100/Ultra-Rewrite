@@ -10,11 +10,19 @@ module.exports = {
         let target = message.mentions.users.first()
         if(!target) return message.reply('You did not specify a user to temp-ban!')
 
-        let reason = args.slice(1).join(" ")
-        if(!reason) reason = 'No reason'
-
-        let timeperiod = args[2]
+        let timeperiod = args[1]
         if(!timeperiod) return message.reply('How long should this user be banned for? \`?tempban <@user> <reason> <time>\`')
+
+        if (
+            !args[1].endsWith("d") &&
+            !args[1].endsWith("h") &&
+            !args[1].endsWith("m") &&
+            !args[1].endsWith("s") 
+        )
+            return message.channel.send('You need to use d (days), h (hours), m (minutes), or s (seconds) to specify the ban duration!')
+
+        let reason = args.slice(3).join(" ")
+        if(!reason) reason = 'No reason'
 
         let memberTarget = message.guild.members.cache.get(target.id);
         memberTarget.ban();
@@ -25,8 +33,8 @@ module.exports = {
         message.reply({ embeds: [banembed] })
 
         setTimeout(async () => {
-            await message.guild.members.unban(memberTarget)
+            await message.guild.members.unban(memberTarget.id)
             message.channel.send(`${memberTarget} has been unbanned!`)
-        }, ms(timeperiod))
+        }, ms(args[1]))
     }
 }

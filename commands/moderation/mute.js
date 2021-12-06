@@ -11,7 +11,7 @@ module.exports = {
         if(!member) return message.reply('You never mentioned anyone for me to mute!')
 
         let timeperiod = args[1]
-        if(!timeperiod) return message.reply('How long should this user be banned for? \`?tempban <@user> <reason> <time>\`')
+        if(!timeperiod) return message.reply('How long should this user be myted for? \`?mute <@user> <reason> <time>\`')
 
         if (
             !args[1].endsWith("d") &&

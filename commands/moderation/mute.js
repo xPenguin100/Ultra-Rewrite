@@ -49,11 +49,9 @@ module.exports = {
         };
 
         if(member.roles.cache.has(role => role.name === 'Muted')) return message.reply(`${member.username} has already been muted.`)
-        if(!role) {
-        await member.roles.add(mutedrole)
-        } else {
-            await member.roles.add(role)
-        }
+        if(role) {
+            member.roles.add(role)
+        } if(!role) member.roles.add(mutedrole)
         const embed = new MessageEmbed()
         .setTitle("🔇 Mute Successful!")
         .setColor("#2F3136")
@@ -66,7 +64,9 @@ module.exports = {
         message.reply({ embeds: [embed] })  
         setTimeout(async () => {
             if(member.roles.cache.has(role => role.name === 'Muted')) return message.reply(`${member.username} has already been muted!`)
-            await member.roles.remove(mutedrole) 
+            if(role) {
+                member.roles.remove(role)
+            } if(!role) member.roles.remove(mutedrole)
             return message.reply(`${member} has successfully been unmuted. Welcome back!`)
         }, ms(args[1]))
         }

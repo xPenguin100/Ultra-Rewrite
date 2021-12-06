@@ -63,8 +63,8 @@ module.exports = {
         message.reply({ embeds: [embed] })  
         setTimeout(async () => {
             if(member.roles.cache.has(role => role.name === 'Muted')) return message.reply(`${member.username} has already been muted!`)
-            await member.roles.remove(mutedrole)
+            await member.roles.remove(mutedrole) 
             return message.reply(`${member} has successfully been unmuted. Welcome back!`)
-        }), ms(args[1])
+        }, ms(args[1]))
         }
     }

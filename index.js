@@ -21,7 +21,7 @@ fs.readdirSync('./commands/').forEach(dir => {
   }
   })
 
-  const eventFiles = fs.readdirSync('./events/').filter(file => file.endsWith('.js'));
+  const eventFiles = fs.readdirSync('/events').filter(file => file.endsWith('.js'));
 
   for (const file of eventFiles) {
     const event = require(`./events/${file}`);

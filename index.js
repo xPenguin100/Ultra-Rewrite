@@ -639,16 +639,6 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-if (command === 'buttontest') {
-  client.commands.get('buttontest').run(message, args, client);
-  }
-});
-
-client.on('messageCreate', message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-  const args = message.content.slice(prefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
 if (command === 'lockdown') {
   client.commands.get('lockdown').run(message, args, client);
   }

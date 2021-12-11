@@ -10,7 +10,7 @@ if (!text) return message.reply("Provide some text")
 let embed = new MessageEmbed()
 .setTitle("Advancement Made!")
 .setImage(`https://minecraftskinstealer.com/achievement/${number}/Advancement+Made!/${text}`)
-.setColor('#2e3137')
+.setColor('#2F3136')
 .setTimestamp()
 message.reply({embeds : [embed]})
     }

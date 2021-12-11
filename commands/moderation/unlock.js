@@ -11,7 +11,7 @@ module.exports = {
         let alreadyunlockedembed = new MessageEmbed()
         .setColor(`#2F3136`)
         .setDescription(`❌ This channel is already unlocked!`)
-        if(channel.permissionsFor(channel.guildId, true).has("SEND_MESSAGES")) return message.reply({ embeds: [embed] })
+        if(channel.permissionsFor(channel.guildId, true).has("SEND_MESSAGES")) return message.reply({ embeds: [alreadyunlockedembed] })
         let embed = new MessageEmbed()
         .setTitle("Channel Unlocked!")
         .setColor('2F3136')

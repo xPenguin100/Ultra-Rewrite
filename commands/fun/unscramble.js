@@ -25,7 +25,7 @@ module.exports = {
             'naughty'
          ];
         let word = words[parseInt(Math.random() * words.length)];
-
+        
         let scrambled = word.split('');
     
         scrambled.sort(() => (Math.random() > .5) ? 1 : -1);

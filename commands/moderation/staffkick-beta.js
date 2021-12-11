@@ -9,6 +9,7 @@ module.exports = {
         if(!target) return message.reply('Please specify whose perms you would like to vote on revoking!')
         if(target.id === message.guild.ownerId) return message.reply('You cannot kick the owner of this server from the staff team!')
         //if(message.guild.me.role.highest.position < target.role.highest.position) return message.reply('You mentioned a user that has a higher role than me.')
+        if(target.roles.highest.position >= message.guild.me.roles.highest.position) return message.reply('You mentioned a user that has a higher role than mine.')
 
         let reason = args.slice(1).join(" ")
         if(!reason) reason = 'No reason'

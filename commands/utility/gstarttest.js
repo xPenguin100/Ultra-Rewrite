@@ -42,7 +42,7 @@ module.exports = {
             //if(reaction_t.count <= 1) {
                // return message.channel.send("Not enough people for me to draw a winner!")
             //}
-            const collector = new ReactionCollector(n, { time: time })
+            const collector = n.ReactionCollector(n, { time: time })
 
             collector.on("end", collected => {
   if(collected.count <= 1) return message.reply('Not enough people for me to draw a winner!')

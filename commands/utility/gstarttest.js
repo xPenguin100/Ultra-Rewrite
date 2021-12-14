@@ -45,7 +45,7 @@ module.exports = {
             const collector = n.ReactionCollector(n, { time: time })
 
             collector.on("end", collected => {
-  if(collected.count <= 1) return message.reply('Not enough people for me to draw a winner!')
+  if(collected.size <= 1) return message.reply('Not enough people for me to draw a winner!')
   console.log(collected)
   //let winner = n.reactions.users.filter((u) => !u.bot).random();
  // let winner = collected.filter((u) => !u.bot).random();

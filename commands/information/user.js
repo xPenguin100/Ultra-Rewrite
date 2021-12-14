@@ -6,6 +6,7 @@ module.exports = {
     description: 'User info command',
     execute(message, args) {
 
+//message.guild.members.cache.get - Use for getting info using ID
       let user = message.mentions.users.first() 
       let member = message.mentions.members.first() || message.member
       let author = message.mentions.users.first() || message.author

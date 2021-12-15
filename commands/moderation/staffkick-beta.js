@@ -23,7 +23,7 @@ module.exports = {
             await staffvotemessage.react("👍");
             await staffvotemessage.react("👎");
           } catch (err) {
-            channel.send("Error sending emojis!");
+            message.channel.send("Error sending emojis!");
             throw err;
           }
           

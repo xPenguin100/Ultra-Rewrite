@@ -11,7 +11,7 @@ module.exports = {
         if(!target) return message.reply('You did not specify a user to temp-ban!')
 
         let timeperiod = args[1]
-        if(!timeperiod) return message.reply('How long should this user be banned for? \`?tempban <@user> <reason> <time>\`')
+        if(!timeperiod) return message.reply('How long should this user be banned for? \`?tempban <@user> <time> <reason>\`')
 
         if (
             !args[1].endsWith("d") &&
@@ -21,7 +21,7 @@ module.exports = {
         )
             return message.channel.send('You need to use d (days), h (hours), m (minutes), or s (seconds) to specify the ban duration!')
 
-        let reason = args.slice(3).join(" ")
+        let reason = args.slice(2).join(" ")
         if(!reason) reason = 'No reason'
 
         let memberTarget = message.guild.members.cache.get(target.id);

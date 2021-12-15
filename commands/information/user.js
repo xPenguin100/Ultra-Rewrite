@@ -73,10 +73,10 @@ module.exports = {
       .setAuthor(user.tag, user.displayAvatarURL({ dynamic: true}))
       .setDescription(`${user} (\`${user.id}\`)`)
       .addFields(
-        //{ name: 'Joined Server', value: (`${moment.utc(member.joinedAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
-        //{ name: 'Joined Discord', value: (`${moment.utc(user.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
-        { name: 'Joined Server', value: (`<t:${member.joinedTimestamp}:F>`), inline: true},
-        { name: 'Joined Discord', value: (`<t:${user.createdTimestamp}:F>`), inline: true},
+        { name: 'Joined Server', value: (`${moment.utc(member.joinedAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
+        { name: 'Joined Discord', value: (`${moment.utc(user.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
+        //{ name: 'Joined Server', value: (`<t:${member.joinedTimestamp}:F>`), inline: true},
+        //{ name: 'Joined Discord', value: (`<t:${user.createdTimestamp}:F>`), inline: true},
 
       )  
       .addField(`Roles [${member.roles.cache.size}]`, member.roles.cache.map((r) => r).join(", "), false)  

@@ -24,7 +24,7 @@ module.exports = {
         collector.on("collect", (reaction, user) => {
             switch (reaction.emoji.name) {
               case "👍":
-                channel.send('@everyone', announcement)
+                channel.send(`@everyone ${announcement}`)
                 message.reply(`Successfully sent message to ${channel}`)
               case "👎":
                 channel.send(announcement)

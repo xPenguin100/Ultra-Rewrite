@@ -10,7 +10,7 @@ module.exports = {
         let announcement = args.join(" ")
         if(!announcement) return message.reply('What do you want me to announce?')
 
-        let choice = message.reply('You have a choice. Do you want me to mention everyone, or no?')
+        const choice = await message.reply('You have a choice. Do you want me to mention everyone, or no?')
         try {
             await choice.react("👍");
             await choice.react("👎");

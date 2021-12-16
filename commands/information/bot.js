@@ -1,4 +1,4 @@
-const { client, Discord, MessageEmbed } = require('discord.js')
+const { client, discord, MessageEmbed } = require('discord.js')
 
 module.exports = {
     name : 'bot',
@@ -9,7 +9,6 @@ module.exports = {
   .catch(console.error);
 
 
-        const Discord = require("discord.js");
         let author = message.mentions.users.first() || message.author;
         let avatar = message.author.displayAvatarURL({size: 4096, dynamic: true});
         let nodeversion = process.version

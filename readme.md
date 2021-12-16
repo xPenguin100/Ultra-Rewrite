@@ -8,6 +8,7 @@ client.on("messageCreate", message => {
   };
 });
 
+process.version
 ws: {properties: {$browser: 'Discord iOS'}}
 
       if(user.id === message.guild.ownerId) - Checks if you used owners id in mention or something else

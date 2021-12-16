@@ -12,6 +12,8 @@ module.exports = {
         const Discord = require("discord.js");
         let author = message.mentions.users.first() || message.author;
         let avatar = message.author.displayAvatarURL({size: 4096, dynamic: true});
+        let nodeversion = process.version
+        let discordjsversion = discord.version
     
         let embed = new MessageEmbed()
         .setAuthor(message.author.tag, message.avatar)
@@ -25,8 +27,8 @@ module.exports = {
             { name: 'Owner', value: `<@515124684946276362>`, inline: true},
             { name: 'Servers', value: `\`${message.client.guilds.cache.size}\``, inline: true},
             { name: 'Users', value: `\`${message.client.users.cache.size}\``, inline: true},
-            { name: 'Discord.js Version', value: '\`13.3.1\`', inline: true},
-            { name: 'Node Version', value: '\`17.1.0\`', inline: true},
+            { name: 'Discord.js Version', value: `${discordjsversion}`, inline: true},
+            { name: 'Node Version', value: `${nodeversion}`, inline: true},
         )
         .setColor('#2F3136')
         //.setDescription(`❌ Command is under maintenance.`)

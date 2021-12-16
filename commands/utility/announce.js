@@ -19,7 +19,7 @@ module.exports = {
             throw err;
           }
 
-        const collector = choice.ReactionCollector((reaction, user), { dispose: true, time: 15000 });
+        const collector = choice.createReactionCollector((reaction, user) => message.guild.members.cache.find((member) => member.id === user.id).permissions.has("MENTION_EVERYONE"),{ dispose: true, time: 15000 });
 
         collector.on("collect", (reaction, user) => {
             switch (reaction.emoji.name) {

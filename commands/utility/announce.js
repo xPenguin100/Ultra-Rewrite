@@ -7,7 +7,7 @@ module.exports = {
         if(!message.guild.me.permissions.has("MENTION_EVERYONE")) return message.reply('I have insufficient permissions to execute this! I require the \`MENTION_EVERYONE\` permission.')
         let channel = message.mentions.channels.first()
         if(!channel) return message.reply('Where am I sending the announcement to?')
-        let announcement = args.join(" ")
+        let announcement = args.slice(1).join(" ")
         if(!announcement) return message.reply('What do you want me to announce?')
 
         const choice = await message.reply('You have a choice. Do you want me to mention everyone, or no?')

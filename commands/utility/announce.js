@@ -1,0 +1,30 @@
+module.exports = {
+    name: 'announce',
+    description: 'An announce command!',
+    run: async(message, args) => {
+
+        if(!message.member.permissions.has("MENTION_EVERYONE")) return message.reply('You have insufficient permission to perform this! This command requires the \`MENTION_EVERYONE\` permission.')
+        if(!message.guild.me.permissions.has("MENTION_EVERYONE")) return message.reply('I have insufficient permissions to execute this! I require the \`MENTION_EVERYONE\` permission.')
+        let channel = message.mentions.channels.first()
+        if(!channel) return message.reply('Where am I sending the announcement to?')
+        let announcement = args.join(" ")
+        if(!announcement) return message.reply('What do you want me to announce?')
+
+        let choice = message.reply('You have a choice. Do you want me to mention everyone, or no?')
+        choice.react("👍")
+        choice.react("👎")
+
+        const collector = choice.ReactionCollector((reaction, user), { dispose: true, time: 15000 });
+
+        collector.on("collect", (reaction, user) => {
+            switch (reaction.emoji.name) {
+              case "👍":
+                channel.send('@everyone', announcement)
+                message.reply(`Successfully sent message to ${channel}`)
+              case "👎":
+                channel.send(announcement)
+                message.reply(`Successfully sent message to ${channel}`)
+            }
+          });
+    }
+}

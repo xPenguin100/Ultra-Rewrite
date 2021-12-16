@@ -27,7 +27,7 @@ module.exports = {
             { name: 'Servers', value: `\`${message.client.guilds.cache.size}\``, inline: true},
             { name: 'Users', value: `\`${message.client.users.cache.size}\``, inline: true},
             { name: 'Discord.js Version', value: `\`13.3.1\``, inline: true},
-            { name: 'Node Version', value: `${nodeversion}`, inline: true},
+            { name: 'Node Version', value: `\`${nodeversion}\``, inline: true},
         )
         .setColor('#2F3136')
         //.setDescription(`❌ Command is under maintenance.`)

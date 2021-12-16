@@ -11,8 +11,13 @@ module.exports = {
         if(!announcement) return message.reply('What do you want me to announce?')
 
         let choice = message.reply('You have a choice. Do you want me to mention everyone, or no?')
-        choice.react("👍")
-        choice.react("👎")
+        try {
+            await choice.react("👍");
+            await choice.react("👎");
+          } catch (err) {
+            channel.send("Error sending emojis!");
+            throw err;
+          }
 
         const collector = choice.ReactionCollector((reaction, user), { dispose: true, time: 15000 });
 

@@ -8,6 +8,11 @@ client.on("messageCreate", message => {
   };
 });
 
+
+MONGODB:
+Ultra
+ultra-bot
+ULTRa2022
 process.version
 ws: {properties: {$browser: 'Discord iOS'}}
 

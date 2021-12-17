@@ -27,6 +27,20 @@ client.once('ready', () => {
 });
 
 client.on('messageCreate', async (message) => {
+  if(db.has(`afk-${message.author.id}+${message.guild.id}`)) {
+    const info = db.get(`afk-${message.author.id}+${message.guild.id}`)
+    await db.delete(`afk-${message.author.id}+${message.guild.id}`)
+    message.reply(`Your afk status have been removed (${info})`)
+}
+//checking for mentions
+if(message.mentions.members.first()) {
+    if(db.has(`afk-${message.mentions.members.first().id}+${message.guild.id}`)) {
+        message.channel.send(message.mentions.members.first().user.tag + ":" + db.get(`afk-${message.mentions.members.first().id}+${message.guild.id}`))
+    }else return;
+}else;
+})
+
+client.on('messageCreate', async (message) => {
   if (
     message.content.toLowerCase().startsWith(prefix + 'clear') ||
     message.content.toLowerCase().startsWith(prefix + 'purge') 
@@ -148,6 +162,17 @@ if (command === 'announce') {
   client.commands.get('announce').run(message, args);
   }
 });
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+if (command === 'afk') {
+  client.commands.get('afk').run(client, message, args);
+  }
+});
+
 
 client.on('messageCreate', message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;

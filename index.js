@@ -28,8 +28,8 @@ client.once('ready', () => {
 
 client.on('messageCreate', async (message) => {
   if(db.has(`afk-${message.author.id}+${message.guild.id}`)) {
-    const info = db.get(`afk-${message.author.id}+${message.guild.id}`)
-    await db.delete(`afk-${message.author.id}+${message.guild.id}`)
+    const info = db.get(`afk-${message.author.id}+${message.guild.id}`, reason)
+    await db.delete(`afk-${message.author.id}+${message.guild.id}`, reason)
     message.reply(`Your afk status have been removed (${info})`)
 }
 //checking for mentions

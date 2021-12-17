@@ -7,12 +7,13 @@ module.exports = {
     run: async(client, message, args) => {
 
         let reason = args.join(" ")
+        if(!reason) reason = 'No reason specified'
         await db.set(`afk-${message.author.tag}+${message.guild.id}`, reason)
 
         const embed = new MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
         .setTitle(`AFK Set!`)
-        .setDescription(`You have been set AFK for ${reason}.`)
+        .setDescription(`You have been set AFK for \`${reason}\`.`)
         .setColor('GREEN')
         .setFooter(`By: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
         .setTimestamp()

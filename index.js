@@ -26,6 +26,13 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
+client.on('guildMemberAdd', (member) => {
+  let channelid = '873276182420914186'
+  let message = `Welcome <@${member}>! We hope you have a good stay.`
+  let channel = member.guild.channels.cache.get(channelid)
+  channel.send(message)
+})
+
 client.on('messageCreate', async (message) => {
   if(db.has(`afk-${message.author.id}+${message.guild.id}`)) {
     const info = db.get(`afk-${message.author.id}+${message.guild.id}`, reason)
@@ -726,7 +733,7 @@ message.channel.send("I have set the slowmode in this channel to " + duration + 
 });
 
 //mongoose connecting
-const mongooseConnectionString = require('./config.json').mongooseConnectionString
+const mongooseConnectionString = require('./config.json').mongooseConnectionString;
 if(!mongooseConnectionString) return;
 
 mongoose

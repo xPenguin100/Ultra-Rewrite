@@ -27,8 +27,10 @@ client.once('ready', () => {
 });
 
 client.on('guildMemberAdd', (member) => {
+  //let botmessage = `Welcome ${member}!`
+  //if(member.bot) return channel.send(botmessage)
   let channelid = '873276182420914186'
-  let message = `Welcome <@${member}>! We hope you have a good stay.`
+  let message = `Welcome ${member}! We hope you have a good stay.`
   let channel = member.guild.channels.cache.get(channelid)
   channel.send(message)
 })

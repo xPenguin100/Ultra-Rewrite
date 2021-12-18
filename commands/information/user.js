@@ -76,8 +76,8 @@ module.exports = {
       .addFields(
         //{ name: 'Joined Server', value: (`${moment.utc(member.joinedAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
         //{ name: 'Joined Discord', value: (`${moment.utc(user.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
-        { name: 'Joined Server', value: (`<t:${timestamp(member.joinedAt)}:F>`), inline: true},
-        { name: 'Joined Discord', value: (`<t:${timestamp(user.createdAt)}:F>`), inline: true},
+        { name: 'Joined Server', value: (`<t:${timestamp(member.joinedAt)}:R>`), inline: true},
+        { name: 'Joined Discord', value: (`<t:${timestamp(user.createdAt)}:R>`), inline: true},
 
       )  
       .addField(`Roles [${member.roles.cache.size}]`, member.roles.cache.map((r) => r).join(", "), false)  

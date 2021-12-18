@@ -1,5 +1,6 @@
 const { MessageEmbed, Discord } = require('discord.js')
 const moment = require('moment')
+const timestamp = require('discord-timestamp')
 
 module.exports = {
     name: 'server',
@@ -16,7 +17,7 @@ module.exports = {
     .setThumbnail(message.guild.iconURL())
     .addFields(
       { name: 'Owner', value: `<@${message.guild.ownerId}> (\`${message.guild.ownerId}\`)`},
-      { name: 'Created On', value: (`${moment.utc(message.guild.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},
+      { name: 'Created On', value: (`<t:${timestamp(guild.createdAt)}:R>`), inline: true},
       { name: `Boost Count [\`${message.guild.premiumSubscriptionCount}\`]`, value: `\`${message.guild.premiumTier}\``, inline: true},
       { name: 'Member Count', value: `${message.guild.members.cache.filter(member => !member.user.bot).size} humans (${message.guild.members.cache.filter(member => member.user.bot).size} bots)`, inline: true},
       { name: `Channel Count [\`${message.guild.channels.cache.size}\`]`, value: `Categories: \`${channels.filter(channel => channel.type === 'GUILD_CATEGORY').size}\`, Text: \`${channels.filter(channel => channel.type === 'GUILD_TEXT').size}\`, Voice: \`${channels.filter(channel => channel.type === 'GUILD_VOICE').size}\``, inline: true},
@@ -30,3 +31,4 @@ module.exports = {
       message.channel.send({ embeds: [serverembed] });
     }
   }
+  //moment.utc(message.guild.createdAt).format('MMMM Do YYYY, h:mm:ss a')

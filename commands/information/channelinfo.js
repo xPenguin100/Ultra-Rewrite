@@ -1,5 +1,6 @@
 const { MessageEmbed, Discord } = require('discord.js')
 const moment = require('moment')
+const timestamp = require('discord-timestamp')
 
 module.exports = {
     name: 'channelinfo',
@@ -13,7 +14,7 @@ module.exports = {
       const member = message.mentions.members.first() || message.member
  
       let embed = new MessageEmbed()
-      .setDescription(`#️⃣ **${channel.name}**\n**ID:** \`${channel.id}\`\n**Type:** \`${channel.type}\`\n**Created On:** ${moment.utc(channel.createdAt).format('MMMM Do YYYY, h:mm:ss a')}\n**Topic:** ${channel.topic !== null ? `${channel.topic}` : 'No topic found'}`)
+      .setDescription(`#️⃣ **${channel.name}**\n**ID:** \`${channel.id}\`\n**Type:** \`${channel.type}\`\n**Created On:** <t:${timestamp(channel.createdAt)}:R>\n**Topic:** ${channel.topic !== null ? `${channel.topic}` : 'No topic found'}`)
       .setFooter(`Requested By: ` + message.author.tag, message.author.displayAvatarURL({ dynamic: true}))
       .setTimestamp()
       //.setDescription('❌ Command Down for Maintenance!')
@@ -21,3 +22,4 @@ module.exports = {
       message.channel.send({ embeds: [embed] });
     }
   } 
+  //moment.utc(channel.createdAt).format('MMMM Do YYYY, h:mm:ss a')

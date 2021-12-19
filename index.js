@@ -35,19 +35,19 @@ client.on('guildMemberAdd', (member) => {
   channel.send(message)
 })
 
-client.on('messageCreate', async (message) => {
-  if(db.has(`afk-${message.author.id}+${message.guild.id}`)) {
-    const info = db.get(`afk-${message.author.id}+${message.guild.id}`, reason)
-    await db.delete(`afk-${message.author.id}+${message.guild.id}`, reason)
-    message.reply(`Your afk status have been removed (${info})`)
-}
+//client.on('messageCreate', async (message) => {
+ // if(db.has(`afk-${message.author.id}+${message.guild.id}`)) {
+  //  const info = db.get(`afk-${message.author.id}+${message.guild.id}`, reason)
+  //  await db.delete(`afk-${message.author.id}+${message.guild.id}`, reason)
+  //  message.reply(`Your afk status have been removed (${info})`)
+//}
 //checking for mentions
-if(message.mentions.members.first()) {
-    if(db.has(`afk-${message.mentions.members.first().id}+${message.guild.id}`)) {
-        message.channel.send(message.mentions.members.first().user.tag + ":" + db.get(`afk-${message.mentions.members.first().id}+${message.guild.id}`))
-    }else return;
-}else;
-})
+//if(message.mentions.members.first()) {
+    //if(db.has(`afk-${message.mentions.members.first().id}+${message.guild.id}`)) {
+    //    message.channel.send(message.mentions.members.first().user.tag + ":" + db.get(`afk-${message.mentions.members.first().id}+${message.guild.id}`))
+   // }else return;
+//}else;
+//})
 
 client.on('messageCreate', async (message) => {
   if (
@@ -177,8 +177,8 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-if (command === 'afk') {
-  client.commands.get('afk').run(client, message, args);
+if (command === 'afk-beta') {
+  client.commands.get('afk-beta').run(client, message, args);
   }
 });
 
@@ -262,16 +262,6 @@ client.on('messageCreate', message => {
   const command = args.shift().toLowerCase();
 if (command === 'reportbug') {
   client.commands.get('reportbug').run(client, message, args);
-  }
-});
-
-client.on('messageCreate', message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-  const args = message.content.slice(prefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
-if (command === 'afk') {
-  client.commands.get('afk').run(client, message, args);
   }
 });
 

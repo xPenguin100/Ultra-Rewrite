@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js')
 const db = require('quick.db')
 
 module.exports = {
-    name: 'afk',
+    name: 'afk-beta',
     description: 'AFK command',
     run: async(client, message, args) => {
 

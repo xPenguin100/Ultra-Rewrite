@@ -30,7 +30,7 @@ client.on('guildMemberAdd', (member) => {
   //let botmessage = `Welcome ${member}!`
   //if(member.bot) return channel.send(botmessage)
   const welcomeembed = new MessageEmbed()
-  .setAuthor(member.tag, member.displayAvatarURL({ dynamic: true }))
+  //.setAuthor(member.tag, member.displayAvatarURL({ dynamic: true }))
   .setDescription(`${member}, welcome to ${member.guild}! We hope you have a good stay.`)
   .setColor('#2F3136')
   .setFooter(member.guild.name, member.guild.displayAvatarURL({ dynamic: true }))

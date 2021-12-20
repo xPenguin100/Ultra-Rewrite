@@ -37,7 +37,7 @@ client.on('guildMemberAdd', (member) => {
   let channelid = '873276182420914186' 
   let message = `Welcome ${member}! We hope you have a good stay.`
   let channel = member.guild.channels.cache.get(channelid)
-  channel.send({ embeds: [welcomeembed] })
+  channel.send(message)
 })
 
 //client.on('messageCreate', async (message) => {

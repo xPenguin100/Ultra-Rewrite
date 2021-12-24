@@ -16,7 +16,7 @@ module.exports = {
             
             const data = suggestedEmbed.embeds[0];
             const acceptedEmbed = new MessageEmbed()
-            .setAuthor(data.author.tag, data.author.IconURL)
+            .setAuthor(data.author.username, data.author.IconURL)
             .setDescription(data.description)
             .setColor('2F3136')
             .addField('Status:', 'Accepted')

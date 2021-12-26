@@ -17,6 +17,7 @@ module.exports = {
 
         const suggestionChannel = message.guild.channels.cache.find(c => c.name === ':bulb:┃suggestions') || message.guild.channels.cache.find(c => c.name === ':bulb:suggestions') || message.guild.channels.cache.find(c => c.name === ':bulb:-suggestions') ||message.guild.channels.cache.find(c => c.name === 'suggestions') || message.guild.channels.cache.find(c => c.name === ':face_with_monocle:-server-suggestions')
 //let channels = message.guild.channels.filter(c => c.type == 'GUILD_TEXT').array();
+console.log(suggestionChannel)
       let suggestedEmbed = await suggestionChannel.messages.fetch(messageId);
         if(!messageId) return message.reply("Please specify a valid message ID!")
         if(!acceptreason) return message.reply('Please specify a reason for accepting this suggestion!')

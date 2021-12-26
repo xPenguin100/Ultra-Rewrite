@@ -27,7 +27,7 @@ console.log(suggestionChannel)
             .setTitle(data.title)
             .setDescription(`${data.description}\n\n **Status: (Accepted)** \n ${acceptreason}`)
             .setColor('#00FF23')
-            .setFooter("This is an automated message for suggestions • Made by @Mobius", `${message.guild.iconURL({ dynamic: true })}`)
+            .setFooter(`Suggested by: ${data.author.tag}`)
 
             suggestedEmbed.edit({ embeds: [acceptedEmbed] }).then(async (msg) =>{
             msg.react(':thumbsup:');

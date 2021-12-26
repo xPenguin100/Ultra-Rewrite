@@ -8,6 +8,13 @@ module.exports = {
         if(!message.member.permissions.has("MANAGE_MESSAGES")) return;
         const messageId = args[0];
         const acceptreason = args.slice(1).join(" ");
+
+/*
+    let suggestionChannel = message.guild.channels.cache.get("867106022455246868")
+        //let suggestionChannel = message.guild.channels.cache.find("suggestions")
+        let suggestedEmbed = await suggestionChannel.messages.fetch(messageId);
+*/
+
         const suggestionChannel = message.guild.channels.cache.find(c => c.name === ':bulb:┃suggestions') || message.guild.channels.cache.find(c => c.name === ':bulb:suggestions') || message.guild.channels.cache.find(c => c.name === ':bulb:-suggestions') ||message.guild.channels.cache.find(c => c.name === 'suggestions') || message.guild.channels.cache.find(c => c.name === ':face_with_monocle:-server-suggestions')
 //let channels = message.guild.channels.filter(c => c.type == 'GUILD_TEXT').array();
       let suggestedEmbed = await suggestionChannel.messages.fetch(messageId);
@@ -17,8 +24,6 @@ module.exports = {
             const data = suggestedEmbed.embeds[0];
             const acceptedEmbed = new MessageEmbed()
             .setTitle(data.title)
-            .setAuthor(data.author.name, data.author.displayAvatar_URL)
-            .setThumbnail(data.author.displayAvatar_URL)
             .setDescription(`${data.description}\n\n **Status: (Accepted)** \n ${acceptreason}`)
             .setColor('#00FF23')
             .setFooter("This is an automated message for suggestions • Made by @Mobius", `${message.guild.iconURL({ dynamic: true })}`)

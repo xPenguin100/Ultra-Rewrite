@@ -1,7 +1,7 @@
 const { Discord, MessageEmbed } = require("discord.js");
 
 module.exports = {
-    name: 'approve',
+    name: 'deny',
     description: 'Approves a suggestion!',
     run: async (client, message, args) => {
 
@@ -25,8 +25,8 @@ console.log(suggestionChannel)
             const data = suggestedEmbed.embeds[0];
             const acceptedEmbed = new MessageEmbed()
             .setTitle(data.title)
-            .setDescription(`${data.description}\n\n **Status: Accepted** \n ${acceptreason}`)
-            .setColor('GREEN')
+            .setDescription(`${data.description}\n\n **Status: Denied** \n ${acceptreason}`)
+            .setColor('RED')
             .setFooter(`${data.footer}`)
 
             suggestedEmbed.edit({ embeds: [acceptedEmbed] }).then(async (msg) =>{
@@ -39,7 +39,7 @@ console.log(suggestionChannel)
             const approveEmbed = new MessageEmbed()
             .setTitle("Suggestion Status")
             .setDescription(`Your suggestion has been **approved** by a moderator in ${message.guild.name}!\n\n **Suggestion Message Link:** ${suggestedEmbed.url}`)
-            .setColor("BLUE")
+            .setColor("RED")
             .setThumbnail(suggestedEmbed.guild.iconURL({ dynamic: true }))
             user.send({ embeds: [approveEmbed] }); 
     })

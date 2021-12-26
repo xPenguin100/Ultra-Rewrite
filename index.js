@@ -162,6 +162,26 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
+if (command === 'deny') {
+  client.commands.get('deny').run(client, message, args);
+  }
+});
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+if (command === 'consider') {
+  client.commands.get('consider').run(client, message, args);
+  }
+});
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
 if (command === 'ban') {
   client.commands.get('ban').execute(message, args);
   }

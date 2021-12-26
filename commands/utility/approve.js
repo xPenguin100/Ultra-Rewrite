@@ -35,7 +35,7 @@ console.log(suggestionChannel)
 
             console.log(data)
 
-            const user = await client.users.cache.find((u) => u.tag === data.author.name)
+            const user = await client.users.cache.find((u) => u.tag === data.author.id)
             const approveEmbed = new MessageEmbed()
             .setTitle("Suggestion Status")
             .setDescription(`Your suggestion has been **approved** by a moderator in ${message.guild.name}!\n\n **Suggestion Message Link:** ${suggestedEmbed.url}`)

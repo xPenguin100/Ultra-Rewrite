@@ -27,7 +27,7 @@ console.log(suggestionChannel)
             .setTitle(data.title)
             .setDescription(`${data.description}\n\n **Status: (Accepted)** \n ${acceptreason}`)
             .setColor('#00FF23')
-            .setFooter(`Suggested by: ${data.author.tag}`)
+            .setFooter(`${data.footer}`)
 
             suggestedEmbed.edit({ embeds: [acceptedEmbed] }).then(async (msg) =>{
             msg.react(':thumbsup:');

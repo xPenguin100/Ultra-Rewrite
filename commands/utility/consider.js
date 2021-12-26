@@ -27,7 +27,7 @@ console.log(suggestionChannel)
             .setTitle(data.title)
             .setDescription(`${data.description}\n\n **Status: Considered** \n ${acceptreason}`)
             .setColor('ORANGE')
-            .setFooter(`${data.footer}`)
+            .setFooter(`This suggestion has been considered.`)
 
             suggestedEmbed.edit({ embeds: [acceptedEmbed] }).then(async (msg) =>{
             msg.react(':thumbsup:');
@@ -35,7 +35,7 @@ console.log(suggestionChannel)
 
             console.log(data)
 
-            const user = await client.users.cache.find((u) => u.tag === data.author)
+            const user = await client.users.cache.get((u) => u.tag === data.author)
             const approveEmbed = new MessageEmbed()
             .setTitle("Suggestion Status")
             .setDescription(`Your suggestion has been **approved** by a moderator in ${message.guild.name}!\n\n **Suggestion Message Link:** ${suggestedEmbed.url}`)

@@ -23,6 +23,7 @@ module.exports = {
             memberTarget.timeout();
          const embed = new MessageEmbed()
         .setTitle("⏱Member Timed-out")
+        .setDescription('Member has been timed out.')
         .addFields(
             { name: 'User', value: `${target}`},
             { name: 'Duration', value: `${time}`},

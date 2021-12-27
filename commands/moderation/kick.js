@@ -13,13 +13,13 @@ module.exports = {
         //if (message.author.roles.highest.position <= target.roles.highest.position) {return message.channel.send("The user you are attempting to kick has a higher role than you.")}
         if(target){
             const memberTarget = message.guild.members.cache.get(target.id);
-            memberTarget.ban();
+            memberTarget.kick();
             const embed = new MessageEmbed()
             .setDescription(`✅ ${target} has been kicked for \`${reason}\`.`)
             .setColor('2F3136')
             message.reply({ embeds: [embed] })
         }else{
-            if(!target.bannable) return message.channel.send("I was unable to kick this user!");
+            if(!target.kickable) return message.channel.send("I was unable to kick this user!");
 
             message.channel.send(`You couldn't kick that member!`);
         }

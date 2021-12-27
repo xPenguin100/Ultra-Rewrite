@@ -26,7 +26,8 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
-client.on('guildMemberAdd', (member) => {
+
+//client.on('guildMemberAdd', (member) => {
   //let botmessage = `Welcome ${member}!`
   //if(member.bot) return channel.send(botmessage)
   //const welcomeembed = new MessageEmbed()
@@ -34,11 +35,12 @@ client.on('guildMemberAdd', (member) => {
   //.setDescription(`${member}, welcome to ${member.guild}! We hope you have a good stay.`)
  // .setColor('#2F3136')
   //.setFooter(member.guild.name, member.guild.displayAvatarURL({ dynamic: true }))
-  let channelid = '873276182420914186' 
-  let message = `Welcome ${member}! We hope you have a good stay.`
-  let channel = member.guild.channels.cache.get(channelid)
-  channel.send(message)
-})
+  //let channelid = '873276182420914186' 
+  //let message = `Welcome ${member}! We hope you have a good stay.`
+ // let channel = member.guild.channels.cache.get(channelid)
+ // channel.send(message)
+//})
+
 
 //client.on('messageCreate', async (message) => {
  // if(db.has(`afk-${message.author.id}+${message.guild.id}`)) {
@@ -166,6 +168,18 @@ if (command === 'deny') {
   client.commands.get('deny').run(client, message, args);
   }
 });
+
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+if (command === 'timeout') {
+  client.commands.get('timeout').run(message, args);
+  }
+});
+
 
 client.on('messageCreate', message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;

@@ -18,7 +18,6 @@ module.exports = {
         return message.reply('Please provide a valid form of duration (d, h, m, s)!')
         let reason = args.slice(2).join(" ")
         if(!reason) reason = 'No reason'
-            if(target){
             let memberTarget = message.guild.members.cache.get(target.id);
             memberTarget.timeout();
          const embed = new MessageEmbed()
@@ -35,7 +34,6 @@ module.exports = {
         setTimeout(async () => {
             message.channel.send(`${target}'s timeout is removed.`)
         }, ms(args[1]))
-            }
 
     }
 }

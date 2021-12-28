@@ -10,10 +10,10 @@ module.exports = {
         if(!target) return message.reply('Please specify a member to timeout!')
         let time = args[1]
         if(
-            !args[1].includes("d") &&
-            !args[1].includes("h") &&
-            !args[1].includes("m") &&
-            !args[1].includes("s")
+            !args[1].endsWith("d") &&
+            !args[1].endsWith("h") &&
+            !args[1].endsWith("m") &&
+            !args[1].endsWith("s")
         )
         return message.reply('Please provide a valid form of duration (d, h, m, s)!')
         let reason = args.slice(2).join(" ")

@@ -9,6 +9,7 @@ module.exports = {
         let target = message.mentions.members.first() || message.members
         if(!target) return message.reply('Please specify a member to timeout!')
         let time = args[1]
+        if(!time) return message.reply('How long for this timeout?')
         if(
             !args[1].endsWith("d") &&
             !args[1].endsWith("h") &&

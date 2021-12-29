@@ -10,8 +10,7 @@ module.exports = {
         //let discordjsversion = discord.version
     
         let embed = new MessageEmbed()
-        .setAuthor({ name: `${message.author.tag}`, url: "", iconURL: `${message.author.displayAvatarURL}` })
-        .setTitle('Bot Panel')
+        .setAuthor({ name: `${message.author.tag}`, url: "", iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` }) 
         .setImage('https://media.discordapp.net/attachments/872963017741066331/872963055187800124/Ultra-Banner.jpg?width=1179&height=663')
         .addFields(
             { name: 'Invite Link', value: '[Click Here](https://dsc.gg/ultraa "Click to invite Ultra. Thank you!")', inline: true},

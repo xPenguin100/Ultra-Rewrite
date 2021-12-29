@@ -10,7 +10,7 @@ module.exports = {
         //let discordjsversion = discord.version
     
         let embed = new MessageEmbed()
-        .setAuthor({ name: `${message.author.tag}`, iconURL: `${message.author.iconURL}` })
+        .setAuthor({ name: `${message.author.tag}`, iconURL: `${message.author.displayAvatarURL}` })
         .setTitle('Bot Panel')
         .setImage('https://media.discordapp.net/attachments/872963017741066331/872963055187800124/Ultra-Banner.jpg?width=1179&height=663')
         .addFields(

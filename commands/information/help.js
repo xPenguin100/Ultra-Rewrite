@@ -15,8 +15,7 @@ module.exports = {
           { name: '😄 Fun', value: (`\`?8ball\`, \`?achieve\`, \`?bird/cat/dog/meme/fox/panda/wallpaper\`, \`?corona\`, \`?howgay\`, \`?rps\`, \`?say\`, \`?unscramble\``)},
           { name: '🔨Moderation', value: (`\`?ban\`, \`?clearwarns\`, \`?kick\`, \`?lift-lockdown\`, \`?lock\`, \`?lockdown\`, \`?modnick\`, \`?unban\`, \`?unlock\`, \`?warn\`, \`?warnings\``)}
         )
-
-        .setFooter(`Requested By: ` + message.author.tag, message.author.displayAvatarURL({ dynamic: true}))
+        .setFooter({ text: `Requested By: ${message.author.tag}`, url: "", iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
         .setTimestamp()
         .setColor('#2F3136')
         message.channel.send({ embeds: [embed] });

@@ -25,7 +25,7 @@ module.exports = {
             { name: 'Color:', value: `${color}`},
             { name: 'Creator:', value: `${message.author}`},
         )
-        .setFooter(`Time Created`)
+        .setFooter({ text: `Time Created`, url: "", iconURL: `` })
         .setTimestamp()
         message.reply({ embeds: [embed] })
     }

@@ -15,7 +15,7 @@ module.exports = {
         .setColor("#2F3136")
         .setTitle("New Suggestion!")
         .setDescription(theDescription)
-        .setFooter("Suggested by: "+ message.author.username +'#'+ message.author.discriminator) //optional
+        .setFooter({ text: `Suggested By: ${message.author.tag}`, url: "", iconURL: `` })
 
         let msgEmbed = await channelID.send({ embeds: [embed] });        
         await msgEmbed.react('✅') //👎👍

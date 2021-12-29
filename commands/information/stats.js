@@ -21,8 +21,7 @@ module.exports = {
       { name: 'Ping', value: `${Date.now() - message.createdTimestamp}ms`, inline: true},
       { name: 'Users', value: `${message.client.users.cache.size}`, inline: true}
     )
-
-    .setFooter("Made with Ultra", "https://cdn.discordapp.com/avatars/866014328464605184/670f18d681e14fb695b1c33b07f3a339.jpg")
+    .setFooter({ text: `Requested By: ${message.author.tag}`, url: "", iconURL: `${message.author.displayAvatarURL({ dynamic: true })}`})
     .setTimestamp()
     .setColor('#2F3136')
     message.channel.send({ embeds: [embed] });

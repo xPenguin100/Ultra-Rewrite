@@ -11,6 +11,7 @@ module.exports = {
         if(!target) return message.reply('Please specify someone to timeout.')
         if(target){
             let duration = args[1]
+            if(!duration) return message.reply('Please specify a duration.')
             if(
                 !args[1].endsWith("d") &&
                 !args[1].endsWith("h") &&

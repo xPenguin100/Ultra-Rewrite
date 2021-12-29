@@ -20,7 +20,7 @@ module.exports = {
   
       let embed = new MessageEmbed()
       .setDescription(`You can either invite the bot or join the support server using the links below.`)
-      .setFooter("You can also help by voting with ?vote", "https://cdn.discordapp.com/avatars/866014328464605184/670f18d681e14fb695b1c33b07f3a339.jpg")
+      .setFooter({ text: `You can also help by voting with ?vote`, url: "", iconURL: `https://cdn.discordapp.com/avatars/866014328464605184/670f18d681e14fb695b1c33b07f3a339.jpg` })
       .setColor('#2F3136')
       await message.reply({ embeds: [embed], components: [row] });
     }

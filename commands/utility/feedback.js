@@ -16,7 +16,7 @@ module.exports = {
             { name: 'Server', value: `${message.guild.name} (\`${message.guild.id}\`)`},
             { name: 'Feedback Given', value: `${query}`},
         )
-        .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true}))
+        .setFooter({ text: `${message.author.tag}`, url: "", iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
         .setTimestamp()
         .setColor('#2F3136')
 

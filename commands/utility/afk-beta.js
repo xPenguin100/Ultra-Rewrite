@@ -15,7 +15,7 @@ module.exports = {
         .setTitle(`AFK Set!`)
         .setDescription(`You have been set AFK for \`${reason}\`.`)
         .setColor('GREEN')
-        .setFooter(`By: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
+        .setFooter({ text: `By: ${messge.author.tag}`, url: "", iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
         .setTimestamp()
         message.reply({ embeds: [embed] })
     }

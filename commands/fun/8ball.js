@@ -14,7 +14,7 @@ module.exports = {
         let question = args.slice().join(" ");
 
         let embed = new MessageEmbed()
-        .setAuthor(`🎱 ${message.author.username}`)
+        .setAuthor({ name: `🎱 ${message.author.username}`, url: "", iconURL: "" })
         .setColor("#2F3136")
         .addField("Question", question)
         .addField("Answer", replies[result])

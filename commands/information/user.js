@@ -80,7 +80,7 @@ module.exports = {
       .addField(`Roles [${member.roles.cache.size}]`, member.roles.cache.map((r) => r).join(", "), false)  
       .addField("Badges", `\`${flags.length ? flags.map(flag => flags[flag]).join(', ') : 'None'}\``,true)
       .addField(`Permissions`, `\`${permissions}\``)
-      .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true}))
+      .setFooter({ text: `${message.author.tag}`, url: "", iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
       .setTimestamp()
       //.setDescription('❌ Command is down for maintenance.')
       .setColor('#2F3136')

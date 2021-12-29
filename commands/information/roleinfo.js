@@ -12,7 +12,7 @@ module.exports = {
  
       const embed = new MessageEmbed()
     .setDescription(`🏷 **${role.name}**\n**ID:** ${role.id}\n**Type:** ${role.hexColor}\n**Created On:** <t:${timestamp(role.createdAt)}:R>\n**❓ Other**\n**Hoisted:** ${role.hoist}\n**Mentionable:** ${role.mentionable}\n**Managed:** ${role.managed}`)
-    .setFooter(message.author.tag, message.author.displayAvatarURL())
+    .setFooter({ text: `${message.author.tag}`, url: "", iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })
     .setTimestamp()
     //.setDescription('❌ Command Down for Maintenance!')
     .setColor('#2F3136')

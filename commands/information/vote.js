@@ -16,7 +16,7 @@ module.exports = {
   
       let embed = new MessageEmbed()
       .setDescription(`Click below to vote for Ultra.`)
-      .setFooter({ text: `By voting, you are helping us out!`, url: "", iconURL: `https://cdn.discordapp.com/avatars/866014328464605184/670f18d681e14fb695b1c33b07f3a339.jpg` })
+      .setFooter({ text: `By voting, you are helping us out!`, url: "", iconURL: `https://cdn.discordapp.com/avatars/866014328464605184/72c775766580ff595772615562a3653c.png` })
       .setColor('#2F3136')
       await message.reply({ embeds: [embed], components: [row] });
     }

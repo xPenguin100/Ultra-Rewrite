@@ -1,12 +1,11 @@
-const randomPuppy = require('random-puppy');
-const { Discord, MessageEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
+const randomPuppy = require('random-puppy')
 
 module.exports = {
-    name: "fox",
+    name: "dog",
     description: "dog command, sends a dog from certain place",
-
-    async run (client, message, args) {
-        const subReddits = ["fox"]
+    run: async (message) => {
+        const subReddits = ["dogpictures", "puppies", "catpictures", "cat"]
         const random = subReddits[Math.floor(Math.random() * subReddits.length)]
 
         const img = await randomPuppy(random)
@@ -14,7 +13,7 @@ module.exports = {
         const embed = new MessageEmbed()
         .setColor("#2F3136")
         .setImage(img)
-        .setTitle(`Aww! Fox! 🦊`)
+        .setTitle(`AWW! Cute! 🐶🐱`)
         .setURL(`https://reddit.com/r/${random}`)
 
         await message.reply({ embeds: [embed] })

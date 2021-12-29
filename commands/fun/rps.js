@@ -3,8 +3,7 @@ const Discord = require('discord.js')
 module.exports = {
     name: "rps",
     description: "rock paper scissors command",
-
-    async run (client, message, args) {
+    async run (message) {
         let embed = new Discord.MessageEmbed()
         .setTitle("RPS")
         .setDescription("React to play!")

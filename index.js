@@ -114,38 +114,8 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-if (command === 'embedtest') {
-  client.commands.get('embedtest').execute(message);
-  }
-});
-
-client.on('messageCreate', message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-  const args = message.content.slice(prefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
 if (command === 'warn') {
   client.commands.get('warn').run(client, message, args);
-  }
-});
-
-client.on('messageCreate', message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-  const args = message.content.slice(prefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
-if (command === 'appreciate') {
-  client.commands.get('appreciate').run(client, message, args);
-  }
-});
-
-client.on('messageCreate', message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-  const args = message.content.slice(prefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
-if (command === 'appreciations') {
-  client.commands.get('appreciations').run(client, message, args);
   }
 });
 
@@ -206,8 +176,8 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-if (command === 'dog') {
-  client.commands.get('dog').run(client, message, args);
+if (command === 'aww') {
+  client.commands.get('aww').run(client, message, args);
   }
 });
 
@@ -228,17 +198,6 @@ client.on('messageCreate', message => {
   const command = args.shift().toLowerCase();
 if (command === 'afk-beta') {
   client.commands.get('afk-beta').run(client, message, args);
-  }
-});
-
-
-client.on('messageCreate', message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-  const args = message.content.slice(prefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
-if (command === 'cat') {
-  client.commands.get('cat').run(client, message, args);
   }
 });
 
@@ -263,17 +222,6 @@ if (command === 'mute') {
   }
 });
 
-
-client.on('messageCreate', message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-  const args = message.content.slice(prefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
-if (command === 'bird') {
-  client.commands.get('bird').run(client, message, args);
-  }
-});
-
 client.on('messageCreate', message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -291,16 +239,6 @@ client.on('messageCreate', message => {
   const command = args.shift().toLowerCase();
 if (command === 'tempban') {
   client.commands.get('tempban').run(message, args);
-  }
-});
-
-client.on('messageCreate', message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-  const args = message.content.slice(prefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
-if (command === 'fox') {
-  client.commands.get('fox').run(client, message, args);
   }
 });
 
@@ -361,16 +299,6 @@ client.on('messageCreate', message => {
   const command = args.shift().toLowerCase();
 if (command === 'feedback') {
   client.commands.get('feedback').run(client, message, args);
-  }
-});
-
-client.on('messageCreate', message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-  const args = message.content.slice(prefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
-if (command === 'panda') {
-  client.commands.get('panda').run(client, message, args);
   }
 });
 
@@ -530,16 +458,6 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-if (command === 'prefix') {
-  client.commands.get('prefix').execute(message);
-  }
-});
-
-client.on('messageCreate', message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-  const args = message.content.slice(prefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
 if (command === 'vote') {
   client.commands.get('vote').run(message, args, client);
   }
@@ -580,16 +498,6 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-if (command === 'recentupdate') {
-  client.commands.get('recentupdate').execute(message);
-  }
-});
-
-client.on('messageCreate', message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-  const args = message.content.slice(prefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
 if (command === 'stats') {
   client.commands.get('stats').execute(message);
   }
@@ -602,17 +510,6 @@ client.on('messageCreate', message => {
   const command = args.shift().toLowerCase();
 if (command === 'ticket') {
   client.commands.get('ticket').execute(message, args, cmd, client, discord);
-  }
-});
-
-
-client.on('messageCreate', message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-  const args = message.content.slice(prefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
-if (command === 'metest') {
-  client.commands.get('metest').execute(message);
   }
 });
 

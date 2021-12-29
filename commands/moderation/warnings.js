@@ -4,7 +4,7 @@ const db = require('quick.db')
 module.exports = {
     name: 'warnings',
     description: 'Shows the warnings of the user mentioned',
-    run: async(client, message, args) => {
+    run: async(message) => {
         let user = message.mentions.users.first()
         if(!user) return message.reply('Please mention a user so I can get their warnings!')
 

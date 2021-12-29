@@ -3,16 +3,15 @@ const { MessageEmbed } = require('discord.js')
 module.exports = {
     name : 'avatar',
     description : "avatar command",
-    execute(message, args) {
+    execute(message) {
 
-        const Discord = require("discord.js");
         let user = message.mentions.users.first() || message.author;
         let avatar = user.displayAvatarURL({size: 4096, dynamic: true});
 
 
     
         const embed = new MessageEmbed()
-        .setAuthor(user.tag, message.author.AvatarURL)
+        .setAuthor(message.author.displayAvatarURL + message.author.tag)
         .setTitle('Avatar')
         .setURL(avatar)
         .setImage(avatar)

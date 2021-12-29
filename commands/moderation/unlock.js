@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js")
 module.exports = {
     name: "unlock",
     description: "locks a given channel!",
-    run: async(client, message, args) => {
+    run: async(message, args) => {
         if(!message.member.permissions.has("MANAGE_CHANNELS")) return message.reply("You need the `MANAGE_CHANNELS` permission to use this command!")
         const channel = message.mentions.channels.first()
         let reason = args.slice(1).join(" ")

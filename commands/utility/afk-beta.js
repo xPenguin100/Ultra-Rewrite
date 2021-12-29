@@ -4,7 +4,7 @@ const db = require('quick.db')
 module.exports = {
     name: 'afk-beta',
     description: 'AFK command',
-    run: async(client, message, args) => {
+    run: async(message, args) => {
 
         let reason = args.join(" ")
         if(!reason) reason = 'No reason specified'

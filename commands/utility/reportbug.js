@@ -6,7 +6,6 @@ module.exports = {
     aliases: ['bug', 'bugreport'],
     run: async(client, message, args) => {
         const owner = client.users.cache.get('515124684946276362');
-        let author = message.mentions.users.first() || message.author
 
         const query = args.join(" ");
         if (!query) return message.reply('Please specify the bug on which you are reporting!')

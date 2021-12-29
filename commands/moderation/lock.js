@@ -2,17 +2,17 @@ const { MessageEmbed } = require("discord.js")
 module.exports = {
     name: "lock",
     description: "locks a given channel!",
-    run: async(client, message, args) => {
+    run: async(message, args) => {
         if(!message.member.permissions.has("MANAGE_CHANNELS")) return message.reply("You need the `MANAGE_CHANNELS` permission to use this command!")
-        const channel = message.mentions.channels.first()
+        let channel = message.mentions.channels.first()
+        if(!channel) return message.reply("Please mention a valid channel!")
         let reason = args.slice(1).join(" ")
         if(!reason) reason = "No reason";
-        if(!channel) return message.reply("Please mention a valid channel!")
-        let alreadylockedembed = new MessageEmbed()
+        const alreadylockedembed = new MessageEmbed()
         .setColor(`#2F3136`)
         .setDescription(`❌ This channel has already been locked!`)
         if(!channel.permissionsFor(channel.guildId, true).has("SEND_MESSAGES")) return message.reply({ embeds: [alreadylockedembed] })
-        let embed = new MessageEmbed()
+        const embed = new MessageEmbed()
         .setTitle("Channel Locked!")
         .setColor('#2F3136')
         .setDescription(`✅ ${channel} has been locked by ${message.author.tag} for \`${reason}\`.`)

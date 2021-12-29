@@ -4,10 +4,9 @@ const db = require('quick.db')
 module.exports = {
     name: 'warn',
     description: 'Warn',
-    run: async(client, message, args) => {
+    run: async(message, args) => {
         if(!message.member.permissions.has("KICK_MEMBERS")) return message.reply('You cannot execute this command! You are missing the `KICK_MEMBERS` permission.')
         
-        let author = message.mentions.users.first() || message.author
         let user = message.mentions.members.first()
         if(!user) return message.reply('Please mention a user to warn!')
 

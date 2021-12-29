@@ -4,8 +4,7 @@ module.exports = {
     name: 'report',
     description: 'Report a user!',
     run: async(client, message, args) => {
-        const owner = client.users.cache.get('515124684946276362');
-        let author = message.mentions.users.first() || message.author
+        let owner = client.users.cache.get('515124684946276362');
 
         let reporteduser = message.mentions.users.first()
         if(!reporteduser) return  message.reply('Please mention the user you are reporting!')

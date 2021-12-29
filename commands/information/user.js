@@ -1,17 +1,14 @@
-const { MessageEmbed, Discord, GuildMember } = require('discord.js')
-const moment = require('moment')
+const { MessageEmbed } = require('discord.js')
 const timestamp = require('discord-timestamp')
 
 module.exports = {
     name: 'user',
     description: 'User info command',
-    execute(message, args) {
+    execute(message) {
 
 //message.guild.members.cache.get - Use for getting info using ID
       let user = message.mentions.users.first() 
       let member = message.mentions.members.first() || message.member
-      let author = message.mentions.users.first() || message.author
-      let avatar = message.author.displayAvatarURL({size: 4096, dynamic: true});
       let permissions = message.member.permissions.toArray((r) => r).join(", ")
       const perms = {
         CREATE_INSTANT_INVITE: 'Create Invite', 
@@ -71,7 +68,7 @@ module.exports = {
       if(!user) user = message.author 
 
       let embed = new MessageEmbed()
-      .setAuthor(user.tag, user.displayAvatarURL({ dynamic: true}))
+      .setAuthor(user.tag + user.displayAvatarURL({ dynamic: true}))
       .setDescription(`${user} (\`${user.id}\`)`)
       .addFields(
         //{ name: 'Joined Server', value: (`${moment.utc(member.joinedAt).format('MMMM Do YYYY, h:mm:ss a')}`), inline: true},

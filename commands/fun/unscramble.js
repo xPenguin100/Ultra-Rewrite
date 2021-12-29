@@ -1,8 +1,7 @@
 module.exports = {
     name : 'unscramble',
     description: 'Attempt to unscramble the given scrambled word',
-
-    execute : async(client, message, args, Discord) => {
+    execute: async(message) => {
         let words = [
             'programming', 
             'elephant', 
@@ -13,8 +12,6 @@ module.exports = {
             'pie', 
             'DISCORD', 
             'ultra', 
-            'ChessInsanity', 
-            'PenguinCraft', 
             'Discord', 
             'YouTube', 
             'twitter', 

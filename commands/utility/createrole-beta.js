@@ -14,8 +14,7 @@ module.exports = {
             data: {
                 name: name,
                 color: color,
-                permissions: ["VIEW_CHANNELS", "SEND_MESSAGES", "READ_MESSAGE_HISTORY"],
-                mentionable: false,
+                permissions: [],
             }
         })
 

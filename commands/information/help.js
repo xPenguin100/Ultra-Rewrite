@@ -4,13 +4,7 @@ module.exports = {
     name : 'help',
     description : "Display current help information.",
     execute(message) {
-
-
-        let author = message.mentions.users.first() || message.author;
-        let avatar = author.displayAvatarURL({size: 4096, dynamic: true});
-
-
-    
+      
         let embed = new MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
         .setTitle('🔔Help Panel')

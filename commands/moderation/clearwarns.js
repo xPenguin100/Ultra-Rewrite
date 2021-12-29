@@ -3,7 +3,7 @@ const db = require('quick.db')
 module.exports = {
     name: 'clearwarns',
     description: 'Reset warns for mentioned user',
-    run: async(client, message, args) => {
+    run: async(message) => {
         if(!message.member.permissions.has("BAN_MEMBERS")) return message.reply('You cannot execute this! You are missing the `BAN_MEMBERS` permission.')
 
         let user = message.mentions.users.first() 

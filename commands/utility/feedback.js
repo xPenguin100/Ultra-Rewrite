@@ -4,10 +4,9 @@ module.exports = {
     name: 'feedback',
     description: 'Give feedback!',
     run: async(client, message, args) => {
-        const owner = client.users.cache.get('515124684946276362');
-        let author = message.mentions.users.first() || message.author
 
-        const query = args.join(" ");
+        let owner = client.users.cache.get('515124684946276362');
+        let query = args.join(" ");
         if (!query) return message.reply('Please specify your feedback!')
 
         const feedbackEmbed = new MessageEmbed()

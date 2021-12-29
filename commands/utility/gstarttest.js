@@ -1,11 +1,10 @@
 const { MessageEmbed, ReactionCollector, ThreadChannel } = require("discord.js")
-const { Query } = require("mongoose")
 const ms = require('ms')
 
 module.exports = {
     name: 'gstarttest',
     description: 'A simple gstart command',
-    run: async(client, message, args) => {
+    run: async(message, args) => {
 
         if(!message.member.permissions.has("MANAGE_MESSAGES")) return message.reply('You have insufficient permissions!')
         let author = message.mentions.users.first() || message.author

@@ -4,7 +4,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
     name: 'corona',
     description: 'A corona command!',
-    run: async (client, message, args) => {
+    run: async (message, args) => {
         const baseUrl = 'https://corona.lmao.ninja/v2';
 
         let url; let response; let
@@ -17,7 +17,7 @@ module.exports = {
         } catch (error) {
             return message.channel.send(`***${args[0]}*** doesn't exist, or data isn't being collected.`);
         }
-const embed = new MessageEmbed()
+            const embed = new MessageEmbed()
             .setTitle(args[0] ? `${args[0].toUpperCase()} Stats` : 'Total Corona Cases World Wide')
             .setColor('#2F3136')
             .setThumbnail(args[0] ? corona.countryInfo.flag : 'https://i.giphy.com/YPbrUhP9Ryhgi2psz3.gif')
@@ -69,6 +69,6 @@ const embed = new MessageEmbed()
                 },
             );
 
-        return message.channel.send({ embeds: [embed] });
+        return message.reply({ embeds: [embed] });
     },
 };

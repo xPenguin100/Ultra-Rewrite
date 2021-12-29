@@ -3,8 +3,7 @@ const { MessageEmbed } = require("discord.js")
 module.exports = {
     name: 'membercount',
     description: 'A command that reveals the members in a server',
-    alises: ['mc', 'members'],
-    execute(message, args) {
+    execute(message) {
 
         const membercount = new MessageEmbed()
         .setColor(`2F3136`)

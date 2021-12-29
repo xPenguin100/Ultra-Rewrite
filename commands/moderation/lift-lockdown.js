@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js")
 module.exports = {
     name: 'lift-lockdown',
     description: 'Lockdown command!',
-    run: async(message, args, Client) => {
+    run: async(message, args) => {
         if(!message.member.permissions.has("MANAGE_CHANNELS")) return message.channel.send("You don't have enough permissions to execute this command!")
         if(!message.member.guild.me.permissions.has("MANAGE_CHANNELS")) return message.channel.send("I don't have enough permissions to execute this command!")
         let reason = args.slice(1).join(" ")
@@ -11,7 +11,7 @@ module.exports = {
     
         message.guild.channels.cache.forEach(channel => {
             try {
-                channel.permissionOverwrites.edit(message.guild.roles.cache.find(e => e.name.toLowerCase().trim() == "@everyone"), {
+                channel.permissionOverwrites.edit(message.guild.roles.cache.find(c => c.name.toLowerCase().trim() == "@everyone"), {
                     SEND_MESSAGES: true
                 })
             }catch(e) {

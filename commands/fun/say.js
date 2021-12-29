@@ -1,9 +1,9 @@
 const { MessageEmbed } = require('discord.js')
- //.setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+
 module.exports = {
     name: 'say',
     description: 'Say command',
-    run: async(client, message, args) => {
+    run: async(message, args) => {
 
         //VARIABLES
         let say = args.join(" ")

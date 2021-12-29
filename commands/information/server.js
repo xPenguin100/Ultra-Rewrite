@@ -1,5 +1,4 @@
 const { MessageEmbed, Discord } = require('discord.js')
-const moment = require('moment')
 const timestamp = require('discord-timestamp')
 
 module.exports = {
@@ -8,12 +7,9 @@ module.exports = {
     execute(message) {
   
       let channels = message.guild.channels.cache;
-      let author = message.mentions.users.first() || message.author
-      let member = message.mentions.members.first() || message.member
-      let avatar = author.displayAvatarURL({size: 4096, dynamic: true});
-  
+
      let serverembed = new MessageEmbed()
-    .setAuthor(message.guild.name, message.guild.iconURL())
+    .setAuthor(message.guild.name + message.guild.iconURL())
     .setThumbnail(message.guild.iconURL())
     .addFields(
       { name: 'Owner', value: `<@${message.guild.ownerId}> (\`${message.guild.ownerId}\`)`},

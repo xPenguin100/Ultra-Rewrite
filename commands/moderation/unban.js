@@ -3,14 +3,13 @@ const { MessageEmbed } = require("discord.js")
 module.exports = {
     name: 'unban',
     description: 'Unban members!',
-    run: async(client, message, args) => {
+    run: async(message, args) => {
         if(!message.member.permissions.has("BAN_MEMBERS")) return message.channel.send("You do not have enough permissions! You need `BAN_MEMBERS` to use this command.")
         if(!message.guild.me.permissions.has("BAN_MEMBERS")) return message.channel.send("I am missing the `BAN_MEMBERS` permission, so I cannot execute this command!")
 
         let reason = args.slice(1).join(" ")
-        let userId = args[0]
-
         if(!reason) reason = "No reason";
+        let userId = args[0]
         if(!userId) return message.reply("Please give a user ID so I can unban!")
         if(isNaN(userId)) return message.channel.send("That isn't a valid user ID!")
 

@@ -1,9 +1,9 @@
-const { MessageEmbed, guild } = require("discord.js")
+const { MessageEmbed } = require("discord.js")
 
 module.exports = {
     name: 'lockdown',
     description: 'Lockdown command!',
-    run: async(message, args, Client) => {
+    run: async(message, args) => {
         if(!message.member.permissions.has("MANAGE_CHANNELS")) return message.channel.send("You don't have enough permissions to execute this command!")
         if(!message.member.guild.me.permissions.has("MANAGE_CHANNELS")) return message.channel.send("I don't have enough permissions to execute this command!")
         let reason = args.slice(1).join(" ")

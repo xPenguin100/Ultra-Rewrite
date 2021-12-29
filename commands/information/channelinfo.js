@@ -1,20 +1,17 @@
-const { MessageEmbed, Discord } = require('discord.js')
-const moment = require('moment')
+const { MessageEmbed } = require('discord.js')
 const timestamp = require('discord-timestamp')
 
 module.exports = {
     name: 'channelinfo',
     description: 'User info command',
-    execute(message, args) {
+    execute(message) {
   
   
-      const author = message.mentions.users.first() || message.author
       const channel = message.mentions.channels.first() ?? message.channel
       if(!channel) channel = message.channel
-      const member = message.mentions.members.first() || message.member
  
       let embed = new MessageEmbed()
-      .setDescription(`#️⃣ **${channel.name}**\n**ID:** \`${channel.id}\`\n**Type:** \`${channel.type}\`\n**Created On:** <t:${timestamp(channel.createdAt)}:R>\n**Topic:** ${channel.topic !== null ? `${channel.topic}` : 'No topic found'}`)
+      .setDescription(`**${channel.name}**\n**ID:** \`${channel.id}\`\n**Type:** \`${channel.type}\`\n**Created On:** <t:${timestamp(channel.createdAt)}:R>\n**Topic:** ${channel.topic !== null ? `${channel.topic}` : 'No topic found'}`)
       .setFooter(`Requested By: ` + message.author.tag, message.author.displayAvatarURL({ dynamic: true}))
       .setTimestamp()
       //.setDescription('❌ Command Down for Maintenance!')

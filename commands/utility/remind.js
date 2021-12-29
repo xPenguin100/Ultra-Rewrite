@@ -5,7 +5,7 @@ module.exports = {
     name: "remind",
     category: "utility",
     aliases: ['remindme', 'rm'],
-    async execute(message, args, client, Discord) {
+    async execute(message, args) {
         let time = args[0];
         let user = message.author
         let reminder = args.splice(1).join(' ')
@@ -34,7 +34,7 @@ module.exports = {
 
             await user.send({ embeds: [reminderdm] }) 
           }catch(err){
-
+            throw(err)
            } 
            
         }, ms(time));

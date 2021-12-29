@@ -2,10 +2,8 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: "ticket",
-    aliases: [],
-    permissions: [],
     description: "open a ticket!",
-    async execute(message, args, cmd, client, discord) {
+    async execute(message) {
       const channel = await message.guild.channels.create(`ticket: ${message.author.tag}`);
     
       channel.permissionOverwrites.edit(message.guild.id, {

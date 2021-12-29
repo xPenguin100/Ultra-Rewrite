@@ -3,7 +3,7 @@ const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js')
 module.exports = {
     name: 'vote',
     description: 'Server info command',
-    async run (message, args, client) {
+    async run (message) {
 
       const row = new MessageActionRow()
           .addComponents(

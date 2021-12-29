@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js")
 module.exports = {
     name: 'staffkick-beta',
     description: 'Kick a staff from the team',
-    run: async(client, message, args) => {
+    run: async(message, args) => {
         if(!message.guild.me.permissions.has("MANAGE_ROLES")) return message.reply("I cannot execute this! I am missing the \`MANAGE_ROLES\` permission.")
         let target = message.mentions.users.first()
         if(!target) return message.reply('Please specify whose perms you would like to vote on revoking!')

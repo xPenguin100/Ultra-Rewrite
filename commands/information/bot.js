@@ -1,21 +1,16 @@
-const { client, discord, MessageEmbed } = require('discord.js')
+const { MessageEmbed } = require('discord.js')
 
 module.exports = {
     name : 'bot',
     description : "Display current statistics about this bot.",
     execute(message) {
-      message.delete({ timeout: 0 })
-  .then(msg => console.log(`Deleted message from ${msg.author.username} instantly.`))
-  .catch(console.error);
 
-
-        let author = message.mentions.users.first() || message.author;
         let avatar = message.author.displayAvatarURL({size: 4096, dynamic: true});
         let nodeversion = process.version
         //let discordjsversion = discord.version
     
         let embed = new MessageEmbed()
-        .setAuthor(message.author.tag, message.avatar)
+        .setAuthor(message.author.tag + avatar)
         .setTitle('Bot Panel')
         .setImage('https://media.discordapp.net/attachments/872963017741066331/872963055187800124/Ultra-Banner.jpg?width=1179&height=663')
         .addFields(
@@ -26,12 +21,12 @@ module.exports = {
             { name: 'Owner', value: `<@515124684946276362>`, inline: true},
             { name: 'Servers', value: `\`${message.client.guilds.cache.size}\``, inline: true},
             { name: 'Users', value: `\`${message.client.users.cache.size}\``, inline: true},
-            { name: 'Discord.js Version', value: `\`13.3.1\``, inline: true},
+            { name: 'Discord.js Version', value: `\`13.4\``, inline: true},
             { name: 'Node Version', value: `\`${nodeversion}\``, inline: true},
         )
         .setColor('#2F3136')
         //.setDescription(`❌ Command is under maintenance.`)
-        message.channel.send({ embeds: [embed] });
+        message.reply({ embeds: [embed] });
 
     }
 }

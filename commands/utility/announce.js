@@ -21,7 +21,7 @@ module.exports = {
 
         const collector = choice.createReactionCollector((reaction, user) => message.guild.members.cache.find((member) => member.id === user.id).permissions.has("MENTION_EVERYONE"),{ dispose: true, time: 15000 });
 
-        collector.on("collect", (reaction, user) => {
+        collector.on("collect", (reaction) => {
             switch (reaction.emoji.name) {
               case "👍":
                 channel.send('@everyone', announcement)

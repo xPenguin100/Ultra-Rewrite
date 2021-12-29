@@ -11,7 +11,7 @@ module.exports = {
         await db.set(`afk-${message.author.tag}+${message.guild.id}`, reason)
 
         const embed = new MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+        .setAuthor({ name: `${message.author.tag}`, url: "", iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })       
         .setTitle(`AFK Set!`)
         .setDescription(`You have been set AFK for \`${reason}\`.`)
         .setColor('GREEN')

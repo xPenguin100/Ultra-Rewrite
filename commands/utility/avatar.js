@@ -11,7 +11,7 @@ module.exports = {
 
     
         const embed = new MessageEmbed()
-        .setAuthor(message.author.displayAvatarURL + message.author.tag)
+        .setAuthor({ name: `${message.author.tag}`, url: "", iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })       
         .setTitle('Avatar')
         .setURL(avatar)
         .setImage(avatar)

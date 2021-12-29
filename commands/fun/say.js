@@ -9,7 +9,7 @@ module.exports = {
         let say = args.join(" ")
 
         const sayEmbed = new MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true}))
+        .setAuthor({ name: `${message.author.tag}`, url: "", iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })       
         .setDescription(say)
         .setColor('#2F3136')
         message.reply({ embeds: [sayEmbed] })

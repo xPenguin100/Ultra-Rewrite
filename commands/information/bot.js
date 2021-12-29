@@ -5,7 +5,6 @@ module.exports = {
     description : "Display current statistics about this bot.",
     execute(message) {
 
-        let avatar = message.author.displayAvatarURL({size: 4096, dynamic: true});
         let nodeversion = process.version
         //let discordjsversion = discord.version
     

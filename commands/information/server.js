@@ -9,8 +9,8 @@ module.exports = {
       let channels = message.guild.channels.cache;
 
      let serverembed = new MessageEmbed()
-    .setAuthor(message.guild.name + message.guild.iconURL())
-    .setThumbnail(message.guild.iconURL())
+     .setAuthor({ name: `${message.guild.name}`, url: "", iconURL: `${message.guild.iconURL({ dynamic: true })}` })       
+     .setThumbnail(message.guild.iconURL())
     .addFields(
       { name: 'Owner', value: `<@${message.guild.ownerId}> (\`${message.guild.ownerId}\`)`},
       { name: 'Created On', value: (`<t:${timestamp(message.guild.createdAt)}:R>`), inline: true},

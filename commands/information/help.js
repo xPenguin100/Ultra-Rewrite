@@ -6,7 +6,7 @@ module.exports = {
     execute(message) {
       
         let embed = new MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+        .setAuthor({ name: `${message.author.tag}`, url: "", iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })       
         .setTitle('🔔Help Panel')
         .setDescription(`Hello ${author.tag}, below are the latest and up-to-date commands for this bot.`)
         .addFields(

@@ -9,7 +9,7 @@ module.exports = {
     let avatar = user.displayAvatarURL({size: 4096, dynamic: true});
 
     let embed = new MessageEmbed()
-    .setAuthor(message.author.tag + message.author.displayAvatarURL({ dynamic: true}))
+    .setAuthor({ name: `${message.author.tag}`, url: "", iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })       
     .setTitle('Statistics')
     .setImage(avatar)
     .setDescription(`Hello ${user.tag}, you requested to see the latest statistics on this bot. They are found below!`)

@@ -6,8 +6,7 @@ module.exports = {
     execute(message) {
       
         let embed = new MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-        .setTitle('`🔔` Help Panel')
+        .setAuthor({ name: `${message.author.tag}`, url: "", iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })        
         .addFields(
           { name: '`🔧` **Utility**', value: ("<:reply:892128214112149574> `?help utility`"), inline: true},
           { name: '`😄` **Fun**', value: ("<:reply:892128214112149574> `?help fun`"), inline: true},

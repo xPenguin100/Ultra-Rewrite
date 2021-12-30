@@ -12,7 +12,7 @@ module.exports = {
  
       let embed = new MessageEmbed()
       .setDescription(`**${channel.name}**\n**ID:** \`${channel.id}\`\n**Type:** \`${channel.type}\`\n**Created On:** <t:${timestamp(channel.createdAt)}:R>\n**Topic:** ${channel.topic !== null ? `${channel.topic}` : 'No topic found'}`)
-      .setFooter(`Requested By: ` + message.author.tag, message.author.displayAvatarURL({ dynamic: true}))
+      .setFooter({ text: `Requested By: ${message.author.tag}`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}`})
       .setTimestamp()
       //.setDescription('❌ Command Down for Maintenance!')
       .setColor('#2F3136')

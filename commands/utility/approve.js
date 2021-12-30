@@ -27,7 +27,7 @@ console.log(suggestionChannel)
             .setTitle(data.title)
             .setDescription(`${data.description}\n\n **Status: Accepted** \n ${acceptreason}`)
             .setColor('GREEN')
-            .setFooter({ text: `This suggestion has been approved.`, url: "", iconURL: `` })
+            .setFooter({ text: `This suggestion has been approved.`, iconURL: `` })
 
             suggestedEmbed.edit({ embeds: [acceptedEmbed] }).then(async (msg) =>{
             msg.react(':thumbsup:');

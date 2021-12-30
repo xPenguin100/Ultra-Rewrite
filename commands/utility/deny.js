@@ -27,7 +27,7 @@ console.log(suggestionChannel)
             .setTitle(data.title)
             .setDescription(`${data.description}\n\n **Status: Denied** \n ${acceptreason}`)
             .setColor('RED')
-            .setFooter({ text: `This suggestion has been denied.`, url: "", iconURL: `` })
+            .setFooter({ text: `This suggestion has been denied.`, iconURL: `` })
 
             suggestedEmbed.edit({ embeds: [acceptedEmbed] }).then(async (msg) =>{
             msg.react(':thumbsup:');

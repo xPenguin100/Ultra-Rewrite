@@ -1,38 +1,41 @@
-const ms = require('ms')
 const { MessageEmbed } = require('discord.js')
+const ms = require('ms')
 
 module.exports = {
     name: 'timeout',
     description: 'A timeout command',
     run: async(message, args) => {
-        if(!message.guild.me.permissions.has("KICK_MEMBERS")) return message.reply('Insufficient permissions! I need \`KICK_MEMBERS\` to execute this.')
-        if(!message.member.permissions.has("KICK_MEMBERS")) return message.reply("You can't execute this! You need `KICK_MEMBERS` to use this command.")
-        let target = message.mentions.members.first() || message.member
-        if(!target) return message.reply('Please specify someone to timeout.')
-        if(target){
-            let duration = args[1]
-            if(!duration) return message.reply('Please specify a duration.')
-            if(
-                !args[1].endsWith("d") &&
-                !args[1].endsWith("h") &&
-                !args[1].endsWith("m") &&
-                !args[1].endsWith("s")
-            ) return message.reply('Please specify a valid form of duration (d, h, m, s).')
 
-            let reason = args.slice(2).join(" ")
-            if(!reason) reason = 'No reason specified'
+        if(!message.member.permissions.has("KICK_MEMBERS")) return message.reply("You don't have high enough permissions.")
+        if(!message.guild.me.permissions.has("KICK_MEMBERS")) return message.reply("I don't have high enough permissions.")
 
-            let timeouttarget = message.guild.members.cache.get(target.id)
-            timeouttarget.timeout()
-            const embed = new MessageEmbed()
-            .setDescription(`${target} has been timed-out for ${duration} for \`${reason}\`.`)
-            .setColor('#2f3136')
-            .setTimestamp()
-            message.reply({ embeds: [embed] })
+        let target = message.mentions.members.first()
+        if(!target) return message.reply('Please mention someone to timeout!')
 
-            setTimeout(async () => {
-                await message.reply(`${target}'s timeout has been removed.`)
-            }, ms(args[1]))
-        }
+        let duration = args[1]//.then(ms(args[1]))
+        if(!duration) return message.reply('Please specify a duration!')
+
+        let reason = args.slice(2).join(" ")
+        if(!reason) reason = "No reason."
+
+        let timeouttarget = message.guild.members.cache.get(target.id)
+        if(target.isCommunicationDisabled()) return message.reply('This member is already timed-out.')
+        timeouttarget.timeout(parseInt(args[1]))
+
+        const embed = new MessageEmbed()
+        .setTitle("⏱ Member Timed-Out")
+        .addFields(
+        { name: 'Member Timed-out', value: `${target}` },
+        { name: 'Duration', value: `${duration}` },
+        { name: 'Reason', value: `${reason}` }, 
+        )
+        .setColor(`2F3136`)
+
+        message.reply({ embeds: [embed] })
+
+        setTimeout(async () => {
+            message.reply(`${target}'s timeout has ended.`)
+        }, ms(args[1]))
+
     }
 }

@@ -27,19 +27,12 @@ client.once('ready', () => {
 });
 
 
-//client.on('guildMemberAdd', (member) => {
-  //let botmessage = `Welcome ${member}!`
-  //if(member.bot) return channel.send(botmessage)
-  //const welcomeembed = new MessageEmbed()
-  //.setAuthor(member.tag, member.displayAvatarURL({ dynamic: true }))
-  //.setDescription(`${member}, welcome to ${member.guild}! We hope you have a good stay.`)
- // .setColor('#2F3136')
-  //.setFooter(member.guild.name, member.guild.displayAvatarURL({ dynamic: true }))
-  //let channelid = '873276182420914186' 
-  //let message = `Welcome ${member}! We hope you have a good stay.`
- // let channel = member.guild.channels.cache.get(channelid)
- // channel.send(message)
-//})
+client.on('guildMemberAdd', (member) => {
+  let channelid = '873276182420914186' 
+  let message = `Welcome ${member}! We hope you have a good stay.`
+  let channel = member.guild.channels.cache.get(channelid)
+  channel.send(message)
+})
 
 
 //client.on('messageCreate', async (message) => {

@@ -4,8 +4,8 @@ module.exports = {
     name: 'unban',
     description: 'Unban members!',
     run: async(message, args) => {
-        if(!message.member.permissions.has("BAN_MEMBERS")) return message.channel.send("You do not have enough permissions! You need `BAN_MEMBERS` to use this command.")
-        if(!message.guild.me.permissions.has("BAN_MEMBERS")) return message.channel.send("I am missing the `BAN_MEMBERS` permission, so I cannot execute this command!")
+        //if(!message.member.permissions.has("BAN_MEMBERS")) return message.channel.send("You do not have enough permissions! You need `BAN_MEMBERS` to use this command.")
+        //if(!message.guild.me.permissions.has("BAN_MEMBERS")) return message.channel.send("I am missing the `BAN_MEMBERS` permission, so I cannot execute this command!")
 
         let reason = args.slice(1).join(" ")
         if(!reason) reason = "No reason";

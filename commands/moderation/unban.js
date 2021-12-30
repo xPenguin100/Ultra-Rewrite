@@ -9,7 +9,7 @@ module.exports = {
 
         let reason = args.slice(1).join(" ")
         if(!reason) reason = "No reason";
-        let userId = args[0]
+        let userId = args[2]
         if(!userId) return message.reply("Please give a user ID so I can unban!")
         if(isNaN(userId)) return message.channel.send("That isn't a valid user ID!")
 

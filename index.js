@@ -389,7 +389,7 @@ client.on('messageCreate', message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
 if (command === 'unban') {
-  client.commands.get('unban').run(client, message, args);
+  client.commands.get('unban').run(message, args);
   }
 });
 

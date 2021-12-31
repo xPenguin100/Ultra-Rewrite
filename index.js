@@ -552,7 +552,7 @@ client.on('messageCreate', message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
 if (command === 'rps') {
-  client.commands.get('rps').run(client, message, args);
+  client.commands.get('rps').run(message);
   }
 });
 

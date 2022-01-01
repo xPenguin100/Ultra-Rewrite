@@ -170,7 +170,7 @@ client.on('messageCreate', message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
 if (command === 'aww') {
-  client.commands.get('aww').run(client, message, args);
+  client.commands.get('aww').run(message);
   }
 });
 
@@ -301,7 +301,7 @@ client.on('messageCreate', message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
 if (command === 'wallpaper') {
-  client.commands.get('wallpaper').run(client, message, args);
+  client.commands.get('wallpaper').run(message);
   }
 });
 
@@ -362,7 +362,7 @@ client.on('messageCreate', message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
 if (command === 'unscramble') {
-  client.commands.get('unscramble').execute(client, message, args, Discord);
+  client.commands.get('unscramble').execute(message);
   }
 });
 
@@ -412,7 +412,7 @@ client.on('messageCreate', message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
 if (command === 'achieve') {
-  client.commands.get('achieve').run(client, message, args);
+  client.commands.get('achieve').run(message, args);
   }
 });
 
@@ -593,7 +593,7 @@ client.on('messageCreate', message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
 if (command === 'corona') {
-  client.commands.get('corona').run(client, message, args);
+  client.commands.get('corona').run(message, args);
   }
 });
 

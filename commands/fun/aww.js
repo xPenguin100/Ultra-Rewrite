@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 const randomPuppy = require('random-puppy')
 
 module.exports = {
-    name: "dog",
+    name: "aww",
     description: "dog command, sends a dog from certain place",
     run: async (message) => {
         const subReddits = ["dogpictures", "puppies", "catpictures", "cat"]

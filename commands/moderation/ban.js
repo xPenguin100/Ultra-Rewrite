@@ -8,15 +8,18 @@ module.exports = {
          if (!message.member.permissions.has("BAN_MEMBERS")) return message.channel.send("You can't use this command!")
         let target = message.mentions.users.first();
         if(!target) return message.reply('Please mention someone to ban!')
+
+        if(!message.guild.members.fetch(target)) return message.reply('The user you mentioned is not in the server.')
+
        // if (message.author.roles.highest.position <= target.roles.highest.position) {return message.channel.send("The user you are attempting to ban has a higher role than you.")}
         let reason = args.slice(1).join(" ")
         if(!reason) reason = "No reason";
         if(target){
             const memberTarget = message.guild.members.cache.get(target.id);
-            memberTarget.ban();
+            memberTarget.ban({ reason: `${reason}` });
             const embed = new MessageEmbed()
             .setColor("2F3136")
-            .setDescription(`✅ ${target} has been banned for \`${reason}\`!`)
+            .setDescription(`✅ ${target.tag} has been banned for \`${reason}\`!`)
             message.channel.send({ embeds: [embed] });
         }else{
             if(!target.bannable) return message.channel.send("I was unable to ban this user!");

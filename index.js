@@ -84,11 +84,11 @@ client.on('messageCreate', async (message) => {
     }
   } else {
     if (message.content.toLowerCase() === prefix + 'c.help') {
-      const embed = new MessageEmbed().setColor('#2F3136').setTitle('**Clear Help**');
-      newEmbed
-        .setDescription('This command clears messages. For example, `?purge 5`, `?p 5`, `?clear 5`, or `?c 5`.')
-        .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
-        .setTimestamp();
+      const embed = new MessageEmbed()
+      .setTitle("**Purge Help**")
+      .setDescription('This array of commands allows fast deletion of messages. Below lists all commands in the array:\n\n**Commands:**\n`?purge <number>`\n`?clear <number>`')
+      .setTimestamp()
+      .setFooter({ text: `Requested By: ${message.author.tag}`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}`})
       message.channel.send({ embeds: [embed] });
     }
   }

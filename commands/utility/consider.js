@@ -15,7 +15,7 @@ module.exports = {
         let suggestedEmbed = await suggestionChannel.messages.fetch(messageId);
 */
 
-        const suggestionChannel = message.guild.channels.cache.get("867106022455246868" || "739909677453934602")
+        const suggestionChannel = message.guild.channels.cache.get( channel => channel.id === "867106022455246868" || channel.id === "739909677453934602")
 //let channels = message.guild.channels.filter(c => c.type == 'GUILD_TEXT').array();
 console.log(suggestionChannel)
       let suggestedEmbed = await suggestionChannel.messages.fetch(messageId);

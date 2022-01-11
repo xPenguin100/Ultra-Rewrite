@@ -6,7 +6,7 @@ module.exports = {
     run: async(message, args) => {
 
         //VARIABLES
-        let say = args.join(" ")
+        let say = args.slice(1).join(" ")
 
         const sayEmbed = new MessageEmbed()
         .setAuthor({ name: `${message.author.tag}`, url: "", iconURL: `${message.author.displayAvatarURL({ dynamic: true })}` })       

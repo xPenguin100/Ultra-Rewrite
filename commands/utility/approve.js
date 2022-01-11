@@ -1,4 +1,4 @@
-const { Discord, MessageEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: 'approve',
@@ -35,10 +35,12 @@ console.log(suggestionChannel)
 
             console.log(data)
 
-            const user = await client.users.cache.get((u) => u.tag === data.author)
+            //const user = await client.users.cache.find((u) => u.tag === data.author.name)
+            const user = data.author
+            if(user.id === message.author.id) return message.reply('Cannot send DM to yourself.')
             const approveEmbed = new MessageEmbed()
             .setTitle("Suggestion Status")
-            .setDescription(`Your suggestion has been **approved** by a moderator in ${message.guild.name}!\n\n **Suggestion Message Link:** ${suggestedEmbed.url}`)
+            .setDescription(`Your suggestion has been **approved** by a moderator in ${message.guild.name}!\n\n **Suggestion:** ${suggestedEmbed.url}`)
             .setColor("BLUE")
             .setThumbnail(suggestedEmbed.guild.iconURL({ dynamic: true }))
             user.send({ embeds: [approveEmbed] }); 

@@ -1,7 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports = {
-    name: 'deny',
+    name: 'approve',
     description: 'Approves a suggestion!',
     run: async (client, message, args) => {
 
@@ -20,7 +20,7 @@ module.exports = {
 console.log(suggestionChannel)
       let suggestedEmbed = await suggestionChannel.messages.fetch(messageId);
         if(!messageId) return message.reply("Please specify a valid message ID!")
-        if(!acceptreason) return message.reply('Please specify a reason for accepting this suggestion!')
+        if(!acceptreason) return message.reply('Please specify a reason for denying this suggestion!')
 
             const data = suggestedEmbed.embeds[0];
             const acceptedEmbed = new MessageEmbed()
@@ -35,10 +35,12 @@ console.log(suggestionChannel)
 
             console.log(data)
 
-            const user = await client.users.cache.get((u) => u.tag === data.author)
+            //const user = await client.users.cache.find((u) => u.tag === data.author.name)
+            const user = data.author
+            if(user.id === message.author.id) return message.reply('Cannot send DM to yourself.')
             const approveEmbed = new MessageEmbed()
             .setTitle("Suggestion Status")
-            .setDescription(`Your suggestion has been **approved** by a moderator in ${message.guild.name}!\n\n **Suggestion Message Link:** ${suggestedEmbed.url}`)
+            .setDescription(`Your suggestion has been **denied** by a moderator in ${message.guild.name}!\n\n **Suggestion:** ${suggestedEmbed.url}`)
             .setColor("RED")
             .setThumbnail(suggestedEmbed.guild.iconURL({ dynamic: true }))
             user.send({ embeds: [approveEmbed] }); 

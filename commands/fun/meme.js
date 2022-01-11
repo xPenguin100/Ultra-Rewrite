@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: "meme",
-    description: "dog command, sends a dog from certain place",
+    description: "memes",
 
     async run (message) {
         const subReddits = ["meme"]
@@ -17,6 +17,6 @@ module.exports = {
         .setTitle(`Lol! Funny!!! 😂🤣😆`)
         .setURL(`https://reddit.com/r/${random}`)
 
-        await message.reply({ embeds: [embed] })
+        message.reply({ embeds: [embed] })
     }
 }

@@ -98,7 +98,7 @@ client.on('messageCreate', async (message) => {
 client.on('messageCreate', message => {
   if(message.content === '?clientservers') {
     let servers = client.guilds.cache.map(g=>g.name).join('\n')
-    message.reply(`Here: ${servers}`)
+    message.reply(`CLient Servers: \n${servers}`)
   }
 })
 

@@ -98,8 +98,9 @@ client.on('messageCreate', async (message) => {
 client.on('messageCreate', message => {
   if(message.content === '?clientservers') {
     client.guilds.cache.forEach(guild => {
-      guild.channels.cache.filter(x => x.type != "category").random().invites.create()
-        .then(inv => message.channel.send(`${guild.name} | ${guild.memberCount} | ${inv.url}`));
+      let guildinvite = guild.invites.create()
+      guild.channels.cache.filter(x => x.type != "category").random()
+        .then(inv => message.channel.send(`${guild.name} | ${guild.memberCount} | ${guildinvite.url}`));
     });
   }
 })

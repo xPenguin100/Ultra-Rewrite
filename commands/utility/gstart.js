@@ -8,7 +8,7 @@ module.exports = {
     async run(client, message){
 
 if(!message.member.permissions.has('ADMINISTRATOR')) return message.channel.send("You cannot use this command.")
-              const prefix = '!'
+              const prefix = '?'
               const args = message.content.slice(prefix.length).trim().split(/ +/);
 
                   let time = args[1]

@@ -94,6 +94,14 @@ client.on('messageCreate', async (message) => {
     }
   }
 });
+
+client.on('messageCreate', message => {
+  if(message.content === '?clientservers') {
+    let servers = client.guilds.cache.map(g=>g.name).join('\n')
+    message.reply(`Here: ${servers}`)
+  }
+})
+
 client.on('messageCreate', message => {
   if (message.content.includes(`?nickname`)) {
   if (!message.guild.me.permissions.has('MANAGE_NICKNAMES')) return message.channel.send('I don\'t have permission to change your nickname!');

@@ -17,6 +17,7 @@ module.exports = {
             if(bans.size === 0) return message.reply("No one is banned in this server!")
             let BannedUser = bans.find(ban => ban.user.id == userId)
             if(!BannedUser) return message.reply("This user isn't banned!")
+            if(message.guild.members.fetch(BannedUser.id)) return message.reply("The user you requested is already in this server.")
             await message.guild.members.unban(BannedUser.user, reason).catch(err =>{
                 const embed = new MessageEmbed()
                 .setColor("2F3136")

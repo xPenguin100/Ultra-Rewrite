@@ -19,7 +19,7 @@ module.exports = {
             { name: 'Owner', value: `<@515124684946276362>`, inline: true},
             { name: 'Servers', value: `\`${message.client.guilds.cache.size}\``, inline: true},
             { name: 'Users', value: `\`${message.client.users.cache.size}\``, inline: true},
-            { name: 'Discord.js Version', value: `\`13.5.0\``, inline: true},
+            { name: 'Discord.js Version', value: `\`${require("discord.js").version}\``, inline: true},
             { name: 'Node Version', value: `\`${nodeversion}\``, inline: true},
         )
         .setColor('#2F3136')

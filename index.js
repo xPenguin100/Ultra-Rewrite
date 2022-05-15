@@ -1,14 +1,10 @@
-const { emitter, message, Client, MessageSelectMenu, MessageActionRow, interation, MessageButton, MessageEmbed, Intents, Collection, Discord, discord, cmd, ButtonInteraction } = require('discord.js');
+const { Client, MessageEmbed, Collection, Discord, discord, cmd } = require('discord.js');
 const { token, prefix } = require('./config.json');
 const client = new Client({ intents: 32767 });
 const fs = require ('fs');
 client.commands = new Collection();
 client.setMaxListeners(100)
-const { REST } = require('@discordjs/rest');
-const { Routes } = require('discord-api-types/v9');
-const ms =  require('ms')
 const mongoose = require('mongoose')
-const db = require('quick.db')
 
 fs.readdirSync('./commands/').forEach(dir => {
 
@@ -500,6 +496,16 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
+if (command === 'mod-notes') {
+  client.commands.get('mod-notes').run(message, args);
+  }
+});
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
 if (command === 'stats') {
   client.commands.get('stats').execute(message);
   }
@@ -694,8 +700,7 @@ message.channel.send("I have set the slowmode in this channel to " + duration + 
 
 //mongoose connecting
 const mongooseConnectionString = require('./config.json').mongooseConnectionString;
-if(!mongooseConnectionString) return;
-
+if(!mongooseConnectionString) console.log("Mongoose Connection Key - Error Connecting")
 mongoose
     .connect(mongooseConnectionString, {
       useUnifiedTopology: true,

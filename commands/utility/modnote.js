@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js")
 
 module.exports = {
     name: "modnote",
-    description: "Write notes on a member.",
+    description: "A moderator can write notes on a member for future reference.",
     run: async (message, args) => {
 
         let userId = args[1]

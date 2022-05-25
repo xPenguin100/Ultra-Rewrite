@@ -1,7 +1,7 @@
 const { MessageEmbed } = require("discord.js")
 
 module.exports = {
-    name: "mod-notes",
+    name: "modnote",
     description: "Write notes on a member.",
     run: async (message, args) => {
 

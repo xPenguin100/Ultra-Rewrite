@@ -496,8 +496,8 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-if (command === 'mod-notes') {
-  client.commands.get('mod-notes').run(message, args);
+if (command === 'modnote') {
+  client.commands.get('modnote').run(message, args);
   }
 });
 

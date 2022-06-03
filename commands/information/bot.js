@@ -13,7 +13,7 @@ module.exports = {
         .setImage('https://media.discordapp.net/attachments/872963017741066331/872963055187800124/Ultra-Banner.jpg?width=1179&height=663')
         .addFields(
             { name: 'Invite Link', value: '[Click Here](https://dsc.gg/ultraa "Click to invite Ultra. Thank you!")', inline: true},
-            { name: 'Support Server', value: `**COMING SOON**`, inline: true},
+            { name: 'Uptime', value: `**COMING SOON**`, inline: true},
             { name: 'Vote for Ultra', value: '[Click Here](https://top.gg/bot/866014328464605184/vote "Vote for Ultra!")', inline: true},
             { name: `Ping`, value: `\`${Date.now() - message.createdTimestamp}ms.\``, inline: true}, 
             { name: 'Owner', value: `<@515124684946276362>`, inline: true},

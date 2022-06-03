@@ -25,7 +25,7 @@ module.exports = {
                 let result = new MessageEmbed()
                 .setTitle("Result")
                 .addField("Your Choice", `${reaction.emoji.name}`)
-                .addField("Bots choice", `${me}`)
+                .addField("Bot's choice", `${me}`)
                 await msg.edit({ embeds: [result] })
 
                 if((me === "🗻" && reaction.emoji.name === "✂") ||

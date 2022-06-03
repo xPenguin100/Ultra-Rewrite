@@ -637,6 +637,16 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
+if (command === 'shutdown-beta') {
+  client.commands.get('shutdown-beta').run(client, message);
+  }
+});
+
+client.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
 if (command === 'gstart') {
   client.commands.get('gstart').run(client, message);
   }
@@ -687,15 +697,7 @@ message.channel.send("I have set the slowmode in this channel to " + duration + 
 	  	message.reply(`Ping: ${client.ws.ping}\nAPI Ping: ${Math.round(client.ws.ping)}ms`);
 	    } else if (message.content === `beep`) {
 		message.channel.send('Boop.');
-	    } else if (message.content === `?cosmicinfo`) {
-        const cosmicembed = new MessageEmbed()
-        .setColor(`2F3136`)
-        .setTitle(`Cosmic Info`)
-        .setDescription(`Name: Cosmic\nImage: Shown below`)
-        .setImage(`https://cdn.discordapp.com/avatars/890734834811559948/640c54fc80f3b5618b180e0229772b35.jpg?size=4096`)
-        .setFooter(`Only use if Cosmic will be a bot.`)
-        message.reply({ embeds: [cosmicembed] })
-      }
+	    }
 });
 
 //mongoose connecting

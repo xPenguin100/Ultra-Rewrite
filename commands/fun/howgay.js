@@ -11,8 +11,10 @@ module.exports = {
         let rng = Math.floor(Math.random() * 101);
 
         const embed = new MessageEmbed()
-        .setTitle(`Gay Machine Calculator`)
+        .setAuthor({ name: `"Howgay" has been rewritten in support of Pride Month`})
+        .setTitle(`How gay are you?`)
         .setDescription(`${gaytarget.username} is ` + rng + "% Gay🌈")
+        .setFooter({ name: "This is a joke command, as the results may not be what you sexually identify as."})
         .setColor("2F3136")
 
         message.channel.send({ embeds: [embed] });

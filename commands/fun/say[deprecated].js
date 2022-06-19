@@ -1,7 +1,7 @@
 const { MessageEmbed } = require('discord.js')
 
 module.exports = {
-    name: 'say',
+    name: 'say[deprecated]',
     description: 'Say command',
     run: async(message, args) => {
 

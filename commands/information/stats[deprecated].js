@@ -1,7 +1,7 @@
 const { MessageEmbed } = require('discord.js')
 
 module.exports = {
-  name: 'stats',
+  name: 'stats[deprecated]',
   description: 'a statistical command',
   execute(message) {
 
@@ -16,7 +16,7 @@ module.exports = {
     .addFields(
       { name: 'Ping', value: (`My ping is ${Date.now() - message.createdTimestamp}ms`)},
       { name: 'Guilds', value: (`I am in ${message.client.guilds.cache.size} guilds.`)},
-      { name: 'Current Discord.js Version', value: ('The current public release of Discord.js is v12. Please refer to [The Official Discord.js Site](https://discord.js.org) to see the new features, and the release date of v13 when it is posted.')},
+      { name: 'Current Discord.js Version', value: ('The current public release of Discord.js is v13. Please refer to [The Official Discord.js Site](https://discord.js.org) to see the new features, and the release date of v14 when it is posted.')},
       { name: 'Current Version', value: ('This bot is on v1.0 beta 1')},
       { name: 'Ping', value: `${Date.now() - message.createdTimestamp}ms`, inline: true},
       { name: 'Users', value: `${message.client.users.cache.size}`, inline: true}

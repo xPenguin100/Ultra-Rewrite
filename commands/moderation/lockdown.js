@@ -16,7 +16,7 @@ module.exports = {
                 })
             }catch(e) {
                 console.log(e)
-                return message.channel.send(`❌ I couldn't lock ${channel}.`)
+                return message.channel.send(`❌ I couldn't lock ${channel}. Please manually lock it.`)
             }
         })
 

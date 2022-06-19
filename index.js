@@ -446,8 +446,8 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-if (command === 'say') {
-  client.commands.get('say').run(client, message, args);
+if (command === 'say[deprecated]') {
+  client.commands.get('say[deprecated]').run(client, message, args);
   }
 });
 
@@ -506,8 +506,8 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-if (command === 'stats') {
-  client.commands.get('stats').execute(message);
+if (command === 'stats[deprecated]') {
+  client.commands.get('stats[deprecated]').execute(message);
   }
 });
 

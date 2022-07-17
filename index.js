@@ -81,7 +81,7 @@ client.on('messageCreate', async (message) => {
   } else {
     if (message.content.toLowerCase() === prefix + 'c.help') {
       const embed = new MessageEmbed()
-      .setTitle("**Purge Help**")
+      .setTitle("**Purge | Help**")
       .setColor(`#2F3136`)
       .setDescription('This array of commands allows fast deletion of messages. Below lists all commands in the array:\n\n**Commands:**\n`?purge <number>`\n`?clear <number>`')
       .setTimestamp()

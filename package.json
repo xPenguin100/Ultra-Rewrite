@@ -11,6 +11,7 @@
   "dependencies": {
     "@discordjs/rest": "^0.1.0-canary.0",
     "axios": "^0.21.4",
+    "better-sqlite3": "^7.6.2",
     "discord-timestamp": "^1.0.2",
     "discord.js": "^14.0.1",
     "moment": "^2.29.1",

@@ -1,3 +1,5 @@
+const Discord = require('discord.js')
+
 const { MessageEmbed } = require('discord.js')
 
 module.exports = {
@@ -5,11 +7,11 @@ module.exports = {
     description: "8ball command",
 
     async run (message, args) {
-        let replies = ["yes.", "Try again later", "Try again in 10 seconds.", "Outlook seems good.", "of course.", "Yes, definitely.", "no.", "Better not tell you now.", "Outlook is not so good..", "nah", "never", "Cannot predict now.", "I dont know.", "I dont know *yet*...", "not a chance.", "I think so.", "only for today!", "not for today c:", "sadly yes..", "sadly no..", "maybe!", "ask again.. later.."];
+        let replies = ["yes.", "Outlook seems good.", "yus", "of course.", "Yes, definitely.", "no.", "Better not tell you now.", "Outlook is not so good..", "nah", "never", "Cannot predict now.", "I dont know.", "I dont know *yet*...", "not a chance.", "I think so.", "only for today!", "not for today c:", "sadly yes..", "sadly no..", "maybe!", "ask again.. later.."];
         
-        let question = args.slice().join(" ");
-        if(!question) message.channel.send('Please state a question.')
         let result = Math.floor((Math.random() * replies.length));
+        let question = args.join(" ");
+        if(!question) return message.reply('Please ask a full question!')
 
         let embed = new MessageEmbed()
         .setAuthor({ name: `🎱 ${message.author.username}`, url: "", iconURL: "" })

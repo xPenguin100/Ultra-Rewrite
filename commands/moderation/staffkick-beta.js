@@ -32,8 +32,7 @@ module.exports = {
       collector.on("collect", (reaction, user) => {
         switch (reaction.emoji.name) {
           case "👍":
-            message.reply('Attempting to revoke permissions...')
-            message.reply('Unable to revoke permissions.\nError:\n```THIS PART IS A WIP```') 
+            message.reply('This part of this command is still a work in progress.')
             break;
           case "👎":
             const denyembed = new MessageEmbed()

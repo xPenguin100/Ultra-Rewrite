@@ -16,12 +16,11 @@ fs.readdirSync('./commands/').forEach(dir => {
       client.commands.set(command.name, command);
   }
   })
-
+  
 client.once('ready', () => {
   client.user.setActivity(`dsc.gg/ultraa | ?help`, { type: 'WATCHING' });
 	console.log('Ready!');
 });
-
 
 client.on('guildMemberAdd', (member) => {
   let channelid = '926227791744217138' 
@@ -29,6 +28,43 @@ client.on('guildMemberAdd', (member) => {
   let channel = member.guild.channels.cache.get(channelid)
   channel.send(message)
 })
+
+client.on("messageCreate", (message, args) => {
+  if (message.content.includes("https://")) {
+    console.log("Deleted " + message.content + " from " + message.author)
+    message.delete(1);
+    message.channel.send(`${message.author}, no links here please!`)
+  }
+  if (
+    message.content.endsWith(".com") &&
+    message.content.endsWith(".org") &&
+    message.content.endsWith('.edu') &&
+    message.content.endsWith('.net') &&
+    message.content.endsWith('.io') &&
+    message.content.endsWith('.app') &&
+    message.content.endsWith('.co')
+  ) {
+    message.delete(1)
+    return message.reply(`No links please!`)
+  }
+  if (message.content.includes("www.")) {
+    console.log(`Deleted ${message.content} from ${message.author}.`)
+    message.delete(1)
+    message.channel.send(`${message.author}, no links here please!`)
+  }
+  if (message.content.includes("http://")) {
+    console.log("Deleted " + message.content + " from " + message.author)
+    message.delete(1);
+    message.channel.send(`${message.author}, please don't send links here! Also, please never send "http" links as those websites are dangerous.`)
+  }
+  if (message.content.includes("discord.gg")) {
+    console.log("deleted " + message.content + " from " + message.author)
+    message.delete(1);
+    message.channel.send(`${message.author}, please don't send links here!`)
+  }
+  
+ });
+ 
 
 
 //client.on('messageCreate', async (message) => {
@@ -44,6 +80,16 @@ client.on('guildMemberAdd', (member) => {
    // }else return;
 //}else;
 //})
+
+client.on('messageCreate', async (message) => {
+  if(message.content.toLocaleLowerCase().startsWith(prefix + 'leaveserver')) {
+    if(!message.member.permissions.has("KICK_MEMBERS")) return message.reply('Insuffcient permissions!')
+    else {
+      message.guild.leave()
+      console.log('Left guild.')
+    }
+  }
+})
 
 client.on('messageCreate', async (message) => {
   if (
@@ -80,24 +126,15 @@ client.on('messageCreate', async (message) => {
     }
   } else {
     if (message.content.toLowerCase() === prefix + 'c.help') {
-      const embed = new MessageEmbed()
-      .setTitle("**Purge | Help**")
-      .setColor(`#2F3136`)
-      .setDescription('This array of commands allows fast deletion of messages. Below lists all commands in the array:\n\n**Commands:**\n`?purge <number>`\n`?clear <number>`')
-      .setTimestamp()
-      .setFooter({ text: `Requested By: ${message.author.tag}`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}`})
+      const embed = new MessageEmbed().setColor('#2F3136').setTitle('**Clear Help**');
+      newEmbed
+        .setDescription('This command clears messages. For example, `?purge 5`, `?p 5`, `?clear 5`, or `?c 5`.')
+        .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
+        .setTimestamp();
       message.channel.send({ embeds: [embed] });
     }
   }
 });
-
-client.on('messageCreate', message => {
-  if(message.content === '?clientservers') {
-    let servers = client.guilds.cache.map(g=> `${g.name} | ${g.memberCount}`).join('\n')
-    message.reply(`Client Guilds: \n${servers}`)
-  }
-})
-
 client.on('messageCreate', message => {
   if (message.content.includes(`?nickname`)) {
   if (!message.guild.me.permissions.has('MANAGE_NICKNAMES')) return message.channel.send('I don\'t have permission to change your nickname!');
@@ -194,21 +231,21 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-if (command === 'testing') {
-  client.commands.get('testing').run(message, args);
+if (command === 'afk-beta') {
+  client.commands.get('afk-beta').run(client, message, args);
   }
 });
-
 
 client.on('messageCreate', message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-if (command === 'afk-beta') {
-  client.commands.get('afk-beta').run(client, message, args);
+if (command === 'command') {
+  client.commands.get('command').execute(message, args);
   }
 });
+
 
 client.on('messageCreate', message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -398,7 +435,7 @@ client.on('messageCreate', message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
 if (command === 'unban') {
-  client.commands.get('unban').run(message, args);
+  client.commands.get('unban').run(client, message, args);
   }
 });
 
@@ -457,8 +494,8 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-if (command === 'say[deprecated]') {
-  client.commands.get('say[deprecated]').run(client, message, args);
+if (command === 'say') {
+  client.commands.get('say').run(client, message, args);
   }
 });
 
@@ -507,18 +544,8 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-if (command === 'modnote') {
-  client.commands.get('modnote').run(message, args);
-  }
-});
-
-client.on('messageCreate', message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-  const args = message.content.slice(prefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
-if (command === 'stats[deprecated]') {
-  client.commands.get('stats[deprecated]').execute(message);
+if (command === 'stats') {
+  client.commands.get('stats').execute(message);
   }
 });
 
@@ -610,16 +637,8 @@ client.on('messageCreate', message => {
   const command = args.shift().toLowerCase();
 if (command === 'ping') {
   client.commands.get('ping').execute(message);
-  }
-});
-
-client.on('messageCreate', message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-  const args = message.content.slice(prefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
-if (command === 'corona') {
-  client.commands.get('corona').run(message, args);
+  } else if (command === 'corona') {
+    client.commands.get('corona').run(message, args)
   }
 });
 
@@ -648,8 +667,8 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-if (command === 'shutdown-beta') {
-  client.commands.get('shutdown-beta').run(client, message);
+if (command === 'gstart') {
+  client.commands.get('gstart').run(client, message);
   }
 });
 
@@ -658,8 +677,8 @@ client.on('messageCreate', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-if (command === 'gstart') {
-  client.commands.get('gstart').run(client, message);
+if (command === 'shutdown-beta') {
+  client.commands.get('shutdown-beta').run(client, message);
   }
 });
 
@@ -708,12 +727,25 @@ message.channel.send("I have set the slowmode in this channel to " + duration + 
 	  	message.reply(`Ping: ${client.ws.ping}\nAPI Ping: ${Math.round(client.ws.ping)}ms`);
 	    } else if (message.content === `beep`) {
 		message.channel.send('Boop.');
-	    }
+	    } else if (message.content === `?cosmicinfo`) {
+        const cosmicembed = new MessageEmbed()
+        .setColor(`2F3136`)
+        .setTitle(`Cosmic Info`)
+        .setDescription(`Name: Cosmic\nImage: Shown below`)
+        .setImage(`https://cdn.discordapp.com/avatars/890734834811559948/640c54fc80f3b5618b180e0229772b35.jpg?size=4096`)
+        .setFooter(`Only use if Cosmic will be a bot.`)
+        message.reply({ embeds: [cosmicembed] })
+      } else if(message.content === 'userperms') {
+        if(!message.member.permissions.has("BAN_MEMBERS")) {
+          return message.reply('This works!')
+        } else message.reply('This also works!')
+      }
 });
 
 //mongoose connecting
 const mongooseConnectionString = require('./config.json').mongooseConnectionString;
-if(!mongooseConnectionString) console.log("Mongoose Connection Key - Error Connecting")
+if(!mongooseConnectionString) return;
+
 mongoose
     .connect(mongooseConnectionString, {
       useUnifiedTopology: true,

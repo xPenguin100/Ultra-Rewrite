@@ -10,7 +10,7 @@ module.exports = {
             'one', 
             'ten', 
             'pie', 
-            'fan', 
+            'DISCORD', 
             'ultra', 
             'Discord', 
             'YouTube', 
@@ -19,8 +19,7 @@ module.exports = {
             'mail',
             'helpful',
             'school',
-            'naughty',
-            "gaming"
+            'naughty'
          ];
         let word = words[parseInt(Math.random() * words.length)];
         

@@ -1,0 +1,19 @@
+const db = require('quick.db')
+const { MessageEmbed } = require('discord.js')
+
+module.exports = {
+    name : 'afk',
+    run : async(client, message, args) => {
+
+        if (db.has(`afk-${message.author.id} +  '.afk'`)) {
+
+        const content = args.join(" ")
+        db.set(`afk-${message.author.id}+${message.guild.id}`, content)        
+        const embed = new MessageEmbed()
+        .setDescription(`You have been set to afk\n**Reason:** ${content}`)
+        .setColor("#2F3136")
+        .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic : true }))
+        message.channel.send({ embeds: [embed] })    
+        }            
+    }
+}

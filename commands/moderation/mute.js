@@ -44,7 +44,6 @@ module.exports = {
                 });
                 message.channel.send('Muted role has sucessfully been created.')
             } catch (error) {
-                message.reply('Unable to create muted role, or another role by a similar name is already created.')
                 console.log(error)
             }
         };

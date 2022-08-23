@@ -11,7 +11,7 @@ module.exports = {
         .setDescription(`Hello ${message.author.tag}, below are the latest and up-to-date commands for this bot.`)
         .addFields(
           { name: '📋 Information', value: '\`?bot\`, \`?channelinfo\`, \`?help\`, \`?invite\`, \`?membercount\`, \`?ping\`, \`?roleinfo\`, \`?server\`, \`?user\`, \`?vote\`'},
-          { name: '🔧 Utility', value: ("\`?avatar\`, \`?feedback\`, \`?remind\`, \`?report\`, \`?reportbug\`, \`?suggest\`, \`?ticket\`")},
+          { name: '🔧 Utility', value: ("\`?appreciate\`, \`?appreciations\`, \`?avatar\`, \`?feedback\`, \`?remind\`, \`?report\`, \`?reportbug\`, \`?suggest\`, \`?ticket\`")},
           { name: '😄 Fun', value: (`\`?8ball\`, \`?achieve\`, \`?bird/cat/dog/meme/fox/panda/wallpaper\`, \`?corona\`, \`?howgay\`, \`?rps\`, \`?say\`, \`?unscramble\``)},
           { name: '🔨Moderation', value: (`\`?ban\`, \`?clearwarns\`, \`?kick\`, \`?lift-lockdown\`, \`?lock\`, \`?lockdown\`, \`?modnick\`, \`?unban\`, \`?unlock\`, \`?warn\`, \`?warnings\``)}
         )

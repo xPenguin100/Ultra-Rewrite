@@ -14,11 +14,7 @@ module.exports = {
         try {
             await user.send(dm)
         } catch (error) {
-            return message.channel.send(`${user} | Please open your DM's.`) 
-        } try {
-            await user.send(dm)
-        } catch (error) {
-            return message.reply("The user you mentioned has their DMs closed.") 
+            return message.reply("The user you mentioned has their DMs closed.")
         }
         message.reply("DM sent!")
     }

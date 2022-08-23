@@ -14,7 +14,7 @@ module.exports = {
         const embed = new MessageEmbed()
         .setColor("#2F3136")
         .setImage(img)
-        .setTitle(`Wallpaper!`)
+        .setTitle(`Wallpaper! Enjoy!`)
         .setURL(`https://reddit.com/r/${random}`)
 
         await message.reply({ embeds: [embed] })

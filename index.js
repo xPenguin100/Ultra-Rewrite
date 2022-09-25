@@ -29,7 +29,7 @@ client.on('guildMemberAdd', (member) => {
   channel.send(message)
 })
 
-/*client.on("messageCreate", (message, args) => {
+client.on("messageCreate", (message, args) => {
   if (message.content.includes("https://")) {
     console.log("Deleted " + message.content + " from " + message.author)
     message.delete(1);
@@ -63,7 +63,7 @@ client.on('guildMemberAdd', (member) => {
     message.channel.send(`${message.author}, please don't send links here!`)
   }
   
- });*/
+ });
  
 
 
@@ -225,17 +225,6 @@ if (command === 'announce') {
   client.commands.get('announce').run(message, args);
   }
 });
-
-client.on('messageCreate', message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-  const args = message.content.slice(prefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
-if (command === 'testing') {
-  client.commands.get('testing').run(message, args);
-  }
-});
-
 
 client.on('messageCreate', message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;

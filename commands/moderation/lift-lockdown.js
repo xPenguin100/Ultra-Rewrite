@@ -16,7 +16,7 @@ module.exports = {
                 })
             }catch(e) {
                 console.log(e)
-                return message.channel.send(`Error unlocking ${channel}.`)
+                return message.channel.send(`I couldn't unlock ${channel}.`)
             }
         })
 
@@ -26,7 +26,7 @@ module.exports = {
         
         const embed = new MessageEmbed()
         .setColor('2F3136')
-        .setDescription(`✅ Successfully lifted lockdown for \`${reason}\`.`)
+        .setDescription(`:white_check_mark: Successfully lifted lockdown for \`${reason}\`.`)
         message.channel.send({ embeds: [embed] })
     }
 }

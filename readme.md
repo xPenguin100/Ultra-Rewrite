@@ -1,3 +1,6 @@
+#Ultra Has Been Discontinued
+This code is open sourced for future reference.
+
 client.on("messageCreate", message => {
   if (message.author.bot) return false;
 
